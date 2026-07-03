@@ -1,0 +1,7 @@
+# raw loan-level disclosure files are large + re-download each refresh — not committed
+data/
+# python
+__pycache__/
+*.pyc
+# scratch
+output/_g.js

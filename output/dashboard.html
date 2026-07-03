@@ -1,0 +1,516 @@
+<title>VantageScore 4.0 Adoption &mdash; Agency MBS (Fannie + Freddie)</title>
+<style>
+  :root{
+    --plane:#eef0f4; --surface:#ffffff; --surface-2:#f7f8fa;
+    --ink:#101319; --ink-2:#4b5560; --muted:#868c96;
+    --grid:#e6e9ee; --axis:#ccd1d9; --border:rgba(16,19,25,.09);
+    --accent:#2a78d6; --accent-2:#1baf7a; --accent-3:#4a3aa7; --accent-soft:rgba(42,120,214,.10);
+    --good:#0a8a3f; --shadow:0 1px 2px rgba(16,19,25,.04),0 8px 24px rgba(16,19,25,.05);
+  }
+  .dash[data-theme="dark"]{
+    --plane:#0c0d0f; --surface:#17191c; --surface-2:#1e2024;
+    --ink:#f4f6f8; --ink-2:#b6bcc4; --muted:#7f858e;
+    --grid:#282b30; --axis:#3a3e44; --border:rgba(255,255,255,.10);
+    --accent:#3987e5; --accent-2:#22b581; --accent-3:#9085e9; --accent-soft:rgba(57,135,229,.16);
+    --good:#22b34e; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  .dash{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--plane);color:var(--ink);
+    min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.5;padding:clamp(16px,3vw,40px);font-size:15px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:650}
+  .muted{color:var(--muted)}
+  h1{font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.12;font-weight:720;letter-spacing:-.02em;margin:.35rem 0 .5rem;text-wrap:balance}
+  h2{font-size:1.02rem;font-weight:680;letter-spacing:-.01em;margin:0}
+  .mast{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+  .mast>div:first-child{flex:1 1 520px;min-width:0}
+  .mast p.lede{max-width:64ch;color:var(--ink-2);margin:0}
+  .metaline{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.82rem;color:var(--muted)}
+  .metaline b{color:var(--ink-2);font-weight:600}
+  .toggle{border:1px solid var(--border);background:var(--surface);color:var(--ink-2);border-radius:9px;padding:8px 12px;
+    font-size:.8rem;cursor:pointer;font-family:inherit;display:flex;gap:7px;align-items:center;white-space:nowrap}
+  .toggle:hover{color:var(--ink);border-color:var(--axis)}
+  .callout{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);border:1px solid var(--border);
+    border-left:3px solid var(--accent);border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:.92rem;color:var(--ink-2)}
+  .callout b{color:var(--ink)}
+  /* segmented control */
+  .segwrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  .seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:3px}
+  .seg button{border:0;background:transparent;color:var(--ink-2);font-family:inherit;font-size:.85rem;font-weight:600;
+    padding:7px 15px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:7px}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .seg .dot{width:9px;height:9px;border-radius:3px;display:inline-block}
+  .segwrap .hint{font-size:.8rem;color:var(--muted)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin-bottom:24px}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 17px;box-shadow:var(--shadow)}
+  .kpi .lab{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .kpi .val{font-size:clamp(1.7rem,3.2vw,2.15rem);font-weight:700;letter-spacing:-.02em;margin-top:8px;line-height:1;font-variant-numeric:tabular-nums}
+  .kpi .sub{font-size:.8rem;color:var(--ink-2);margin-top:7px}
+  .kpi .up{color:var(--good);font-weight:650}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 18px 14px;box-shadow:var(--shadow)}
+  .card .head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+  .card .desc{font-size:.82rem;color:var(--muted);margin:2px 0 12px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .grid3{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;margin-top:18px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  section.block{margin-top:22px}
+  .legend{display:flex;gap:16px;font-size:.8rem;color:var(--ink-2);flex-wrap:wrap}
+  .legend .it{display:flex;gap:6px;align-items:center}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .chartbox{position:relative}
+  svg .grid-l{stroke:var(--grid);stroke-width:1}
+  svg .axis-l{stroke:var(--axis);stroke-width:1}
+  svg text{fill:var(--muted);font-size:11px;font-family:inherit}
+  svg text.dlabel{fill:var(--ink);font-size:12px;font-weight:640}
+  svg text.ann{fill:var(--muted);font-size:10.5px}
+  svg .ann-line{stroke:var(--axis);stroke-width:1;stroke-dasharray:3 3}
+  .tt{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);
+    border-radius:9px;padding:9px 11px;font-size:.8rem;opacity:0;transition:opacity .09s;z-index:6;min-width:150px;color:var(--ink)}
+  .tt .tm{font-weight:660;margin-bottom:5px;font-size:.82rem}
+  .tt .row{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+  .tt .row.tot{border-top:1px solid var(--border);margin-top:4px;padding-top:4px;font-weight:640}
+  .tt .row .k{color:var(--ink-2);display:flex;gap:6px;align-items:center}
+  .cursor-l{stroke:var(--axis);stroke-width:1;stroke-dasharray:2 3}
+  .tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.83rem;font-variant-numeric:tabular-nums}
+  th,td{padding:9px 13px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border)}
+  th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+  thead th{font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:640;border-bottom:1px solid var(--axis)}
+  thead tr.grp th{text-align:center;border-bottom:none;padding-bottom:3px;color:var(--ink-2)}
+  thead tr.grp th.fn{color:var(--accent)} thead tr.grp th.fr{color:var(--accent-2)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.hot td{background:var(--accent-soft)}
+  tbody tr.hot td:first-child{background:var(--accent-soft)}
+  td .z{color:var(--muted)}
+  .grpsep{border-left:1px solid var(--border)}
+  .notes{margin-top:26px;font-size:.8rem;color:var(--muted);line-height:1.7}
+  .notes b{color:var(--ink-2);font-weight:600}
+  .notes ol{margin:.4rem 0 0;padding-left:1.2rem}
+  .pill{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--ink-2);font-weight:600}
+  .xt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.9rem}
+  .xt th,.xt td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+  .xt thead th{font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:640}
+  .xt th:first-child,.xt td:first-child{text-align:left}
+  .xt tbody tr:last-child td{border-bottom:none}
+  .xt .cat{display:flex;align-items:center;gap:9px;font-weight:600;color:var(--ink)}
+  .xt .catdot{width:11px;height:11px;border-radius:3px;flex:none}
+  .xt tr.hl td{background:var(--accent-soft)}
+  .xt tr.dim td{color:var(--muted)}
+  .xt .bignum{font-weight:640;color:var(--ink)}
+  .msel{border:1px solid var(--border);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;font-family:inherit;font-size:.8rem;cursor:pointer}
+  .msel:hover{border-color:var(--axis)}
+  .xtblock+.xtblock{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+  .xtmonth{font-size:.82rem;font-weight:660;color:var(--ink-2);margin-bottom:8px}
+  hr.sep{border:none;border-top:1px solid var(--border);margin:26px 0}
+</style>
+
+<div class="dash" id="dash">
+ <div class="wrap">
+
+  <div class="mast">
+    <div>
+      <div class="eyebrow">Agency single-family MBS &middot; Credit-score model transition</div>
+      <h1>VantageScore&nbsp;4.0 adoption across Fannie&nbsp;Mae &amp; Freddie&nbsp;Mac</h1>
+      <p class="lede">How fast lenders are delivering loans scored by VantageScore&nbsp;4.0 instead of Classic FICO, measured at issuance from both GSEs' loan-level disclosure &mdash; the leading edge of FHFA's credit-score model change.</p>
+      <div class="metaline">
+        <span>Source: <b>Fannie + Freddie loan-level disclosure</b> (mbs-securities.com)</span>
+        <span>Scope: <b>single-class SF, loan-level</b> (each loan once)</span>
+        <span>Through: <b>June 2026</b></span>
+      </div>
+    </div>
+    <button class="toggle" id="themeBtn" aria-label="Toggle color theme"><span id="themeIcon">&#9680;</span><span id="themeTxt">Theme</span></button>
+  </div>
+
+  <div class="callout">
+    <span aria-hidden="true">&#9650;</span>
+    <div><b>Freddie Mac moved first and stays ahead.</b> Total agency VantageScore penetration is <b>zero through March 2026</b>, then Freddie posts the first loans in <b>April</b> (Fannie follows in May), reaching <b>0.84% of combined UPB</b> in June ($559M, 1,336 loans, 423 pools). Freddie 0.89% vs Fannie 0.80%. Real, but still a sliver &mdash; and delivered <b>100% standalone</b>: no loan carries both a FICO and a VantageScore.</div>
+  </div>
+
+  <div class="notes" style="margin-top:18px">
+    
+    <b>Sources &amp; method.</b>
+    <ol>
+      <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jun 2026. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
+      <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
+      <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
+    </ol>
+    <p style="margin-top:12px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through June. FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
+    <p style="margin-top:14px;padding:12px 15px;background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:9px"><b>Important &mdash; the score shown is the lender's <i>choice</i>, not the only score pulled.</b> The GSEs still require a three-bureau <b>tri-merge</b> credit report, so a VantageScore-delivered loan almost always <i>also</i> had FICO scores pulled at underwriting. Under lender choice, the originator sees both models and <b>submits whichever it selects</b> as the qualifying score (frequently the one giving better eligibility or pricing). So "VantageScore-only" here means the model the lender chose to <i>deliver</i> to Fannie/Freddie &mdash; not that the borrower has no FICO.</p>
+    <p class="muted" style="margin-top:12px">Not investment advice. Data is public GSE disclosure; all percentages and aggregations are our own calculations.</p>
+  <hr class="sep" style="margin:20px 0 0">
+  </div>
+
+  <div class="segwrap">
+    <div class="seg" id="seg" role="group" aria-label="Choose issuer view">
+      <button data-v="t" aria-pressed="true">Total agency</button>
+      <button data-v="f"><span class="dot" style="background:var(--accent)"></span>Fannie</button>
+      <button data-v="r"><span class="dot" style="background:var(--accent-2)"></span>Freddie</button>
+    </div>
+    <span class="hint" id="segHint">Showing combined Fannie + Freddie. Switch to view one GSE.</span>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card block">
+    <div class="head">
+      <h2 id="heroTitle">VantageScore&nbsp;4.0 penetration of issuance</h2>
+      <div class="legend">
+        <span class="it"><span class="swatch" style="background:var(--accent)"></span>% of UPB</span>
+        <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>% of loans</span>
+      </div>
+    </div>
+    <div class="desc" id="heroDesc">Share of the selected issuer's newly-issued loans carrying a VantageScore 4.0, by balance and by count.</div>
+    <div class="chartbox" id="c_hero"></div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2 id="xtabTitle">Credit-score model mix</h2>
+      <div style="display:flex;gap:8px"><select id="xmetricSel" class="msel" aria-label="Metric"></select><select id="xmonthSel" class="msel" aria-label="Months"></select></div></div>
+    <div class="desc">How newly-issued loans split by which score they carry, across the last 4 months (or pick a single month) &mdash; choose the metric: % of loans, loan count, UPB, or % of UPB. Follows the GSE toggle. VantageScore is delivered <b>100% standalone</b> &mdash; no loan carries both.</div>
+    <div id="c_cross"></div>
+  </div>
+
+
+  <div class="grid2">
+    <div class="card">
+      <div class="head"><h2>VantageScore-scored balance</h2>
+        <div class="legend"><span class="it"><span class="swatch" style="background:var(--accent)"></span>Fannie</span><span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Freddie</span></div></div>
+      <div class="desc">Combined VS-scored UPB issued each month, stacked by GSE ($M).</div>
+      <div class="chartbox" id="c_bal"></div>
+    </div>
+    <div class="card">
+      <div class="head"><h2>Pools containing VantageScore loans</h2>
+        <div class="legend"><span class="it"><span class="swatch" style="background:var(--accent)"></span>Fannie</span><span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Freddie</span></div></div>
+      <div class="desc">Newly-issued pools with &ge;1 VS-scored loan (stacked by GSE), shown as <b>VS pools / all pools issued</b>. Hover for the total and share.</div>
+      <div class="chartbox" id="c_pools"></div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="head"><h2>Context: base issuance by GSE</h2>
+        <div class="legend"><span class="it"><span class="swatch" style="background:var(--accent)"></span>Fannie</span><span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Freddie</span></div></div>
+      <div class="desc">Monthly single-family loan issuance ($B), loan-level, stacked by GSE.</div>
+      <div class="chartbox" id="c_iss"></div>
+    </div>
+    <div class="card">
+      <div class="head"><h2>WA Classic FICO</h2><span class="pill">flat</span></div>
+      <div class="desc">Freddie (aqua) runs a few points higher; neither moves as VS ramps.</div>
+      <div class="chartbox" id="c_fico"></div>
+    </div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2>VantageScore penetration by product (agency)</h2>
+      <select id="pmonthSel" class="msel" aria-label="Choose month"></select></div>
+    <div class="desc">VS-scored share of UPB within each product term, Fannie + Freddie combined, for the selected month. Shorter terms (10yr, 15yr) adopt fastest.</div>
+    <div class="chartbox" id="c_prod"></div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2>Top 10 agency lenders &mdash; VantageScore penetration</h2>
+      <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div>
+    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is narrow &mdash; only <b style="color:var(--ink)">UWM</b> (and, from June, Rocket) runs it at any scale; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
+    <div class="chartbox" id="c_lender"></div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2>Lender adoption over time</h2>
+      <div class="legend">
+        <span class="it"><span class="swatch" style="background:var(--accent)"></span>UWM</span>
+        <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Rocket</span>
+        <span class="it"><span class="swatch" style="background:var(--accent-3)"></span>NewRez</span>
+      </div></div>
+    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book), Rocket joined only in June.</div>
+    <div class="chartbox" id="c_lom"></div>
+  </div>
+
+  <section class="block">
+    <div class="head" style="margin-bottom:10px"><h2>Monthly detail</h2><span class="muted" style="font-size:.8rem">All newly-issued SF loans (loan-level)</span></div>
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead>
+          <tr class="grp"><th></th><th class="fn grpsep" colspan="3">Fannie</th><th class="fr grpsep" colspan="3">Freddie</th><th class="grpsep" colspan="3">Total agency</th></tr>
+          <tr><th>Month</th>
+            <th class="grpsep">Issuance</th><th>VS %UPB</th><th>VS loans</th>
+            <th class="grpsep">Issuance</th><th>VS %UPB</th><th>VS loans</th>
+            <th class="grpsep">Issuance</th><th>VS %UPB</th><th>VS loans</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+
+ </div>
+</div>
+
+<script>
+// per month arrays: [base_upb, base_loans, wa_fico, vs_upb, vs_upb_pct, vs_loans, vs_loan_pct, n_vs_pools] -- LOAN-LEVEL
+const M=[
+ {l:"Dec '25",m:"2025-12",f:[30777295853, 86387, 759.5, 0, 0.0, 0, 0.0, 0, 2771],r:[37069151552, 99653, 761.6, 0, 0.0, 0, 0.0, 0, 3078],t:[67846447405, 186040, 760.6, 0, 0.0, 0, 0.0, 0, 5849]},
+ {l:"Jan '26",m:"2026-01",f:[32703174663, 95011, 756.3, 0, 0.0, 0, 0.0, 0, 2779],r:[35105246949, 98206, 759.7, 0, 0.0, 0, 0.0, 0, 2728],t:[67808421611, 193217, 758.1, 0, 0.0, 0, 0.0, 0, 5507]},
+ {l:"Feb '26",m:"2026-02",f:[27284099490, 75809, 757.3, 0, 0.0, 0, 0.0, 0, 2415],r:[33189224684, 94996, 760.3, 0, 0.0, 0, 0.0, 0, 2387],t:[60473324174, 170805, 758.9, 0, 0.0, 0, 0.0, 0, 4802]},
+ {l:"Mar '26",m:"2026-03",f:[38245503862, 103949, 756.8, 0, 0.0, 0, 0.0, 0, 2680],r:[32649974694, 87578, 761.2, 0, 0.0, 0, 0.0, 0, 2560],t:[70895478557, 191527, 758.8, 0, 0.0, 0, 0.0, 0, 5240]},
+ {l:"Apr '26",m:"2026-04",f:[39933509953, 112671, 757.7, 0, 0.0, 0, 0.0, 0, 2916],r:[38194854293, 103134, 762.2, 7532000, 0.0197, 13, 0.0126, 6, 2729],t:[78128364246, 215805, 759.9, 7532000, 0.0096, 13, 0.006, 6, 5645]},
+ {l:"May '26",m:"2026-05",f:[32717285748, 91210, 756.3, 4271000, 0.0131, 11, 0.0121, 10, 3021],r:[37153511578, 106818, 759.5, 7993000, 0.0215, 19, 0.0178, 16, 3112],t:[69870797326, 198028, 758.0, 12264000, 0.0176, 30, 0.0151, 26, 6133]},
+ {l:"Jun '26",m:"2026-06",f:[33803081101, 98342, 753.6, 269844000, 0.7983, 649, 0.6599, 203, 3163],r:[32574064466, 89599, 760.4, 289302000, 0.8881, 687, 0.7667, 220, 3085],t:[66377145567, 187941, 756.9, 559146000, 0.8424, 1336, 0.7109, 423, 6248]},
+];
+const PRODM={"202512":[{p:"15yr",pct:0.0,vs:0,upb:3705149000},{p:"30yr",pct:0.0,vs:0,upb:60014984506},{p:"20yr",pct:0.0,vs:0,upb:3470547899},{p:"10yr",pct:0.0,vs:0,upb:257233000}],"202601":[{p:"15yr",pct:0.0,vs:0,upb:4326993788},{p:"30yr",pct:0.0,vs:0,upb:60157315151},{p:"10yr",pct:0.0,vs:0,upb:308907492},{p:"20yr",pct:0.0,vs:0,upb:2644281048}],"202602":[{p:"15yr",pct:0.0,vs:0,upb:4328710846},{p:"30yr",pct:0.0,vs:0,upb:52990215139},{p:"20yr",pct:0.0,vs:0,upb:2454235587},{p:"10yr",pct:0.0,vs:0,upb:216579428}],"202603":[{p:"15yr",pct:0.0,vs:0,upb:4518081546},{p:"30yr",pct:0.0,vs:0,upb:63626625742},{p:"20yr",pct:0.0,vs:0,upb:1883877985},{p:"10yr",pct:0.0,vs:0,upb:305126357}],"202604":[{p:"15yr",pct:0.039,vs:2352000,upb:5989819060},{p:"30yr",pct:0.006,vs:4510000,upb:68874545782},{p:"20yr",pct:0.0,vs:0,upb:2298173403},{p:"10yr",pct:0.0,vs:0,upb:299208001}],"202605":[{p:"10yr",pct:0.595,vs:1365000,upb:229505476},{p:"30yr",pct:0.017,vs:10899000,upb:64401164574},{p:"15yr",pct:0.0,vs:0,upb:3414536842},{p:"20yr",pct:0.0,vs:0,upb:1283978053}],"202606":[{p:"10yr",pct:1.967,vs:3583000,upb:182147331},{p:"15yr",pct:1.938,vs:63581000,upb:3281377830},{p:"30yr",pct:0.779,vs:477028000,upb:61271013973},{p:"20yr",pct:0.35,vs:4129000,upb:1180820674}]};
+const LENDERM={"202512":[{name:"Rocket Mortgage",loans:20575,upb:6599191000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:15996,upb:6478682374,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:14263,upb:5231110691,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:13064,upb:6000215000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8327,upb:3090199000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6580,upb:2518675000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:5108,upb:1865746000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:4649,upb:1738181506,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4638,upb:1955299588,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4032,upb:1677411000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Fairway Independent Mortgage",loans:3468,upb:1248240000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3043,upb:1135632000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202601":[{name:"Rocket Mortgage",loans:22519,upb:7415795000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17094,upb:6850896639,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9188,upb:4428013000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6590,upb:2474514000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:5711,upb:2078027000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5405,upb:1663908000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5372,upb:2052175000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:4192,upb:1429752000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:4086,upb:1920076985,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4051,upb:1656017612,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3221,upb:1087314204,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3140,upb:1301737000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202602":[{name:"Rocket Mortgage",loans:22471,upb:7567747318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:16899,upb:7075583000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:9525,upb:3401995000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8452,upb:3680243000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:5887,upb:2249793000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4709,upb:1654503006,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4418,upb:1683609000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4048,upb:1340773000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:3777,upb:1453053000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3098,upb:1084470000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:2844,upb:1324364000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:2802,upb:982150000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202603":[{name:"Rocket Mortgage",loans:24181,upb:8560047895,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:18089,upb:7831972000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:12669,upb:4729151000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8759,upb:3969852630,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6811,upb:2528206000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5760,upb:1891011637,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5291,upb:2015990000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4123,upb:1743699000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3424,upb:1127044542,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3313,upb:1214113000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3174,upb:1204179000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3166,upb:1395358000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202604":[{name:"Rocket Mortgage",loans:30475,upb:10732222073,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17539,upb:7501000000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:10014,upb:3395284000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9461,upb:4439201000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8983,upb:3455226000,vs:13,vs_upb:7532000,fn:0,fr:13,rate:0.145},{name:"Crosscountry Mortgage",loans:5917,upb:2220935000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:5237,upb:2406179507,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4826,upb:2093775000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4728,upb:1985005000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4139,upb:1517196000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4138,upb:1477500000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3853,upb:1320667817,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202605":[{name:"Rocket Mortgage",loans:23642,upb:7866971920,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17504,upb:6532647505,vs:30,vs_upb:12264000,fn:11,fr:19,rate:0.171},{name:"Jpmorgan Chase Bank",loans:9772,upb:3363850000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:8522,upb:3256353055,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8152,upb:2763095000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:6479,upb:2857082000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5648,upb:2112073606,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4317,upb:1631371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4175,upb:1446682683,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3959,upb:1598371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3667,upb:1541657000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3355,upb:942546000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202606":[{name:"Rocket Mortgage",loans:24836,upb:8577655772,vs:243,vs_upb:68268000,fn:164,fr:79,rate:0.978},{name:"United Wholesale Mortgage",loans:16234,upb:6293544595,vs:1091,vs_upb:490043000,fn:485,fr:606,rate:6.721},{name:"Amerihome Mortgage",loans:8649,upb:3616877318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8373,upb:2821345563,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:7348,upb:3003525265,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6998,upb:2344305167,vs:2,vs_upb:835000,fn:0,fr:2,rate:0.029},{name:"Crosscountry Mortgage",loans:6282,upb:2338032080,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4370,upb:1339181421,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4081,upb:1693251495,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4046,upb:1429254800,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4045,upb:1705034493,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:3326,upb:1484472115,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}]};
+const XCROSS={"202512":{"fannie":{"fico_only":[86265,30746643853],"vs_only":[0,0],"both":[0,0],"neither":[122,30652000]},"freddie":{"fico_only":[99629,37061282552],"vs_only":[0,0],"both":[0,0],"neither":[24,7869000]},"agency":{"fico_only":[185894,67807926405],"vs_only":[0,0],"both":[0,0],"neither":[146,38521000]}},"202601":{"fannie":{"fico_only":[94841,32664254719],"vs_only":[0,0],"both":[0,0],"neither":[170,38919943]},"freddie":{"fico_only":[98178,35099859949],"vs_only":[0,0],"both":[0,0],"neither":[28,5387000]},"agency":{"fico_only":[193019,67764114668],"vs_only":[0,0],"both":[0,0],"neither":[198,44306943]}},"202602":{"fannie":{"fico_only":[75695,27257018490],"vs_only":[0,0],"both":[0,0],"neither":[114,27081000]},"freddie":{"fico_only":[94978,33184833684],"vs_only":[0,0],"both":[0,0],"neither":[18,4391000]},"agency":{"fico_only":[170673,60441852174],"vs_only":[0,0],"both":[0,0],"neither":[132,31472000]}},"202603":{"fannie":{"fico_only":[103784,38207930862],"vs_only":[0,0],"both":[0,0],"neither":[165,37573000]},"freddie":{"fico_only":[87563,32647640694],"vs_only":[0,0],"both":[0,0],"neither":[15,2334000]},"agency":{"fico_only":[191347,70855571557],"vs_only":[0,0],"both":[0,0],"neither":[180,39907000]}},"202604":{"fannie":{"fico_only":[112456,39885907953],"vs_only":[0,0],"both":[0,0],"neither":[215,47602000]},"freddie":{"fico_only":[103103,38183457293],"vs_only":[13,7532000],"both":[0,0],"neither":[18,3865000]},"agency":{"fico_only":[215559,78069365246],"vs_only":[13,7532000],"both":[0,0],"neither":[233,51467000]}},"202605":{"fannie":{"fico_only":[91045,32677044858],"vs_only":[11,4271000],"both":[0,0],"neither":[154,35969890]},"freddie":{"fico_only":[106771,37139170578],"vs_only":[19,7993000],"both":[0,0],"neither":[28,6348000]},"agency":{"fico_only":[197816,69816215436],"vs_only":[30,12264000],"both":[0,0],"neither":[182,42317890]}},"202606":{"fannie":{"fico_only":[97464,33477590979],"vs_only":[649,269844000],"both":[0,0],"neither":[229,55646122]},"freddie":{"fico_only":[88894,32281106466],"vs_only":[687,289302000],"both":[0,0],"neither":[18,3656000]},"agency":{"fico_only":[186358,65758697445],"vs_only":[1336,559146000],"both":[0,0],"neither":[247,59302122]}}};
+const XMONTHS=[{ym:"202512",l:"Dec '25"},{ym:"202601",l:"Jan '26"},{ym:"202602",l:"Feb '26"},{ym:"202603",l:"Mar '26"},{ym:"202604",l:"Apr '26"},{ym:"202605",l:"May '26"},{ym:"202606",l:"Jun '26"}];
+const LSER=[
+  {name:"United Wholesale Mortgage",vs:[0, 0, 0, 0, 0, 30, 1091],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.1714, 6.7205],loans:[15996, 17094, 16899, 18089, 17539, 17504, 16234],upb:[6478682374, 6850896639, 7075583000, 7831972000, 7501000000, 6532647505, 6293544595]},
+  {name:"Rocket Mortgage",vs:[0, 0, 0, 0, 0, 0, 243],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9784],loans:[20575, 22519, 22471, 24181, 30475, 23642, 24836],upb:[6599191000, 7415795000, 7567747318, 8560047895, 10732222073, 7866971920, 8577655772]},
+  {name:"NewRez",vs:[0, 0, 0, 0, 13, 0, 2],rate:[0.0, 0.0, 0.0, 0.0, 0.1447, 0.0, 0.0286],loans:[6580, 6590, 5887, 6811, 8983, 8152, 6998],upb:[2518675000, 2474514000, 2249793000, 2528206000, 3455226000, 2763095000, 2344305167]},
+];
+const IDX={upb:0,loans:1,fico:2,vsupb:3,vsupbpct:4,vsloans:5,vsloanpct:6,pools:7,totpools:8};
+const XL=M.map(d=>d.l), MM=M.map(d=>d.m);
+const VIEWNAME={t:"Total agency",f:"Fannie Mae",r:"Freddie Mac"};
+
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+const $=id=>document.getElementById(id);
+const money=n=>{const a=Math.abs(n);if(a>=1e9)return "$"+(n/1e9).toFixed(2)+"B";if(a>=1e6)return "$"+(n/1e6).toFixed(1)+"M";if(a>=1e3)return "$"+(n/1e3).toFixed(0)+"K";return "$"+Math.round(n);};
+const commas=n=>Math.round(n).toLocaleString("en-US");
+const pctf=(n,d=2)=>n.toFixed(d)+"%";
+function mkTip(box){const t=document.createElement("div");t.className="tt";box.appendChild(t);return t;}
+function place(t,box,x,y){const bw=box.clientWidth,tw=t.offsetWidth;let L=x+14;if(L+tw>bw)L=x-tw-14;if(L<0)L=4;t.style.left=L+"px";t.style.top=Math.max(4,y-10)+"px";}
+function nice(x){const p=Math.pow(10,Math.floor(Math.log10(x)));const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=5)m=5;else m=10;return m*p;}
+
+/* ---- generic multi-line ---- */
+function lineChart(box,{series,yMax,yTicks,yFmt,vFmt,annIdx,annText,endLab,tipFmt}){
+  box.innerHTML="";
+  const W=760,H=340,pl=46,pr=94,pt=22,pb=42,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  const X=i=>pl+i*(plotW/(n-1)), Y=v=>pt+(1-v/yMax)*plotH;
+  yTicks.forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===0?"axis-l":"grid-l"}));
+    const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=yFmt(tk);svg.appendChild(tx);});
+  XL.forEach((lb,i)=>{const tx=el("text",{x:X(i),y:H-pb+18,"text-anchor":"middle"});tx.textContent=lb;svg.appendChild(tx);});
+  if(annIdx!=null){const ax=X(annIdx);svg.appendChild(el("line",{x1:ax,y1:pt,x2:ax,y2:pt+plotH,class:"ann-line"}));
+    const at=el("text",{x:ax+5,y:pt+11,class:"ann"});at.textContent=annText;svg.appendChild(at);}
+  series.forEach(s=>{
+    svg.appendChild(el("polyline",{points:s.vals.map((v,i)=>`${X(i)},${Y(v)}`).join(" "),fill:"none",stroke:s.color,"stroke-width":2.2,"stroke-linejoin":"round","stroke-linecap":"round"}));
+    s.vals.forEach((v,i)=>{if(v>0||i>=n-2)svg.appendChild(el("circle",{cx:X(i),cy:Y(v),r:3.2,fill:"var(--surface)",stroke:s.color,"stroke-width":2}));});
+    if(endLab){const last=n-1;const lt=el("text",{x:X(last)+9,y:Y(s.vals[last])+(s.dy||0),class:"dlabel"});lt.setAttribute("fill",s.color);lt.textContent=s.lab+" "+s.vals[last].toFixed(2)+"%";svg.appendChild(lt);}
+  });
+  box.appendChild(svg);
+  const tip=mkTip(box),cur=el("line",{class:"cursor-l",y1:pt,y2:pt+plotH,x1:-9,x2:-9});svg.appendChild(cur);
+  svg.addEventListener("mousemove",e=>{const rc=svg.getBoundingClientRect();const mx=(e.clientX-rc.left)/rc.width*W;
+    let i=Math.round((mx-pl)/(plotW/(n-1)));i=Math.max(0,Math.min(n-1,i));cur.setAttribute("x1",X(i));cur.setAttribute("x2",X(i));
+    tip.innerHTML=`<div class="tm">${MM[i]}</div>`+series.map(s=>`<div class="row"><span class="k"><span class="swatch" style="background:${s.color}"></span>${s.lab}</span><span>${tipFmt?tipFmt(s,i):vFmt(s.vals[i])}</span></div>`).join("");
+    tip.style.opacity=1;place(tip,box,X(i)/W*rc.width,Y(Math.max(...series.map(s=>s.vals[i])))/H*rc.height);});
+  svg.addEventListener("mouseleave",()=>{tip.style.opacity=0;cur.setAttribute("x1",-9);cur.setAttribute("x2",-9);});
+}
+
+/* ---- stacked bars (Fannie + Freddie) ---- */
+function stackBars(box,{fn,fr,unit,axisFmt,vFmt,poolTot}){
+  box.innerHTML="";
+  const W=760,H=300,pl=52,pr=16,pt=18,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
+  const tot=fn.map((v,i)=>v+fr[i]);const yMax=nice(Math.max(...tot,1));
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  for(let t=0;t<=4;t++){const v=yMax*t/4,y=pt+(1-t/4)*plotH;svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:t===0?"axis-l":"grid-l"}));
+    const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=axisFmt(v);svg.appendChild(tx);}
+  const bw=plotW/n*0.56,tip=mkTip(box);
+  XL.forEach((lb,i)=>{
+    const cx=pl+(i+0.5)*plotW/n;
+    const tx=el("text",{x:cx,y:H-pb+18,"text-anchor":"middle"});tx.textContent=lb;svg.appendChild(tx);
+    const hF=fn[i]/yMax*plotH,hR=fr[i]/yMax*plotH;
+    const yF=pt+plotH-hF, yR=yF-hR-(hR>0&&hF>0?2:0);
+    if(fn[i]>0)svg.appendChild(el("rect",{x:cx-bw/2,y:yF,width:bw,height:Math.max(hF,1.5),rx:hR>0?0:4,fill:"var(--accent)"}));
+    if(fr[i]>0)svg.appendChild(el("rect",{x:cx-bw/2,y:yR,width:bw,height:Math.max(hR,1.5),rx:4,fill:"var(--accent-2)"}));
+    if(tot[i]>0){const vl=el("text",{x:cx,y:Math.min(yF,yR)-6,"text-anchor":"middle",class:"dlabel"});vl.textContent=poolTot?commas(tot[i])+" / "+commas(poolTot.fn[i]+poolTot.fr[i]):vFmt(tot[i]);svg.appendChild(vl);}
+    const hit=el("rect",{x:cx-plotW/n/2,y:pt,width:plotW/n,height:plotH,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const rc=box.getBoundingClientRect();
+      tip.innerHTML=`<div class="tm">${MM[i]}</div>`+
+        `<div class="row"><span class="k"><span class="swatch" style="background:var(--accent)"></span>Fannie</span><span>${vFmt(fn[i])}</span></div>`+
+        `<div class="row"><span class="k"><span class="swatch" style="background:var(--accent-2)"></span>Freddie</span><span>${vFmt(fr[i])}</span></div>`+
+        `<div class="row tot"><span class="k">Total</span><span>${vFmt(tot[i])}</span></div>`+
+        (poolTot?`<div class="row tot"><span class="k">All pools issued</span><span>${commas(poolTot.fn[i]+poolTot.fr[i])}</span></div><div class="row"><span class="k">VS share of pools</span><span>${tot[i]?(tot[i]/(poolTot.fn[i]+poolTot.fr[i])*100).toFixed(1)+'%':'0%'}</span></div>`:'');
+      tip.style.opacity=1;place(tip,box,e.clientX-rc.left,e.clientY-rc.top);});
+    hit.addEventListener("mouseleave",()=>tip.style.opacity=0);svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+}
+
+/* ---- product horizontal bars ---- */
+function prodChart(box){
+  box.innerHTML="";
+  const rows=PRODM[$("pmonthSel").value]||[],W=760,rh=40,pt=8,pl=78,pr=70,H=pt*2+rows.length*rh,plotW=W-pl-pr;
+  const mx=Math.max(...rows.map(r=>r.pct),0.1);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  const tip=mkTip(box);
+  rows.forEach((r,i)=>{const y=pt+i*rh,bh=20,w=r.pct/mx*plotW;
+    const lb=el("text",{x:pl-10,y:y+bh/2+4,"text-anchor":"end"});lb.textContent=r.p;lb.setAttribute("fill","var(--ink-2)");lb.style.fontWeight=600;svg.appendChild(lb);
+    svg.appendChild(el("rect",{x:pl,y:y,width:plotW,height:bh,rx:4,fill:"var(--surface-2)"}));
+    svg.appendChild(el("rect",{x:pl,y:y,width:Math.max(w,3),height:bh,rx:4,fill:"var(--accent)"}));
+    const vl=el("text",{x:pl+Math.max(w,3)+8,y:y+bh/2+4,class:"dlabel"});vl.textContent=r.pct.toFixed(2)+"%";svg.appendChild(vl);
+    const hit=el("rect",{x:0,y:y,width:W,height:rh,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const rc=box.getBoundingClientRect();
+      tip.innerHTML=`<div class="tm">${r.p}</div><div class="row"><span class="k">VS penetration</span><span>${r.pct.toFixed(2)}%</span></div><div class="row"><span class="k">VS balance</span><span>${money(r.vs)}</span></div><div class="row"><span class="k">Product UPB</span><span>${money(r.upb)}</span></div>`;
+      tip.style.opacity=1;place(tip,box,e.clientX-rc.left,e.clientY-rc.top);});
+    hit.addEventListener("mouseleave",()=>tip.style.opacity=0);svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+}
+
+/* ---- top-10 lenders: VS penetration + market share (any month) ---- */
+function lenderChart(){
+  const box=$("c_lender");box.innerHTML="";
+  const ym=$("lmonthSel").value;
+  const rows=(LENDERM[ym]||[]).slice(0,10);   // top 10 by volume, sorted by total market share (desc)
+  const totL={};M.forEach(d=>totL[d.m.replace("-","")]=d.t[IDX.loans]);const mkt=totL[ym]||1;
+  const W=760,rh=42,pt=24,pl=196,plotW=270,H=pt+8+rows.length*rh,lblX=pl+plotW+10;
+  const mx=Math.max(...rows.map(r=>r.rate),0.5);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  const hdr=el("text",{x:W-4,y:15,"text-anchor":"end"});hdr.textContent="SHARE OF MARKET";hdr.setAttribute("fill","var(--muted)");hdr.style.fontSize="9.5px";svg.appendChild(hdr);
+  const tip=mkTip(box);
+  rows.forEach((r,i)=>{const y=pt+i*rh,bh=20,w=r.rate/mx*plotW,on=r.rate>0,share=r.loans/mkt*100;
+    const lb=el("text",{x:pl-12,y:y+bh/2+4,"text-anchor":"end"});lb.textContent=r.name;lb.setAttribute("fill",on?"var(--ink-2)":"var(--muted)");lb.style.fontWeight=on?600:400;svg.appendChild(lb);
+    svg.appendChild(el("rect",{x:pl,y:y,width:plotW,height:bh,rx:4,fill:"var(--surface-2)"}));
+    if(on)svg.appendChild(el("rect",{x:pl,y:y,width:Math.max(w,3),height:bh,rx:4,fill:"var(--accent)"}));
+    const vl=el("text",{x:lblX,y:y+bh/2-1,class:"dlabel"});vl.textContent=r.rate.toFixed(2)+"%";svg.appendChild(vl);
+    const rt=el("text",{x:lblX,y:y+bh/2+12});rt.textContent=commas(r.vs)+" of "+commas(r.loans);rt.setAttribute("fill","var(--muted)");rt.style.fontSize="10.5px";svg.appendChild(rt);
+    const ms=el("text",{x:W-4,y:y+bh/2+4,"text-anchor":"end",class:"dlabel"});ms.textContent=share.toFixed(1)+"%";svg.appendChild(ms);
+    const hit=el("rect",{x:0,y:y-pt/2,width:W,height:rh,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const rc=box.getBoundingClientRect();
+      tip.innerHTML=`<div class="tm">${r.name}</div>`+
+        `<div class="row"><span class="k">VS penetration</span><span>${r.rate.toFixed(2)}%</span></div>`+
+        `<div class="row"><span class="k">VS-scored loans</span><span>${commas(r.vs)}</span></div>`+
+        `<div class="row"><span class="k">VS balance</span><span>${money(r.vs_upb)}</span></div>`+
+        `<div class="row tot"><span class="k">Total loans</span><span>${commas(r.loans)}</span></div>`+
+        `<div class="row"><span class="k">Total UPB</span><span>${money(r.upb)}</span></div>`+
+        `<div class="row"><span class="k">Share of market</span><span>${share.toFixed(1)}%</span></div>`+
+        (r.vs>0?`<div class="row"><span class="k">Fannie / Freddie VS</span><span>${commas(r.fn)} / ${commas(r.fr)}</span></div>`:'');
+      tip.style.opacity=1;place(tip,box,e.clientX-rc.left,e.clientY-rc.top);});
+    hit.addEventListener("mouseleave",()=>tip.style.opacity=0);svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+}
+
+/* ---- cross-tab: categories (rows) x months (columns), selectable metric ---- */
+function crossTable(){
+  const key=view==='t'?'agency':view==='f'?'fannie':'freddie';
+  const sel=$('xmonthSel').value, metric=$('xmetricSel').value;
+  const yms=sel==='last4'?XMONTHS.slice(-4).map(x=>x.ym):[sel];
+  const lab={};XMONTHS.forEach(x=>lab[x.ym]=x.l);
+  const pf=p=>p===0?'0.00%':p<1?p.toFixed(3)+'%':p.toFixed(2)+'%';
+  const cats=[
+    {k:'FICO only',col:'var(--muted)',ck:'fico_only',cls:'dim'},
+    {k:'VantageScore 4.0 only',col:'var(--accent)',ck:'vs_only',cls:'hl'},
+    {k:'Both',col:'var(--accent-3)',ck:'both',cls:''},
+    {k:'Neither (thin file)',col:'var(--axis)',ck:'neither',cls:'dim'}
+  ];
+  const tls=c=>c.fico_only[0]+c.vs_only[0]+c.both[0]+c.neither[0];
+  const tus=c=>c.fico_only[1]+c.vs_only[1]+c.both[1]+c.neither[1];
+  function cell(c,ck){const d=c[ck];
+    if(metric==='loans')return commas(d[0]);
+    if(metric==='upb')return money(d[1]);
+    if(metric==='upbpct')return pf(d[1]/tus(c)*100);
+    return pf(d[0]/tls(c)*100);}
+  function totc(c){if(metric==='loans')return commas(tls(c));if(metric==='upb')return money(tus(c));return '100%';}
+  let h=`<table class="xt"><thead><tr><th>Score(s) on the loan</th>${yms.map(ym=>`<th>${lab[ym]}</th>`).join('')}</tr></thead><tbody>`;
+  for(const cat of cats) h+=`<tr class="${cat.cls}"><td><span class="cat"><span class="catdot" style="background:${cat.col}"></span>${cat.k}</span></td>${yms.map(ym=>`<td>${cell(XCROSS[ym][key],cat.ck)}</td>`).join('')}</tr>`;
+  h+=`<tr><td class="bignum">Total</td>${yms.map(ym=>`<td class="bignum">${totc(XCROSS[ym][key])}</td>`).join('')}</tr></tbody></table>`;
+  $('c_cross').innerHTML=h;
+  $('xtabTitle').textContent=`Credit-score model mix \u2014 ${VIEWNAME[view]}`;
+}
+
+/* ---- lender adoption over time (penetration rate lines) ---- */
+function lenderOverTime(){
+  const cols=["var(--accent)","var(--accent-2)","var(--accent-3)"];
+  const ab={"United Wholesale Mortgage":"UWM","Rocket Mortgage":"Rocket","NewRez":"NewRez"};
+  const series=LSER.slice(0,3).map((s,i)=>({vals:s.rate,loans:s.loans,upb:s.upb,color:cols[i],
+    lab:ab[s.name]||s.name.split(" ")[0],dy:i===2?13:-3}));
+  const mxr=Math.max(...series.flatMap(s=>s.vals),0);const yMax=Math.max(8,Math.ceil(mxr)+1);
+  lineChart($("c_lom"),{series,yMax,yTicks:[0,yMax/4,yMax/2,yMax*3/4].map(v=>Math.round(v)),
+    yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
+    tipFmt:(s,i)=>`${s.vals[i].toFixed(2)}% \u00b7 ${commas(s.loans[i])} loans \u00b7 ${money(s.upb[i])}`});
+}
+
+/* ---- table ---- */
+function cell(a,i){const upb=money(a[IDX.upb]);const p=a[IDX.vsupbpct],l=a[IDX.vsloans];
+  return `<td class="grpsep">${upb}</td><td>${p?pctf(p,3):'<span class="z">0.000%</span>'}</td><td>${l?commas(l):'<span class="z">0</span>'}</td>`;}
+$("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===6?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
+
+/* ---- view-dependent (KPIs + hero) ---- */
+let view="t";
+function renderView(){
+  const cur=M[6][view], prev=M[5][view];
+  $("heroTitle").textContent=`VantageScore 4.0 penetration \u2014 ${VIEWNAME[view]}`;
+  const kp=[
+    {lab:`VS % of UPB (Jun)`,val:pctf(cur[IDX.vsupbpct],2),sub:prev[IDX.vsupbpct]?`<span class="up">\u25b2</span> from ${pctf(prev[IDX.vsupbpct],3)} in May`:`first month with VS`},
+    {lab:`VS-scored balance (Jun)`,val:money(cur[IDX.vsupb]),sub:`up from ${money(prev[IDX.vsupb])} in May`},
+    {lab:`VS-scored loans (Jun)`,val:commas(cur[IDX.vsloans]),sub:`of ${commas(cur[IDX.loans])} loans issued`},
+    {lab:`Pools with VS (Jun)`,val:commas(cur[IDX.pools]),sub:`of ${commas(cur[IDX.totpools])} total pools`},
+    {lab:`WA Classic FICO`,val:cur[IDX.fico].toFixed(0),sub:`unchanged as VS ramps`}
+  ];
+  $("kpis").innerHTML=kp.map(k=>`<div class="kpi"><div class="lab">${k.lab}</div><div class="val">${k.val}</div><div class="sub">${k.sub}</div></div>`).join("");
+  $("segHint").textContent=view==="t"?"Showing combined Fannie + Freddie. Switch to view one GSE.":`Showing ${VIEWNAME[view]} only. KPIs and the chart above update.`;
+  lineChart($("c_hero"),{
+    series:[{vals:M.map(d=>d[view][IDX.vsupbpct]),color:"var(--accent)",lab:"UPB",dy:-2},
+            {vals:M.map(d=>d[view][IDX.vsloanpct]),color:"var(--accent-2)",lab:"Loans",dy:12}],
+    yMax:1.0,yTicks:[0,0.25,0.5,0.75,1.0],yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
+    annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
+  crossTable();
+}
+
+/* ---- static charts ---- */
+function renderStatic(){
+  stackBars($("c_bal"),{fn:M.map(d=>d.f[IDX.vsupb]),fr:M.map(d=>d.r[IDX.vsupb]),axisFmt:v=>"$"+(v/1e6).toFixed(0)+"M",vFmt:v=>v>0?money(v):""});
+  stackBars($("c_pools"),{fn:M.map(d=>d.f[IDX.pools]),fr:M.map(d=>d.r[IDX.pools]),axisFmt:v=>commas(v),vFmt:v=>v>0?commas(v):"",poolTot:{fn:M.map(d=>d.f[IDX.totpools]),fr:M.map(d=>d.r[IDX.totpools])}});
+  stackBars($("c_iss"),{fn:M.map(d=>d.f[IDX.upb]),fr:M.map(d=>d.r[IDX.upb]),axisFmt:v=>"$"+(v/1e9).toFixed(0)+"B",vFmt:v=>"$"+(v/1e9).toFixed(0)+"B"});
+  ficoChart();
+  prodChart($("c_prod"));
+  lenderChart();
+  lenderOverTime();
+}
+function ficoChart(){
+  const box=$("c_fico");box.innerHTML="";
+  const W=380,H=300,pl=40,pr=58,pt=22,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length,lo=745,hi=768;
+  const X=i=>pl+i*(plotW/(n-1)),Y=v=>pt+(1-(v-lo)/(hi-lo))*plotH;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  [745,750,755,760,765].forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===745?"axis-l":"grid-l"}));
+    const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk;svg.appendChild(tx);});
+  XL.forEach((lb,i)=>{if(i%2===0||i===n-1){const tx=el("text",{x:X(i),y:H-pb+18,"text-anchor":"middle"});tx.textContent=lb.slice(0,3);svg.appendChild(tx);}});
+  [["f","var(--accent)","Fan"],["r","var(--accent-2)","Fre"]].forEach(([k,c,nm],si)=>{
+    const vals=M.map(d=>d[k][IDX.fico]);
+    svg.appendChild(el("polyline",{points:vals.map((v,i)=>`${X(i)},${Y(v)}`).join(" "),fill:"none",stroke:c,"stroke-width":2,"stroke-linejoin":"round"}));
+    vals.forEach((v,i)=>svg.appendChild(el("circle",{cx:X(i),cy:Y(v),r:2.4,fill:"var(--surface)",stroke:c,"stroke-width":1.5})));
+    const lt=el("text",{x:X(n-1)+7,y:Y(vals[n-1])+(si?12:-3),class:"dlabel"});lt.setAttribute("fill",c);lt.textContent=vals[n-1].toFixed(0);svg.appendChild(lt);
+  });
+  box.appendChild(svg);
+  const tip=mkTip(box);
+  svg.addEventListener("mousemove",e=>{const rc=svg.getBoundingClientRect();let i=Math.round(((e.clientX-rc.left)/rc.width*W-pl)/(plotW/(n-1)));i=Math.max(0,Math.min(n-1,i));
+    tip.innerHTML=`<div class="tm">${MM[i]}</div><div class="row"><span class="k"><span class="swatch" style="background:var(--accent)"></span>Fannie</span><span>${M[i].f[IDX.fico].toFixed(1)}</span></div><div class="row"><span class="k"><span class="swatch" style="background:var(--accent-2)"></span>Freddie</span><span>${M[i].r[IDX.fico].toFixed(1)}</span></div>`;
+    tip.style.opacity=1;place(tip,box,X(i)/W*rc.width,40);});
+  svg.addEventListener("mouseleave",()=>tip.style.opacity=0);
+}
+
+/* ---- toggle wiring ---- */
+$("seg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  view=b.dataset.v;[...$("seg").children].forEach(x=>x.setAttribute("aria-pressed",x===b));renderView();});
+
+/* ---- theme ---- */
+const dash=$("dash");
+function setTheme(t){dash.setAttribute("data-theme",t);$("themeTxt").textContent=t==="dark"?"Light":"Dark";$("themeIcon").textContent=t==="dark"?"\u2600":"\u263e";}
+setTheme("light");
+$("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-theme")==="dark"?"light":"dark"));
+
+/* ---- month selectors ---- */
+(function(){
+  const rev=XMONTHS.slice().reverse();
+  const optList=rev.map(x=>`<option value="${x.ym}">${x.l}</option>`).join("");
+  const xs=$("xmonthSel");xs.innerHTML=`<option value="last4">Last 4 months</option>`+optList;xs.value="last4";
+  xs.addEventListener("change",crossTable);
+  const xm=$("xmetricSel");xm.innerHTML=`<option value="loanpct">% of loans</option><option value="loans">Loan count</option><option value="upb">UPB ($)</option><option value="upbpct">% of UPB</option>`;xm.value="loanpct";
+  xm.addEventListener("change",crossTable);
+  const ls=$("lmonthSel");ls.innerHTML=optList;ls.value=rev[0].ym;
+  ls.addEventListener("change",lenderChart);
+  const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=rev[0].ym;
+  ps.addEventListener("change",()=>prodChart($("c_prod")));
+})();
+
+renderStatic();renderView();
+</script>
