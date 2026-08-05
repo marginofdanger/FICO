@@ -82,9 +82,15 @@ def js_data(m):
     else:
         lines.append("const MTD=null;")
     lines.append("const VINTL=[" + ",".join(
-        '{name:%s,rate:%s,loans:%s,vs:%s}' % (json.dumps(short(s['name'])), json.dumps(s['rate']),
-                                              json.dumps(s['loans']), json.dumps(s['vs']))
+        '{name:%s,rate:%s,loans:%s,vs:%s,upb:%s,vs_upb:%s,upb_rate:%s,fn:%s,fr:%s}' % (
+            json.dumps(short(s['name'])), json.dumps(s['rate']), json.dumps(s['loans']),
+            json.dumps(s['vs']), json.dumps(s['upb']), json.dumps(s['vs_upb']),
+            json.dumps([round(x, 3) for x in s['upb_rate']]),
+            json.dumps(s['fn_vs']), json.dumps(s['fre_vs']))
         for s in m['vintage_lender']) + "];")
+    # cohort labels + partial flag, so the vintage lender table can name its cohort
+    lines.append("const VINTC=[" + ",".join(
+        '{l:%s,c:%d}' % (json.dumps(v['short']), int(v['complete'])) for v in m['vintage']) + "];")
     return "\n".join(lines)
 
 def generate():

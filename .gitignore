@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 # scratch
 output/_g.js
+# browser-automation scratch from verification runs
+.playwright-mcp/
+*.png

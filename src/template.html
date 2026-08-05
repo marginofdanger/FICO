@@ -231,6 +231,15 @@
       </div></div>
     <div class="desc" id="vintDesc"></div>
     <div class="chartbox" id="c_vint"></div>
+    <div class="head" style="margin:22px 0 4px">
+      <h2 id="vlTitle" style="font-size:.95rem">Cohort by originator</h2>
+      <select id="vcohSel" class="msel" aria-label="Choose cohort"></select>
+    </div>
+    <div class="desc" id="vlDesc"></div>
+    <div class="tablewrap"><table id="vlTbl">
+      <thead><tr><th>Originator</th><th class="grpsep">Loans</th><th>VS4 loans</th>
+        <th>VS4 % of own book</th><th>VS4 % of UPB</th><th>Fannie / Freddie</th></tr></thead>
+      <tbody></tbody></table></div>
   </div>
 
   <section class="block">
@@ -473,6 +482,36 @@ function mtdPanel(){
     `<td class="muted">${commas(r.fn_vs)} / ${commas(r.fre_vs)}</td></tr>`).join("");
 }
 
+/* ---- cohort by originator ----
+   The vintage chart's numbers, split by seller for one cohort. Only sellers that
+   have ever delivered a VS loan are tracked per-cohort, so this table explains
+   the VS numerator in full but not the whole cohort denominator -- the residual
+   line makes that explicit rather than letting the columns look like they sum. */
+function vintLenderTable(){
+  const i=+$("vcohSel").value, coh=VINTC[i], agg=VINT[i];
+  const rows=VINTL.map(s=>({name:s.name,loans:s.loans[i],vs:s.vs[i],rate:s.rate[i],
+                            upb_rate:s.upb_rate[i],fn:s.fn[i],fr:s.fr[i]}))
+                  .filter(r=>r.loans||r.vs).sort((a,b)=>b.vs-a.vs||b.loans-a.loans);
+  $("vlTitle").textContent=`${coh.l} cohort by originator`;
+  const tracked=rows.reduce((a,r)=>a+r.loans,0), rest=agg.n-tracked;
+  $("vlDesc").innerHTML=
+    `<b>${commas(agg.v)}</b> VS4 loans of <b>${commas(agg.n)}</b> in the ${coh.l} origination cohort `+
+    `(<b style="color:var(--ink)">${agg.p.toFixed(2)}%</b> of loans, ${agg.up.toFixed(2)}% of UPB). `+
+    (coh.c?``:`This cohort is <b>partial</b> &mdash; the fastest-securitized slice, so read the rates as an upper bound. `)+
+    (rest>0?`The ${commas(rest)} loans not listed belong to originators that have never delivered a VantageScore loan; `+
+            `they sit in the denominator at 0%.`:``);
+  $("vlTbl").querySelector("tbody").innerHTML=rows.map(r=>
+    `<tr class="${r.vs?'hot':''}"><td>${r.name}</td>`+
+    `<td class="grpsep">${commas(r.loans)}</td>`+
+    `<td>${r.vs?commas(r.vs):'<span class="z">0</span>'}</td>`+
+    `<td>${r.rate?pctf(r.rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td>${r.upb_rate?pctf(r.upb_rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td class="muted">${commas(r.fn)} / ${commas(r.fr)}</td></tr>`).join("")+
+    (rest>0?`<tr><td class="muted">All other originators</td><td class="grpsep muted">${commas(rest)}</td>`+
+            `<td><span class="z">0</span></td><td><span class="z">0.00%</span></td>`+
+            `<td><span class="z">0.00%</span></td><td class="muted">0 / 0</td></tr>`:``);
+}
+
 /* ---- adoption by origination vintage ----
    Bars are VS% of each origination cohort (First Payment Date, ~2 months after
    the loan closed). Hatched bars are cohorts we don't yet hold every issuance
@@ -635,6 +674,12 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
   $("vintLeg").innerHTML=
     `<span class="it"><span class="swatch" style="background:var(--accent)"></span>complete</span>`+
     `<span class="it"><span class="swatch" style="background:var(--accent);opacity:.45"></span>partial</span>`;
+  // cohort-by-originator table: default to the newest (leading-edge) cohort
+  const cs=$("vcohSel");
+  cs.innerHTML=VINTC.map((c,i)=>`<option value="${i}">${c.l}${c.c?"":" (partial)"}</option>`).reverse().join("");
+  cs.value=String(VINTC.length-1);
+  cs.addEventListener("change",vintLenderTable);
+  vintLenderTable();
 })();
 
 renderStatic();renderView();

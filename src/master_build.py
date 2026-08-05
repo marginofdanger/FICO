@@ -110,7 +110,7 @@ def scan_paths(paths):
     vs_secs = set(); all_secs = set()
     sell = defaultdict(lambda: [0, 0.0, 0, 0.0])   # loans, upb, vs_loans, vs_upb
     vint = defaultdict(lambda: [0, 0, 0.0, 0.0])         # cohort -> loans, vs_loans, upb, vs_upb
-    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0]))  # cohort -> seller -> loans, vs_loans
+    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0, 0.0, 0.0]))  # cohort -> seller -> loans, vs_loans, upb, vs_upb
     for path in paths:
       with open(path, encoding='utf-8', errors='replace') as f:
         h = f.readline().rstrip('\n').split('|'); ix = {n: i for i, n in enumerate(h)}
@@ -147,11 +147,11 @@ def scan_paths(paths):
             ck = cohort_key(p[iFP])
             if ck:
                 v = vint[ck]; v[0] += 1; v[2] += u
-                vsl = vint_sell[ck][s]; vsl[0] += 1
+                vsl = vint_sell[ck][s]; vsl[0] += 1; vsl[2] += u
             if hv:
                 vs_secs.add(p[iSec]); b[1] += u; b[3] += 1; d[2] += 1; d[3] += u
                 if ck:
-                    v[1] += 1; v[3] += u; vsl[1] += 1
+                    v[1] += 1; v[3] += u; vsl[1] += 1; vsl[3] += u
     return {'tot_l': tot_l, 'tot_u': tot_u,
             'wa_fico': round(fico_wsum / fico_wden, 1) if fico_wden else None,
             'ct': ct, 'prod': {k: list(v) for k, v in prod.items()},
@@ -169,17 +169,26 @@ def build():
     # origination-cohort accumulators, pooled across every issuance file.
     # A loan appears in exactly one issuance file, so summing is safe (no dedup).
     vint = defaultdict(lambda: [0, 0, 0.0, 0.0])
-    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0]))
-    for ym in months:
-        fn = scan('FNM', ym); fr = scan('FRE', ym)
-        for src in (fn, fr):
-            for ck, v in src['vint'].items():
-                a = vint[ck]
+    # cohort -> seller -> loans, vs_loans, upb, vs_upb, fn_vs, fre_vs
+    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0, 0.0, 0.0, 0, 0]))
+
+    def merge_vint(src, iss):
+        """Fold one issuer-month's cohort tallies into the pooled accumulators."""
+        for ck, v in src['vint'].items():
+            a = vint[ck]
+            for i in range(4):
+                a[i] += v[i]
+        for ck, sm in src['vint_sell'].items():
+            for s, v in sm.items():
+                a = vint_sell[ck][s]
                 for i in range(4):
                     a[i] += v[i]
-            for ck, sm in src['vint_sell'].items():
-                for s, v in sm.items():
-                    a = vint_sell[ck][s]; a[0] += v[0]; a[1] += v[1]
+                a[4 if iss == 'FNM' else 5] += v[1]
+
+    for ym in months:
+        fn = scan('FNM', ym); fr = scan('FRE', ym)
+        for iss, src in (('FNM', fn), ('FRE', fr)):
+            merge_vint(src, iss)
         def pack(m):
             vl = m['ct']['vs_only'][0]; vu = m['ct']['vs_only'][1]
             return [round(m['tot_u']), m['tot_l'], m['wa_fico'], round(vu),
@@ -226,14 +235,8 @@ def build():
         for iss in ('FNM', 'FRE'):
             if intra[iss].get(ym):
                 parts[iss] = scan_paths(sorted(intra[iss][ym]))
-        for src in parts.values():
-            for ck, v in src['vint'].items():
-                a = vint[ck]
-                for i in range(4):
-                    a[i] += v[i]
-            for ck, sm in src['vint_sell'].items():
-                for s, v in sm.items():
-                    a = vint_sell[ck][s]; a[0] += v[0]; a[1] += v[1]
+        for iss, src in parts.items():
+            merge_vint(src, iss)
         if ym == intra_months[-1]:
             tl = sum(p['tot_l'] for p in parts.values())
             tu = sum(p['tot_u'] for p in parts.values())
@@ -290,15 +293,21 @@ def build():
                         'pct': pct(v, n), 'upb_pct': pct(vu, u),
                         'complete': cfull_lo <= c <= cfull_hi})
     # per-lender cohort series, for every seller that ever delivered VS
+    ZS = [0, 0, 0.0, 0.0, 0, 0]
     vintage_lender = []
     for s in sorted(ever_vs | intra_sellers,
-                    key=lambda s: -sum(vint_sell[c].get(s, [0, 0])[1] for c in cohorts)):
+                    key=lambda s: -sum(vint_sell[c].get(s, ZS)[1] for c in cohorts)):
+        g = [vint_sell[c].get(s, ZS) for c in cohorts]
         vintage_lender.append({
             'name': s,
-            'loans': [vint_sell[c].get(s, [0, 0])[0] for c in cohorts],
-            'vs':    [vint_sell[c].get(s, [0, 0])[1] for c in cohorts],
-            'rate':  [pct(vint_sell[c].get(s, [0, 0])[1],
-                          vint_sell[c].get(s, [0, 0])[0]) for c in cohorts]})
+            'loans':    [x[0] for x in g],
+            'vs':       [x[1] for x in g],
+            'rate':     [pct(x[1], x[0]) for x in g],
+            'upb':      [round(x[2]) for x in g],
+            'vs_upb':   [round(x[3]) for x in g],
+            'upb_rate': [pct(x[3], x[2]) for x in g],
+            'fn_vs':    [x[4] for x in g],
+            'fre_vs':   [x[5] for x in g]})
     out = {'series': series, 'crosstab': crosstab, 'lenders': lenders,
            'lender_series': lender_series, 'product': product, 'months': months,
            'vintage': vintage, 'vintage_lender': vintage_lender,
