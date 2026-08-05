@@ -7,8 +7,21 @@ Reads every {FNM,FRE}_ILLD_YYYYMM.txt loan-level file in ../data and writes
   crosstab  : FICO-only / VS-only / Both / Neither  (loans + UPB), per GSE + agency, per month
   lender    : VS-scored loans by seller, per month (per-GSE split)
   product   : VS penetration by loan-term bucket, per month
+  vintage   : VS penetration by ORIGINATION cohort (First Payment Date), pooled
+              across every issuance file — the leading-edge run-rate view
 
 Every figure is loan-level (each loan counted once), so all views reconcile.
+
+Why vintage matters: the issuance-month series blends loans that closed over a
+~3-month window, so it lags the true run-rate badly during a ramp. A loan's
+First Payment Date is ~2 months after it closed, and
+
+    Loan Age = issuance_month - first_payment_month + 1
+
+so each issuance file carries cohorts at age -1 (newest), 0, +1, ... A cohort is
+only materially complete once the issuance file for cohort+1 has landed; later
+cohorts are partial and flagged as such.
+
 Run directly or via refresh.py.
 """
 import json, os, glob, re
@@ -33,6 +46,44 @@ def discover_months():
             months.add(m.group(1))
     return sorted(months)
 
+def discover_intraday(final_months):
+    """Mid-month loan-level snapshots -> {issuer: {ym: [paths]}}.
+
+    Fannie/Freddie publish intraday cuts (FNM_ILLD_YYYYMMDD_N.txt) during the
+    month. They give a month-to-date read weeks before the month-end file. A
+    month that already has its final file is skipped -- the final file is a
+    superset. Loans are deduped on Loan Identifier when a month has several
+    snapshots, so this is correct whether the cuts are cumulative or daily
+    increments.
+    """
+    found = {'FNM': defaultdict(list), 'FRE': defaultdict(list)}
+    for iss in ('FNM', 'FRE'):
+        for p in sorted(glob.glob(os.path.join(DATA, f"{iss}_ILLD_*.txt"))):
+            m = re.search(rf'{iss}_ILLD_(\d{{4}})(\d{{2}})(\d{{2}})(?:_(\d+))?\.txt$',
+                          os.path.basename(p))
+            if not m:
+                continue
+            ym = m.group(1) + m.group(2)
+            if ym in final_months:
+                continue
+            found[iss][ym].append(p)
+    return found
+
+def madd(ym, k):
+    """'202606' + k months -> 'YYYYMM'."""
+    n = int(ym[:4]) * 12 + int(ym[4:6]) - 1 + k
+    return f"{n // 12:04d}{n % 12 + 1:02d}"
+
+def cohort_key(fpd):
+    """First Payment Date 'MMYYYY' -> 'YYYYMM' (sortable). '' if unparseable."""
+    fpd = (fpd or '').strip()
+    if len(fpd) != 6 or not fpd.isdigit():
+        return ''
+    mm, yyyy = fpd[:2], fpd[2:]
+    if not ('01' <= mm <= '12') or not ('1990' <= yyyy <= '2099'):
+        return ''
+    return yyyy + mm
+
 def bucket(t):
     try: t = float(t)
     except (TypeError, ValueError): return 'other'
@@ -43,21 +94,42 @@ def bucket(t):
     return 'other'
 
 def scan(issuer, ym):
-    path = os.path.join(DATA, f"{issuer}_ILLD_{ym}.txt")
-    with open(path, encoding='utf-8', errors='replace') as f:
+    return scan_paths([os.path.join(DATA, f"{issuer}_ILLD_{ym}.txt")])
+
+def scan_paths(paths):
+    """Accumulate one issuer-month across one or more loan-level files.
+
+    Several files only happens for intraday snapshots, where a loan can repeat
+    across cuts, so Loan Identifier is deduped when there is more than one file.
+    """
+    dedup = len(paths) > 1
+    seen = set()
+    tot_l = 0; tot_u = 0.0; fico_wsum = 0.0; fico_wden = 0.0
+    ct = {k: [0, 0.0] for k in ('fico_only', 'vs_only', 'both', 'neither')}
+    prod = defaultdict(lambda: [0.0, 0.0, 0, 0])   # upb, vs_upb, loans, vs_loans
+    vs_secs = set(); all_secs = set()
+    sell = defaultdict(lambda: [0, 0.0, 0, 0.0])   # loans, upb, vs_loans, vs_upb
+    vint = defaultdict(lambda: [0, 0, 0.0, 0.0])         # cohort -> loans, vs_loans, upb, vs_upb
+    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0]))  # cohort -> seller -> loans, vs_loans
+    for path in paths:
+      with open(path, encoding='utf-8', errors='replace') as f:
         h = f.readline().rstrip('\n').split('|'); ix = {n: i for i, n in enumerate(h)}
+        # An intraday cut with no new loans is published as a bare date stamp
+        # ('08032026') -- no header, no rows. Nothing to scan.
+        if len(h) < 2:
+            continue
         iF, iV = ix['Classic FICO'], ix['VS4']
         iFo, iVo = ix['Origination Classic FICO'], ix['Origination VS4']
         iU, iS, iT, iSec = (ix['Issuance Investor Loan UPB'], ix['Seller Name'],
                             ix['Loan Term'], ix['Security Identifier'])
-        tot_l = 0; tot_u = 0.0; fico_wsum = 0.0; fico_wden = 0.0
-        ct = {k: [0, 0.0] for k in ('fico_only', 'vs_only', 'both', 'neither')}
-        prod = defaultdict(lambda: [0.0, 0.0, 0, 0])   # upb, vs_upb, loans, vs_loans
-        vs_secs = set(); all_secs = set()
-        sell = defaultdict(lambda: [0, 0.0, 0, 0.0])   # loans, upb, vs_loans, vs_upb
+        iFP, iID = ix['First Payment Date'], ix['Loan Identifier']
         for line in f:
             p = line.rstrip('\n').split('|')
             if len(p) <= iS: continue
+            if dedup:
+                lid = p[iID]
+                if lid in seen: continue
+                seen.add(lid)
             try: u = float(p[iU])
             except ValueError: u = 0.0
             fico = p[iF].strip()
@@ -72,12 +144,19 @@ def scan(issuer, ym):
                 except ValueError: pass
             b = prod[bucket(p[iT])]; b[0] += u; b[2] += 1
             s = p[iS].strip() or '(blank)'; d = sell[s]; d[0] += 1; d[1] += u
+            ck = cohort_key(p[iFP])
+            if ck:
+                v = vint[ck]; v[0] += 1; v[2] += u
+                vsl = vint_sell[ck][s]; vsl[0] += 1
             if hv:
                 vs_secs.add(p[iSec]); b[1] += u; b[3] += 1; d[2] += 1; d[3] += u
+                if ck:
+                    v[1] += 1; v[3] += u; vsl[1] += 1
     return {'tot_l': tot_l, 'tot_u': tot_u,
             'wa_fico': round(fico_wsum / fico_wden, 1) if fico_wden else None,
             'ct': ct, 'prod': {k: list(v) for k, v in prod.items()},
-            'n_vs_pools': len(vs_secs), 'n_pools': len(all_secs), 'sell': sell}
+            'n_vs_pools': len(vs_secs), 'n_pools': len(all_secs), 'sell': sell,
+            'vint': vint, 'vint_sell': vint_sell}
 
 def pct(a, b): return round(a / b * 100, 4) if b else 0.0
 
@@ -87,8 +166,20 @@ def build():
         raise SystemExit(f"No paired FNM/FRE loan-level files found in {DATA}")
     TOP_N = 12   # top lenders (by volume) kept per month for the "top lenders" chart
     series = []; crosstab = {}; lenders = {}; product = {}; combined = {}
+    # origination-cohort accumulators, pooled across every issuance file.
+    # A loan appears in exactly one issuance file, so summing is safe (no dedup).
+    vint = defaultdict(lambda: [0, 0, 0.0, 0.0])
+    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0]))
     for ym in months:
         fn = scan('FNM', ym); fr = scan('FRE', ym)
+        for src in (fn, fr):
+            for ck, v in src['vint'].items():
+                a = vint[ck]
+                for i in range(4):
+                    a[i] += v[i]
+            for ck, sm in src['vint_sell'].items():
+                for s, v in sm.items():
+                    a = vint_sell[ck][s]; a[0] += v[0]; a[1] += v[1]
         def pack(m):
             vl = m['ct']['vs_only'][0]; vu = m['ct']['vs_only'][1]
             return [round(m['tot_u']), m['tot_l'], m['wa_fico'], round(vu),
@@ -124,6 +215,52 @@ def build():
             upb = a[0] + b[0]; vsu = a[1] + b[1]
             pm[k] = {'upb': round(upb), 'vs_upb': round(vsu), 'pct': pct(vsu, upb), 'vs_loans': a[3] + b[3]}
         product[ym] = pm
+    # ---- intraday (month-to-date) snapshots ----
+    # These only feed the cohort view and a provisional MTD headline; they never
+    # enter `series`, which must stay a clean month-end apples-to-apples series.
+    intra = discover_intraday(set(months))
+    intra_months = sorted(set(intra['FNM']) | set(intra['FRE']))
+    mtd = None
+    for ym in intra_months:
+        parts = {}
+        for iss in ('FNM', 'FRE'):
+            if intra[iss].get(ym):
+                parts[iss] = scan_paths(sorted(intra[iss][ym]))
+        for src in parts.values():
+            for ck, v in src['vint'].items():
+                a = vint[ck]
+                for i in range(4):
+                    a[i] += v[i]
+            for ck, sm in src['vint_sell'].items():
+                for s, v in sm.items():
+                    a = vint_sell[ck][s]; a[0] += v[0]; a[1] += v[1]
+        if ym == intra_months[-1]:
+            tl = sum(p['tot_l'] for p in parts.values())
+            tu = sum(p['tot_u'] for p in parts.values())
+            vl = sum(p['ct']['vs_only'][0] for p in parts.values())
+            vu = sum(p['ct']['vs_only'][1] for p in parts.values())
+            # per-seller MTD, same shape as the month-end lender rows
+            msell = defaultdict(lambda: [0, 0.0, 0, 0.0, 0, 0])   # loans, upb, vs, vs_upb, fn_vs, fre_vs
+            for iss, p in parts.items():
+                for s, d in p['sell'].items():
+                    a = msell[s]
+                    a[0] += d[0]; a[1] += d[1]; a[2] += d[2]; a[3] += d[3]
+                    a[4 if iss == 'FNM' else 5] += d[2]
+            keep = (set(sorted(msell, key=lambda s: -msell[s][0])[:TOP_N])
+                    | {s for s in msell if msell[s][2] > 0})
+            mtd = {'month': ym, 'short': month_label(ym),
+                   'issuers': sorted(parts), 'files': sum(len(intra[i].get(ym, [])) for i in parts),
+                   'partial_issuers': sorted(set(('FNM', 'FRE')) - set(parts)),
+                   'loans': tl, 'upb': round(tu), 'vs_loans': vl, 'vs_upb': round(vu),
+                   'pct': pct(vl, tl), 'upb_pct': pct(vu, tu),
+                   'lenders': [{'name': s, 'loans': msell[s][0], 'upb': round(msell[s][1]),
+                                'vs_loans': msell[s][2], 'vs_upb': round(msell[s][3]),
+                                'fn_vs': msell[s][4], 'fre_vs': msell[s][5],
+                                'rate': pct(msell[s][2], msell[s][0]),
+                                'upb_rate': pct(msell[s][3], msell[s][1])}
+                               for s in sorted(keep, key=lambda s: -msell[s][0])]}
+    intra_sellers = {s for ck in vint_sell for s, v in vint_sell[ck].items() if v[1] > 0}
+
     # per-lender time series for every seller that ever delivered VS (for the over-time chart + hover)
     ever_vs = {s for ym in months for s in combined[ym] if combined[ym][s][2] > 0}
     lender_series = []
@@ -134,8 +271,38 @@ def build():
             'rate':  [pct(combined[ym].get(s, [0,0,0,0,0,0])[2], combined[ym].get(s, [1,0,0,0,0,0])[0]) for ym in months],
             'loans': [combined[ym].get(s, [0,0,0,0,0,0])[0] for ym in months],
             'upb':   [round(combined[ym].get(s, [0,0,0,0,0,0])[1]) for ym in months]})
+    # ---- origination-vintage view ----
+    # Loan Age = issuance_month - cohort + 1, so cohort C is fed by issuance month
+    # C-2 (age -1, the newest loans), C-1 (age 0) and C (age 1) -- that's the bulk;
+    # ages 2+ are a ~5% tail that trickles in later. With issuance months [I0..I1]
+    # on hand, C has all three bulk months only when C-2 >= I0 and C <= I1.
+    # Intraday months extend the cohort range but never count toward completeness.
+    I0, I1 = months[0], months[-1]
+    last_any = max([I1] + intra_months)
+    lo, hi = I0, madd(last_any, 2)             # cohorts worth showing
+    cfull_lo, cfull_hi = madd(I0, 2), I1
+    cohorts = [c for c in sorted(vint) if lo <= c <= hi]
+    vintage = []
+    for c in cohorts:
+        n, v, u, vu = vint[c]
+        vintage.append({'cohort': c, 'short': month_label(c),
+                        'loans': n, 'vs_loans': v, 'upb': round(u), 'vs_upb': round(vu),
+                        'pct': pct(v, n), 'upb_pct': pct(vu, u),
+                        'complete': cfull_lo <= c <= cfull_hi})
+    # per-lender cohort series, for every seller that ever delivered VS
+    vintage_lender = []
+    for s in sorted(ever_vs | intra_sellers,
+                    key=lambda s: -sum(vint_sell[c].get(s, [0, 0])[1] for c in cohorts)):
+        vintage_lender.append({
+            'name': s,
+            'loans': [vint_sell[c].get(s, [0, 0])[0] for c in cohorts],
+            'vs':    [vint_sell[c].get(s, [0, 0])[1] for c in cohorts],
+            'rate':  [pct(vint_sell[c].get(s, [0, 0])[1],
+                          vint_sell[c].get(s, [0, 0])[0]) for c in cohorts]})
     out = {'series': series, 'crosstab': crosstab, 'lenders': lenders,
-           'lender_series': lender_series, 'product': product, 'months': months}
+           'lender_series': lender_series, 'product': product, 'months': months,
+           'vintage': vintage, 'vintage_lender': vintage_lender,
+           'vintage_complete_through': cfull_hi, 'mtd': mtd}
     json.dump(out, open(OUT, 'w'), indent=1)
     return out
 

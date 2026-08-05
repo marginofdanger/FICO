@@ -83,9 +83,11 @@
   tbody tr.hot td:first-child{background:var(--accent-soft)}
   td .z{color:var(--muted)}
   .grpsep{border-left:1px solid var(--border)}
-  .notes{margin-top:26px;font-size:.8rem;color:var(--muted);line-height:1.7}
+  .notes{margin-top:26px;font-size:.82rem;color:var(--muted);line-height:1.75;max-width:46rem}
   .notes b{color:var(--ink-2);font-weight:600}
   .notes ol{margin:.4rem 0 0;padding-left:1.2rem}
+  .notes li+li{margin-top:.5rem}
+  .notes-h{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:650;margin-bottom:10px}
   .pill{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--ink-2);font-weight:600}
   .xt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.9rem}
   .xt th,.xt td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
@@ -115,7 +117,8 @@
       <div class="metaline">
         <span>Source: <b>Fannie + Freddie loan-level disclosure</b> (mbs-securities.com)</span>
         <span>Scope: <b>single-class SF, loan-level</b> (each loan once)</span>
-        <span>Through: <b>June 2026</b></span>
+        <span>Through: <b>July 2026</b></span>
+        <span>Next update: <b>~Aug&nbsp;3, 2026</b> (July issuance)</span>
       </div>
     </div>
     <button class="toggle" id="themeBtn" aria-label="Toggle color theme"><span id="themeIcon">&#9680;</span><span id="themeTxt">Theme</span></button>
@@ -123,21 +126,7 @@
 
   <div class="callout">
     <span aria-hidden="true">&#9650;</span>
-    <div><b>Freddie Mac moved first and stays ahead.</b> Total agency VantageScore penetration is <b>zero through March 2026</b>, then Freddie posts the first loans in <b>April</b> (Fannie follows in May), reaching <b>0.84% of combined UPB</b> in June ($559M, 1,336 loans, 423 pools). Freddie 0.89% vs Fannie 0.80%. Real, but still a sliver &mdash; and delivered <b>100% standalone</b>: no loan carries both a FICO and a VantageScore.</div>
-  </div>
-
-  <div class="notes" style="margin-top:18px">
-    
-    <b>Sources &amp; method.</b>
-    <ol>
-      <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jun 2026. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
-      <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
-      <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
-    </ol>
-    <p style="margin-top:12px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through June. FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
-    <p style="margin-top:14px;padding:12px 15px;background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:9px"><b>Important &mdash; the score shown is the lender's <i>choice</i>, not the only score pulled.</b> The GSEs still require a three-bureau <b>tri-merge</b> credit report, so a VantageScore-delivered loan almost always <i>also</i> had FICO scores pulled at underwriting. Under lender choice, the originator sees both models and <b>submits whichever it selects</b> as the qualifying score (frequently the one giving better eligibility or pricing). So "VantageScore-only" here means the model the lender chose to <i>deliver</i> to Fannie/Freddie &mdash; not that the borrower has no FICO.</p>
-    <p class="muted" style="margin-top:12px">Not investment advice. Data is public GSE disclosure; all percentages and aggregations are our own calculations.</p>
-  <hr class="sep" style="margin:20px 0 0">
+    <div><b>July is the break-out &mdash; and Fannie has taken the lead.</b> Total agency VantageScore penetration is <b>zero through March 2026</b>, then Freddie posts the first loans in <b>April</b> (Fannie follows in May). June reached 0.84% of combined UPB; July <b>more than quintuples that to 4.55%</b> ($2.72B, 7,400 loans, 1,134 pools). Fannie 4.73% vs Freddie 4.38% &mdash; Freddie moved first, but Fannie overtook it in July. Still delivered <b>100% standalone</b>: no loan carries both a FICO and a VantageScore.</div>
   </div>
 
   <div class="segwrap">
@@ -210,7 +199,7 @@
   <div class="card block">
     <div class="head"><h2>Top 10 agency lenders &mdash; VantageScore penetration</h2>
       <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div>
-    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is narrow &mdash; only <b style="color:var(--ink)">UWM</b> (and, from June, Rocket) runs it at any scale; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
+    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is still narrow but no longer a single name &mdash; in July <b style="color:var(--ink)">UWM</b> (19.8% of its own book) and <b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a distant third; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
     <div class="chartbox" id="c_lender"></div>
   </div>
 
@@ -221,8 +210,27 @@
         <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Rocket</span>
         <span class="it"><span class="swatch" style="background:var(--accent-3)"></span>NewRez</span>
       </div></div>
-    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book), Rocket joined only in June.</div>
+    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book) and reached ~20% in July; Rocket joined in June and jumped from 1% to 17% in a single month.</div>
     <div class="chartbox" id="c_lom"></div>
+  </div>
+
+  <div class="card block" id="mtdCard" style="display:none">
+    <div class="head"><h2 id="mtdTitle">Month to date</h2><span class="pill" id="mtdPill">provisional</span></div>
+    <div class="desc" id="mtdDesc"></div>
+    <div class="tablewrap"><table id="mtdTbl">
+      <thead><tr><th>Originator</th><th class="grpsep">Loans</th><th>VS4 loans</th>
+        <th>VS4 % of own book</th><th>VS4 % of UPB</th><th>Fannie / Freddie</th></tr></thead>
+      <tbody></tbody></table></div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2>Adoption by origination vintage</h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="legend" id="vintLeg"></div>
+        <select id="vintSel" class="msel" aria-label="Choose vintage series"></select>
+      </div></div>
+    <div class="desc" id="vintDesc"></div>
+    <div class="chartbox" id="c_vint"></div>
   </div>
 
   <section class="block">
@@ -241,6 +249,19 @@
     </div>
   </section>
 
+  <hr class="sep" style="margin:32px 0 0">
+  <div class="notes">
+    <div class="notes-h">Sources &amp; method</div>
+    <ol>
+      <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jul 2026. <b>Release timing:</b> both GSEs post each month-end loan-level file on the <b>first business day of the following month</b> (rolling to the next business day when that falls on a weekend or holiday) &mdash; July issuance posted Aug&nbsp;3,&nbsp;2026, so the next update (August issuance) is expected <b>~Sep&nbsp;1,&nbsp;2026</b>. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
+      <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
+      <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
+      <li><b>Issuance month vs origination vintage &mdash; why the headline lags.</b> A loan is securitized one to three months <i>after</i> it closes, so any single issuance month blends several origination vintages. During a ramp that materially understates the current run-rate. The <b>Adoption by origination vintage</b> chart re-cuts the same loans by <b>First Payment Date</b> (which falls ~2 months after closing), pooling every issuance file we hold; because each loan appears in exactly one issuance file, the cohorts sum without double-counting. Using <span class="pill">Loan&nbsp;Age = issuance&nbsp;month &minus; cohort + 1</span>, a cohort is fed by issuance months cohort&minus;2 (age&nbsp;&minus;1), cohort&minus;1 and cohort; a bar is marked <b>solid</b> only once all three are on hand. <b>Hatched (partial)</b> bars are the fastest-securitized slice of a cohort and should be read as an <i>upper bound</i> &mdash; treat the level with care, though the direction of travel is reliable. A ~5% tail at ages&nbsp;2+ can still trickle into otherwise-complete cohorts.</li>
+    </ol>
+    <p style="margin-top:14px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through July (5 loans, 0.09% of its book). FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
+    <p style="margin-top:14px;padding:12px 15px;background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:9px"><b>Important &mdash; the score shown is the lender's <i>choice</i>, not the only score pulled.</b> The GSEs still require a three-bureau <b>tri-merge</b> credit report, so a VantageScore-delivered loan almost always <i>also</i> had FICO scores pulled at underwriting. Under lender choice, the originator sees both models and <b>submits whichever it selects</b> as the qualifying score (frequently the one giving better eligibility or pricing). So "VantageScore-only" here means the model the lender chose to <i>deliver</i> to Fannie/Freddie &mdash; not that the borrower has no FICO.</p>
+    <p class="muted" style="margin-top:14px">Not investment advice. Data is public GSE disclosure; all percentages and aggregations are our own calculations.</p>
+  </div>
 
  </div>
 </div>
@@ -249,6 +270,11 @@
 //__DATA__
 const IDX={upb:0,loans:1,fico:2,vsupb:3,vsupbpct:4,vsloans:5,vsloanpct:6,pools:7,totpools:8};
 const XL=M.map(d=>d.l), MM=M.map(d=>d.m);
+const LAST=M.length-1, PREV=Math.max(0,LAST-1);
+// month name of the latest / previous data month, for KPI labels
+const MON=i=>M[i].l.split(" ")[0];
+// x-index of the Apr 22 2026 interim-phase opening, for the chart annotation
+const ANN=M.findIndex(d=>d.m==="2026-04");
 const VIEWNAME={t:"Total agency",f:"Fannie Mae",r:"Freddie Mac"};
 
 const NS="http://www.w3.org/2000/svg";
@@ -260,6 +286,12 @@ const pctf=(n,d=2)=>n.toFixed(d)+"%";
 function mkTip(box){const t=document.createElement("div");t.className="tt";box.appendChild(t);return t;}
 function place(t,box,x,y){const bw=box.clientWidth,tw=t.offsetWidth;let L=x+14;if(L+tw>bw)L=x-tw-14;if(L<0)L=4;t.style.left=L+"px";t.style.top=Math.max(4,y-10)+"px";}
 function nice(x){const p=Math.pow(10,Math.floor(Math.log10(x)));const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=5)m=5;else m=10;return m*p;}
+// pick 4 or 5 intervals -- whichever yields the fewer decimal places on the labels
+function ticksFor(yMax){
+  const dec=s=>{const t=(Math.round(s*1e6)/1e6).toString();const i=t.indexOf(".");return i<0?0:t.length-i-1;};
+  const best=[4,5].map(k=>({k,d:dec(yMax/k)})).sort((a,b)=>a.d-b.d||a.k-b.k)[0];
+  return Array.from({length:best.k+1},(_,i)=>yMax*i/best.k);
+}
 
 /* ---- generic multi-line ---- */
 function lineChart(box,{series,yMax,yTicks,yFmt,vFmt,annIdx,annText,endLab,tipFmt}){
@@ -407,34 +439,130 @@ function lenderOverTime(){
     lab:ab[s.name]||s.name.split(" ")[0],dy:i===2?13:-3}));
   const mxr=Math.max(...series.flatMap(s=>s.vals),0);const yMax=Math.max(8,Math.ceil(mxr)+1);
   lineChart($("c_lom"),{series,yMax,yTicks:[0,yMax/4,yMax/2,yMax*3/4].map(v=>Math.round(v)),
-    yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
+    yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
     tipFmt:(s,i)=>`${s.vals[i].toFixed(2)}% \u00b7 ${commas(s.loans[i])} loans \u00b7 ${money(s.upb[i])}`});
+}
+
+/* ---- month-to-date (intraday cuts) ----
+   Provisional: built from mid-month intraday files, which are excluded from the
+   month-end series above. Hidden entirely when no intraday files are loaded. */
+function mtdPanel(){
+  if(!MTD) return;
+  const c=$("mtdCard");c.style.display="";
+  const half=MTD.partial_issuers.length?` <b>${MTD.issuers.join(" only")}</b>`:"";
+  $("mtdTitle").textContent=`${MTD.short} month to date`;
+  $("mtdPill").textContent=MTD.partial_issuers.length?MTD.issuers.join("+")+" only":"provisional";
+  const prev=M[LAST].t;
+  $("mtdDesc").innerHTML=
+    `Built from <b>${MTD.files}</b> intraday cut${MTD.files===1?"":"s"}${half}, deduped on Loan Identifier. `+
+    `<b>${commas(MTD.vs_loans)}</b> VS4 loans of <b>${commas(MTD.loans)}</b> `+
+    `(<b style="color:var(--ink)">${MTD.pct.toFixed(2)}%</b> of loans, ${MTD.upb_pct.toFixed(2)}% of UPB), `+
+    `against ${prev[IDX.vsloanpct].toFixed(2)}% for ${M[LAST].l} month-end. `+
+    (MTD.partial_issuers.length
+      ? `<b>Not comparable to the agency totals above</b> &mdash; ${MTD.partial_issuers.join(" and ")} `+
+        `intraday files are not loaded, so this covers one GSE only. `
+      : ``)+
+    `These files are excluded from the month-end series and table on purpose; the month-end file supersedes them.`;
+  const rows=MTD.lenders.filter(r=>r.vs_loans>0||r.loans>=1500).slice(0,14);
+  $("mtdTbl").querySelector("tbody").innerHTML=rows.map(r=>
+    `<tr class="${r.vs_loans?'hot':''}"><td>${r.name}</td>`+
+    `<td class="grpsep">${commas(r.loans)}</td>`+
+    `<td>${r.vs_loans?commas(r.vs_loans):'<span class="z">0</span>'}</td>`+
+    `<td>${r.rate?pctf(r.rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td>${r.upb_rate?pctf(r.upb_rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td class="muted">${commas(r.fn_vs)} / ${commas(r.fre_vs)}</td></tr>`).join("");
+}
+
+/* ---- adoption by origination vintage ----
+   Bars are VS% of each origination cohort (First Payment Date, ~2 months after
+   the loan closed). Hatched bars are cohorts we don't yet hold every issuance
+   file for, so they can still move. This is the leading-edge run-rate: it is
+   always well ahead of the issuance-month blend during a ramp. */
+function vintChart(){
+  const box=$("c_vint");box.innerHTML="";
+  const who=$("vintSel").value;
+  const src=who==="agency"?null:VINTL.find(s=>s.name===who);
+  const rate=src?src.rate:VINT.map(v=>v.p);
+  const loans=src?src.loans:VINT.map(v=>v.n);
+  const vs=src?src.vs:VINT.map(v=>v.v);
+  const n=VINT.length;
+  const W=760,H=330,pl=48,pr=18,pt=26,pb=46,plotW=W-pl-pr,plotH=H-pt-pb;
+  const yMax=nice(Math.max(...rate,1));
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  const defs=el("defs");defs.innerHTML=
+    '<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'+
+    '<rect width="6" height="6" fill="var(--accent)" opacity=".28"/>'+
+    '<line x1="0" y1="0" x2="0" y2="6" stroke="var(--accent)" stroke-width="3"/></pattern>';
+  svg.appendChild(defs);
+  const Y=v=>pt+(1-v/yMax)*plotH;
+  const vt=ticksFor(yMax), vdec=Math.max(...vt.map(t=>{const s=(Math.round(t*1e6)/1e6).toString();const i=s.indexOf(".");return i<0?0:s.length-i-1;}));
+  vt.forEach(tk=>{const y=Y(tk);
+    svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===0?"axis-l":"grid-l"}));
+    const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk.toFixed(vdec)+"%";svg.appendChild(tx);});
+  const bw=plotW/n*0.62,tip=mkTip(box);
+  VINT.forEach((v,i)=>{
+    const cx=pl+(i+0.5)*plotW/n, r=rate[i], h=Math.max(r/yMax*plotH,r>0?1.5:0);
+    svg.appendChild(el("rect",{x:cx-bw/2,y:pt+plotH-h,width:bw,height:h,rx:2,
+      fill:v.c?"var(--accent)":"url(#hatch)"}));
+    const tx=el("text",{x:cx,y:H-pb+18,"text-anchor":"middle"});tx.textContent=v.l.split(" ")[0];svg.appendChild(tx);
+    if(!v.c){const p=el("text",{x:cx,y:H-pb+31,"text-anchor":"middle"});p.textContent="partial";
+      p.setAttribute("fill","var(--muted)");p.style.fontSize="8.5px";svg.appendChild(p);}
+    if(r>=0.005){const vl=el("text",{x:cx,y:pt+plotH-h-6,"text-anchor":"middle",class:"dlabel"});
+      vl.textContent=r<1?r.toFixed(2)+"%":r.toFixed(1)+"%";svg.appendChild(vl);}
+    const hit=el("rect",{x:pl+i*plotW/n,y:pt,width:plotW/n,height:plotH,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const rc=svg.getBoundingClientRect();
+      tip.innerHTML=`<div class="tm">${v.l} originations${v.c?"":" &middot; partial"}</div>`+
+        `<div class="row"><span class="k">VS share</span><span>${r.toFixed(2)}%</span></div>`+
+        `<div class="row"><span class="k">VS loans</span><span>${commas(vs[i])} of ${commas(loans[i])}</span></div>`;
+      tip.style.opacity=1;place(tip,box,(e.clientX-rc.left),40);});
+    hit.addEventListener("mouseleave",()=>tip.style.opacity=0);
+    svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+  const edge=VINT[n-1];
+  // the contrast that matters: leading-edge cohort vs the headline issuance-month blend
+  const blend=who==="agency"?M[LAST].t[IDX.vsloanpct]
+    :(LSER.find(s=>s.name===who)||{rate:[]}).rate[LAST];
+  $("vintDesc").innerHTML=
+    `Share of each <b>origination</b> cohort carrying a VantageScore 4.0, for `+
+    `${who==="agency"?"all agency issuance":"<b style='color:var(--ink)'>"+who+"</b>"}. `+
+    `Cohorts are keyed off First Payment Date, which lands ~2 months after the loan closes. `+
+    `A loan is securitized 1&ndash;3 months after closing, so the issuance-month series above `+
+    `blends several vintages and lags the true run-rate: the newest cohort here `+
+    `(<b>${edge.l}</b>) is at <b style="color:var(--ink)">${rate[n-1].toFixed(2)}%</b>`+
+    (blend!=null?`, against <b>${blend.toFixed(2)}%</b> for ${M[LAST].l} issuance &mdash; `+
+      `about <b>${blend>0.005?(rate[n-1]/blend).toFixed(1)+"&times;":"far"}</b> the headline number`:"")+
+    `. Hatched bars are cohorts we don't yet hold every issuance file for; they are `+
+    `the fastest-securitized slice, so treat the level as an upper bound until the `+
+    `remaining files land.`;
 }
 
 /* ---- table ---- */
 function cell(a,i){const upb=money(a[IDX.upb]);const p=a[IDX.vsupbpct],l=a[IDX.vsloans];
   return `<td class="grpsep">${upb}</td><td>${p?pctf(p,3):'<span class="z">0.000%</span>'}</td><td>${l?commas(l):'<span class="z">0</span>'}</td>`;}
-$("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===6?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
+$("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===LAST?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
 
 /* ---- view-dependent (KPIs + hero) ---- */
 let view="t";
 function renderView(){
-  const cur=M[6][view], prev=M[5][view];
+  const cur=M[LAST][view], prev=M[PREV][view], mc=MON(LAST), mp=MON(PREV);
   $("heroTitle").textContent=`VantageScore 4.0 penetration \u2014 ${VIEWNAME[view]}`;
   const kp=[
-    {lab:`VS % of UPB (Jun)`,val:pctf(cur[IDX.vsupbpct],2),sub:prev[IDX.vsupbpct]?`<span class="up">\u25b2</span> from ${pctf(prev[IDX.vsupbpct],3)} in May`:`first month with VS`},
-    {lab:`VS-scored balance (Jun)`,val:money(cur[IDX.vsupb]),sub:`up from ${money(prev[IDX.vsupb])} in May`},
-    {lab:`VS-scored loans (Jun)`,val:commas(cur[IDX.vsloans]),sub:`of ${commas(cur[IDX.loans])} loans issued`},
-    {lab:`Pools with VS (Jun)`,val:commas(cur[IDX.pools]),sub:`of ${commas(cur[IDX.totpools])} total pools`},
+    {lab:`VS % of UPB (${mc})`,val:pctf(cur[IDX.vsupbpct],2),sub:prev[IDX.vsupbpct]?`<span class="up">\u25b2</span> from ${pctf(prev[IDX.vsupbpct],3)} in ${mp}`:`first month with VS`},
+    {lab:`VS-scored balance (${mc})`,val:money(cur[IDX.vsupb]),sub:`up from ${money(prev[IDX.vsupb])} in ${mp}`},
+    {lab:`VS-scored loans (${mc})`,val:commas(cur[IDX.vsloans]),sub:`of ${commas(cur[IDX.loans])} loans issued`},
+    {lab:`Pools with VS (${mc})`,val:commas(cur[IDX.pools]),sub:`of ${commas(cur[IDX.totpools])} total pools`},
     {lab:`WA Classic FICO`,val:cur[IDX.fico].toFixed(0),sub:`unchanged as VS ramps`}
   ];
   $("kpis").innerHTML=kp.map(k=>`<div class="kpi"><div class="lab">${k.lab}</div><div class="val">${k.val}</div><div class="sub">${k.sub}</div></div>`).join("");
   $("segHint").textContent=view==="t"?"Showing combined Fannie + Freddie. Switch to view one GSE.":`Showing ${VIEWNAME[view]} only. KPIs and the chart above update.`;
+  const hs=[{vals:M.map(d=>d[view][IDX.vsupbpct]),color:"var(--accent)",lab:"UPB",dy:-2},
+            {vals:M.map(d=>d[view][IDX.vsloanpct]),color:"var(--accent-2)",lab:"Loans",dy:12}];
+  const hMax=nice(Math.max(...hs.flatMap(s=>s.vals),0.5));
   lineChart($("c_hero"),{
-    series:[{vals:M.map(d=>d[view][IDX.vsupbpct]),color:"var(--accent)",lab:"UPB",dy:-2},
-            {vals:M.map(d=>d[view][IDX.vsloanpct]),color:"var(--accent-2)",lab:"Loans",dy:12}],
-    yMax:1.0,yTicks:[0,0.25,0.5,0.75,1.0],yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
-    annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
+    series:hs,yMax:hMax,yTicks:[0,.25,.5,.75,1].map(f=>hMax*f),
+    yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
+    annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
   crossTable();
 }
 
@@ -447,13 +575,19 @@ function renderStatic(){
   prodChart($("c_prod"));
   lenderChart();
   lenderOverTime();
+  vintChart();
+  mtdPanel();
 }
 function ficoChart(){
   const box=$("c_fico");box.innerHTML="";
-  const W=380,H=300,pl=40,pr=58,pt=22,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length,lo=745,hi=768;
+  const W=380,H=300,pl=40,pr=58,pt=22,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
+  // axis follows the data (5-pt steps) so a drifting WA FICO can never clip
+  const fv=M.flatMap(d=>[d.f[IDX.fico],d.r[IDX.fico]]);
+  const lo=Math.floor(Math.min(...fv)/5)*5-5, hi=Math.ceil(Math.max(...fv)/5)*5+5;
   const X=i=>pl+i*(plotW/(n-1)),Y=v=>pt+(1-(v-lo)/(hi-lo))*plotH;
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
-  [745,750,755,760,765].forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===745?"axis-l":"grid-l"}));
+  const fTicks=[];for(let t=lo;t<=hi;t+=5)fTicks.push(t);
+  fTicks.forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===lo?"axis-l":"grid-l"}));
     const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk;svg.appendChild(tx);});
   XL.forEach((lb,i)=>{if(i%2===0||i===n-1){const tx=el("text",{x:X(i),y:H-pb+18,"text-anchor":"middle"});tx.textContent=lb.slice(0,3);svg.appendChild(tx);}});
   [["f","var(--accent)","Fan"],["r","var(--accent-2)","Fre"]].forEach(([k,c,nm],si)=>{
@@ -492,6 +626,15 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
   ls.addEventListener("change",lenderChart);
   const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=rev[0].ym;
   ps.addEventListener("change",()=>prodChart($("c_prod")));
+  // vintage: agency plus every seller that has ever delivered a VS loan
+  const vsel=$("vintSel");
+  vsel.innerHTML=`<option value="agency">All agency</option>`+
+    VINTL.map(s=>`<option value="${s.name}">${s.name}</option>`).join("");
+  vsel.value="agency";
+  vsel.addEventListener("change",vintChart);
+  $("vintLeg").innerHTML=
+    `<span class="it"><span class="swatch" style="background:var(--accent)"></span>complete</span>`+
+    `<span class="it"><span class="swatch" style="background:var(--accent);opacity:.45"></span>partial</span>`;
 })();
 
 renderStatic();renderView();

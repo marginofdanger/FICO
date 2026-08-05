@@ -1,11 +1,22 @@
-# Fetching the monthly loan-level files
+# Fetching the loan-level files
 
-Each refresh needs exactly **two files** for the new month:
+## The three file families
 
-- `FNM_ILLD_YYYYMM.zip` — Fannie Mae month-end loan-level issuance
-- `FRE_ILLD_YYYYMM.zip` — Freddie Mac month-end loan-level issuance
+| Family | Files | Cadence | What it feeds |
+|---|---|---|---|
+| **Month-end loan-level** (required) | `FNM_ILLD_YYYYMM.zip`, `FRE_ILLD_YYYYMM.zip` | monthly, 1st business day of the following month | everything — the `series`, cross-tab, lenders, product mix, and cohorts |
+| **Intraday loan-level** (optional) | `FNM_ILLD_YYYYMMDD_N.zip`, `FRE_ILLD_YYYYMMDD_N.zip` | mid-month cuts | the origination-cohort chart + a provisional month-to-date headline. **Wired up** — just drop them in `data/`. |
+| **Daily new-issue security-level** (optional) | *name TBC — enumerate from the portal* | daily at issuance | not parsed yet; would give a daily read on pools-containing-VS ahead of any loan-level file |
 
-They usually post on the **4th–6th business day** of the following month.
+Month-end files post on the **first business day** of the following month (June
+2026 issuance posted Jul 1, 2026). The intraday cuts are the reason the tracker
+can see a ramp weeks before the month-end file lands — during a fast ramp the
+cohort view moves a lot between cuts.
+
+**Do not** mix families for the same month: `master_build` ignores intraday files
+for any month that already has its month-end file, because the month-end file is
+a superset. Within a month, loans are deduped on `Loan Identifier`, so it does
+not matter whether the cuts are cumulative or incremental.
 
 ## Where they live
 
@@ -23,11 +34,22 @@ Both GSEs use the same platform (`mbs-securities.com`), and the files sit behind
 - The `REPORT_ID` **changes every month**, so grab the current one from the page. With the data-files page open and logged in, run this in the browser console (or have Claude run it):
 
 ```js
-// returns [{name, href}] for this-and-next month's loan-level files
+// Enumerate every downloadable file on the page, tagged by family.
+// Run on the Data Files and Reports listing, logged in.
 [...document.querySelectorAll('a')]
-  .map(a => ({name:a.textContent.trim(), href:a.getAttribute('href')}))
-  .filter(x => /^F(NM|RE)_ILLD_\d{6}\.zip$/.test(x.name));
+  .map(a => ({name: a.textContent.trim(), href: a.getAttribute('href')}))
+  .filter(x => /\.(zip|txt|csv)$/i.test(x.name))
+  .map(x => ({
+    ...x,
+    family: /^F(NM|RE)_ILLD_\d{6}\.zip$/.test(x.name)     ? 'month-end loan-level'
+          : /^F(NM|RE)_ILLD_\d{8}(_\d+)?\.zip$/.test(x.name) ? 'intraday loan-level'
+          : 'other'
+  }));
 ```
+
+Anything landing in `other` is worth a look — that is where the daily
+new-issue security-level files will show up, and their exact names are what the
+third family above is still missing.
 
 Then navigate the logged-in tab to `https://<host>{href}` to download. Files land in your
 Downloads folder.
@@ -45,5 +67,9 @@ local and are never published.
   The `_IS_`/`_ISS_` security files are not required.
 - Backfill: to rebuild history, download `FNM_ILLD` + `FRE_ILLD` for every month you want
   (VantageScore was zero before **April 2026**, so earlier months only set the denominator).
-- Mid-month peek: the intraday files (`FNM_ILLD_YYYYMMDD_N.zip`) aggregate to a
-  month-to-date snapshot — opt-in, more files to pull. Not wired into `refresh.py` yet.
+- Backfill also *sharpens the cohort chart*: a cohort is only marked complete once the
+  issuance files for cohort−2 … cohort are all present, so more history means more
+  solid bars and fewer hatched ones.
+- Mid-month peek: drop any `F{NM,RE}_ILLD_YYYYMMDD_N.zip` into `data/` and re-run
+  `refresh.py`. They are excluded from the month-end `series` on purpose and only
+  move the cohort chart and the month-to-date line.

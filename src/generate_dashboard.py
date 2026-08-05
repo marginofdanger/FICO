@@ -59,6 +59,32 @@ def js_data(m):
             json.dumps(short(s['name'])), json.dumps(s['vs']), json.dumps(s['rate']),
             json.dumps(s['loans']), json.dumps(s['upb'])))
     lines.append("];")
+
+    # VINT: agency VS penetration by origination cohort (First Payment Date).
+    # `c` flags a cohort with all three bulk issuance months on hand; the rest are partial.
+    lines.append("// origination-vintage view: l=label, n=loans, v=vs_loans, p=vs% of loans,"
+                 " up=vs% of UPB, c=complete cohort")
+    lines.append("const VINT=[" + ",".join(
+        '{l:%s,n:%d,v:%d,p:%s,up:%s,c:%d}' % (json.dumps(v['short']), v['loans'], v['vs_loans'],
+                                              round(v['pct'], 3), round(v['upb_pct'], 3),
+                                              int(v['complete']))
+        for v in m['vintage']) + "];")
+    # MTD: provisional month-to-date from intraday cuts. null when none are loaded.
+    d = m.get('mtd')
+    if d:
+        lines.append("const MTD=" + json.dumps({
+            'short': d['short'], 'month': d['month'], 'issuers': d['issuers'],
+            'files': d['files'], 'partial_issuers': d['partial_issuers'],
+            'loans': d['loans'], 'upb': d['upb'], 'vs_loans': d['vs_loans'],
+            'vs_upb': d['vs_upb'], 'pct': round(d['pct'], 3), 'upb_pct': round(d['upb_pct'], 3),
+            'lenders': [dict(x, name=short(x['name'])) for x in d['lenders']],
+        }, separators=(',', ':')) + ";")
+    else:
+        lines.append("const MTD=null;")
+    lines.append("const VINTL=[" + ",".join(
+        '{name:%s,rate:%s,loans:%s,vs:%s}' % (json.dumps(short(s['name'])), json.dumps(s['rate']),
+                                              json.dumps(s['loans']), json.dumps(s['vs']))
+        for s in m['vintage_lender']) + "];")
     return "\n".join(lines)
 
 def generate():

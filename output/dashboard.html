@@ -83,9 +83,11 @@
   tbody tr.hot td:first-child{background:var(--accent-soft)}
   td .z{color:var(--muted)}
   .grpsep{border-left:1px solid var(--border)}
-  .notes{margin-top:26px;font-size:.8rem;color:var(--muted);line-height:1.7}
+  .notes{margin-top:26px;font-size:.82rem;color:var(--muted);line-height:1.75;max-width:46rem}
   .notes b{color:var(--ink-2);font-weight:600}
   .notes ol{margin:.4rem 0 0;padding-left:1.2rem}
+  .notes li+li{margin-top:.5rem}
+  .notes-h{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:650;margin-bottom:10px}
   .pill{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--ink-2);font-weight:600}
   .xt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.9rem}
   .xt th,.xt td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
@@ -115,7 +117,8 @@
       <div class="metaline">
         <span>Source: <b>Fannie + Freddie loan-level disclosure</b> (mbs-securities.com)</span>
         <span>Scope: <b>single-class SF, loan-level</b> (each loan once)</span>
-        <span>Through: <b>June 2026</b></span>
+        <span>Through: <b>July 2026</b></span>
+        <span>Next update: <b>~Aug&nbsp;3, 2026</b> (July issuance)</span>
       </div>
     </div>
     <button class="toggle" id="themeBtn" aria-label="Toggle color theme"><span id="themeIcon">&#9680;</span><span id="themeTxt">Theme</span></button>
@@ -123,21 +126,7 @@
 
   <div class="callout">
     <span aria-hidden="true">&#9650;</span>
-    <div><b>Freddie Mac moved first and stays ahead.</b> Total agency VantageScore penetration is <b>zero through March 2026</b>, then Freddie posts the first loans in <b>April</b> (Fannie follows in May), reaching <b>0.84% of combined UPB</b> in June ($559M, 1,336 loans, 423 pools). Freddie 0.89% vs Fannie 0.80%. Real, but still a sliver &mdash; and delivered <b>100% standalone</b>: no loan carries both a FICO and a VantageScore.</div>
-  </div>
-
-  <div class="notes" style="margin-top:18px">
-    
-    <b>Sources &amp; method.</b>
-    <ol>
-      <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jun 2026. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
-      <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
-      <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
-    </ol>
-    <p style="margin-top:12px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through June. FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
-    <p style="margin-top:14px;padding:12px 15px;background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:9px"><b>Important &mdash; the score shown is the lender's <i>choice</i>, not the only score pulled.</b> The GSEs still require a three-bureau <b>tri-merge</b> credit report, so a VantageScore-delivered loan almost always <i>also</i> had FICO scores pulled at underwriting. Under lender choice, the originator sees both models and <b>submits whichever it selects</b> as the qualifying score (frequently the one giving better eligibility or pricing). So "VantageScore-only" here means the model the lender chose to <i>deliver</i> to Fannie/Freddie &mdash; not that the borrower has no FICO.</p>
-    <p class="muted" style="margin-top:12px">Not investment advice. Data is public GSE disclosure; all percentages and aggregations are our own calculations.</p>
-  <hr class="sep" style="margin:20px 0 0">
+    <div><b>July is the break-out &mdash; and Fannie has taken the lead.</b> Total agency VantageScore penetration is <b>zero through March 2026</b>, then Freddie posts the first loans in <b>April</b> (Fannie follows in May). June reached 0.84% of combined UPB; July <b>more than quintuples that to 4.55%</b> ($2.72B, 7,400 loans, 1,134 pools). Fannie 4.73% vs Freddie 4.38% &mdash; Freddie moved first, but Fannie overtook it in July. Still delivered <b>100% standalone</b>: no loan carries both a FICO and a VantageScore.</div>
   </div>
 
   <div class="segwrap">
@@ -210,7 +199,7 @@
   <div class="card block">
     <div class="head"><h2>Top 10 agency lenders &mdash; VantageScore penetration</h2>
       <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div>
-    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is narrow &mdash; only <b style="color:var(--ink)">UWM</b> (and, from June, Rocket) runs it at any scale; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
+    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is still narrow but no longer a single name &mdash; in July <b style="color:var(--ink)">UWM</b> (19.8% of its own book) and <b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a distant third; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
     <div class="chartbox" id="c_lender"></div>
   </div>
 
@@ -221,8 +210,27 @@
         <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Rocket</span>
         <span class="it"><span class="swatch" style="background:var(--accent-3)"></span>NewRez</span>
       </div></div>
-    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book), Rocket joined only in June.</div>
+    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book) and reached ~20% in July; Rocket joined in June and jumped from 1% to 17% in a single month.</div>
     <div class="chartbox" id="c_lom"></div>
+  </div>
+
+  <div class="card block" id="mtdCard" style="display:none">
+    <div class="head"><h2 id="mtdTitle">Month to date</h2><span class="pill" id="mtdPill">provisional</span></div>
+    <div class="desc" id="mtdDesc"></div>
+    <div class="tablewrap"><table id="mtdTbl">
+      <thead><tr><th>Originator</th><th class="grpsep">Loans</th><th>VS4 loans</th>
+        <th>VS4 % of own book</th><th>VS4 % of UPB</th><th>Fannie / Freddie</th></tr></thead>
+      <tbody></tbody></table></div>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2>Adoption by origination vintage</h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="legend" id="vintLeg"></div>
+        <select id="vintSel" class="msel" aria-label="Choose vintage series"></select>
+      </div></div>
+    <div class="desc" id="vintDesc"></div>
+    <div class="chartbox" id="c_vint"></div>
   </div>
 
   <section class="block">
@@ -241,6 +249,19 @@
     </div>
   </section>
 
+  <hr class="sep" style="margin:32px 0 0">
+  <div class="notes">
+    <div class="notes-h">Sources &amp; method</div>
+    <ol>
+      <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jul 2026. <b>Release timing:</b> both GSEs post each month-end loan-level file on the <b>first business day of the following month</b> (rolling to the next business day when that falls on a weekend or holiday) &mdash; July issuance posted Aug&nbsp;3,&nbsp;2026, so the next update (August issuance) is expected <b>~Sep&nbsp;1,&nbsp;2026</b>. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
+      <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
+      <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
+      <li><b>Issuance month vs origination vintage &mdash; why the headline lags.</b> A loan is securitized one to three months <i>after</i> it closes, so any single issuance month blends several origination vintages. During a ramp that materially understates the current run-rate. The <b>Adoption by origination vintage</b> chart re-cuts the same loans by <b>First Payment Date</b> (which falls ~2 months after closing), pooling every issuance file we hold; because each loan appears in exactly one issuance file, the cohorts sum without double-counting. Using <span class="pill">Loan&nbsp;Age = issuance&nbsp;month &minus; cohort + 1</span>, a cohort is fed by issuance months cohort&minus;2 (age&nbsp;&minus;1), cohort&minus;1 and cohort; a bar is marked <b>solid</b> only once all three are on hand. <b>Hatched (partial)</b> bars are the fastest-securitized slice of a cohort and should be read as an <i>upper bound</i> &mdash; treat the level with care, though the direction of travel is reliable. A ~5% tail at ages&nbsp;2+ can still trickle into otherwise-complete cohorts.</li>
+    </ol>
+    <p style="margin-top:14px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through July (5 loans, 0.09% of its book). FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
+    <p style="margin-top:14px;padding:12px 15px;background:var(--accent-soft);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:9px"><b>Important &mdash; the score shown is the lender's <i>choice</i>, not the only score pulled.</b> The GSEs still require a three-bureau <b>tri-merge</b> credit report, so a VantageScore-delivered loan almost always <i>also</i> had FICO scores pulled at underwriting. Under lender choice, the originator sees both models and <b>submits whichever it selects</b> as the qualifying score (frequently the one giving better eligibility or pricing). So "VantageScore-only" here means the model the lender chose to <i>deliver</i> to Fannie/Freddie &mdash; not that the borrower has no FICO.</p>
+    <p class="muted" style="margin-top:14px">Not investment advice. Data is public GSE disclosure; all percentages and aggregations are our own calculations.</p>
+  </div>
 
  </div>
 </div>
@@ -255,18 +276,30 @@ const M=[
  {l:"Apr '26",m:"2026-04",f:[39933509953, 112671, 757.7, 0, 0.0, 0, 0.0, 0, 2916],r:[38194854293, 103134, 762.2, 7532000, 0.0197, 13, 0.0126, 6, 2729],t:[78128364246, 215805, 759.9, 7532000, 0.0096, 13, 0.006, 6, 5645]},
  {l:"May '26",m:"2026-05",f:[32717285748, 91210, 756.3, 4271000, 0.0131, 11, 0.0121, 10, 3021],r:[37153511578, 106818, 759.5, 7993000, 0.0215, 19, 0.0178, 16, 3112],t:[69870797326, 198028, 758.0, 12264000, 0.0176, 30, 0.0151, 26, 6133]},
  {l:"Jun '26",m:"2026-06",f:[33803081101, 98342, 753.6, 269844000, 0.7983, 649, 0.6599, 203, 3163],r:[32574064466, 89599, 760.4, 289302000, 0.8881, 687, 0.7667, 220, 3085],t:[66377145567, 187941, 756.9, 559146000, 0.8424, 1336, 0.7109, 423, 6248]},
+ {l:"Jul '26",m:"2026-07",f:[28712968789, 80203, 754.9, 1357918000, 4.7293, 3750, 4.6756, 580, 3029],r:[31130323562, 87589, 761.0, 1363721000, 4.3807, 3650, 4.1672, 554, 3300],t:[59843292351, 167792, 758.1, 2721639000, 4.5479, 7400, 4.4102, 1134, 6329]},
 ];
-const PRODM={"202512":[{p:"15yr",pct:0.0,vs:0,upb:3705149000},{p:"30yr",pct:0.0,vs:0,upb:60014984506},{p:"20yr",pct:0.0,vs:0,upb:3470547899},{p:"10yr",pct:0.0,vs:0,upb:257233000}],"202601":[{p:"15yr",pct:0.0,vs:0,upb:4326993788},{p:"30yr",pct:0.0,vs:0,upb:60157315151},{p:"10yr",pct:0.0,vs:0,upb:308907492},{p:"20yr",pct:0.0,vs:0,upb:2644281048}],"202602":[{p:"15yr",pct:0.0,vs:0,upb:4328710846},{p:"30yr",pct:0.0,vs:0,upb:52990215139},{p:"20yr",pct:0.0,vs:0,upb:2454235587},{p:"10yr",pct:0.0,vs:0,upb:216579428}],"202603":[{p:"15yr",pct:0.0,vs:0,upb:4518081546},{p:"30yr",pct:0.0,vs:0,upb:63626625742},{p:"20yr",pct:0.0,vs:0,upb:1883877985},{p:"10yr",pct:0.0,vs:0,upb:305126357}],"202604":[{p:"15yr",pct:0.039,vs:2352000,upb:5989819060},{p:"30yr",pct:0.006,vs:4510000,upb:68874545782},{p:"20yr",pct:0.0,vs:0,upb:2298173403},{p:"10yr",pct:0.0,vs:0,upb:299208001}],"202605":[{p:"10yr",pct:0.595,vs:1365000,upb:229505476},{p:"30yr",pct:0.017,vs:10899000,upb:64401164574},{p:"15yr",pct:0.0,vs:0,upb:3414536842},{p:"20yr",pct:0.0,vs:0,upb:1283978053}],"202606":[{p:"10yr",pct:1.967,vs:3583000,upb:182147331},{p:"15yr",pct:1.938,vs:63581000,upb:3281377830},{p:"30yr",pct:0.779,vs:477028000,upb:61271013973},{p:"20yr",pct:0.35,vs:4129000,upb:1180820674}]};
-const LENDERM={"202512":[{name:"Rocket Mortgage",loans:20575,upb:6599191000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:15996,upb:6478682374,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:14263,upb:5231110691,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:13064,upb:6000215000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8327,upb:3090199000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6580,upb:2518675000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:5108,upb:1865746000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:4649,upb:1738181506,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4638,upb:1955299588,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4032,upb:1677411000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Fairway Independent Mortgage",loans:3468,upb:1248240000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3043,upb:1135632000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202601":[{name:"Rocket Mortgage",loans:22519,upb:7415795000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17094,upb:6850896639,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9188,upb:4428013000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6590,upb:2474514000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:5711,upb:2078027000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5405,upb:1663908000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5372,upb:2052175000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:4192,upb:1429752000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:4086,upb:1920076985,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4051,upb:1656017612,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3221,upb:1087314204,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3140,upb:1301737000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202602":[{name:"Rocket Mortgage",loans:22471,upb:7567747318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:16899,upb:7075583000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:9525,upb:3401995000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8452,upb:3680243000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:5887,upb:2249793000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4709,upb:1654503006,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4418,upb:1683609000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4048,upb:1340773000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:3777,upb:1453053000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3098,upb:1084470000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:2844,upb:1324364000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:2802,upb:982150000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202603":[{name:"Rocket Mortgage",loans:24181,upb:8560047895,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:18089,upb:7831972000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:12669,upb:4729151000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8759,upb:3969852630,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6811,upb:2528206000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5760,upb:1891011637,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5291,upb:2015990000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4123,upb:1743699000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3424,upb:1127044542,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3313,upb:1214113000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3174,upb:1204179000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3166,upb:1395358000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202604":[{name:"Rocket Mortgage",loans:30475,upb:10732222073,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17539,upb:7501000000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:10014,upb:3395284000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9461,upb:4439201000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8983,upb:3455226000,vs:13,vs_upb:7532000,fn:0,fr:13,rate:0.145},{name:"Crosscountry Mortgage",loans:5917,upb:2220935000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:5237,upb:2406179507,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4826,upb:2093775000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4728,upb:1985005000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4139,upb:1517196000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4138,upb:1477500000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3853,upb:1320667817,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202605":[{name:"Rocket Mortgage",loans:23642,upb:7866971920,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17504,upb:6532647505,vs:30,vs_upb:12264000,fn:11,fr:19,rate:0.171},{name:"Jpmorgan Chase Bank",loans:9772,upb:3363850000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:8522,upb:3256353055,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8152,upb:2763095000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:6479,upb:2857082000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5648,upb:2112073606,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4317,upb:1631371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4175,upb:1446682683,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3959,upb:1598371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3667,upb:1541657000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3355,upb:942546000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202606":[{name:"Rocket Mortgage",loans:24836,upb:8577655772,vs:243,vs_upb:68268000,fn:164,fr:79,rate:0.978},{name:"United Wholesale Mortgage",loans:16234,upb:6293544595,vs:1091,vs_upb:490043000,fn:485,fr:606,rate:6.721},{name:"Amerihome Mortgage",loans:8649,upb:3616877318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8373,upb:2821345563,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:7348,upb:3003525265,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6998,upb:2344305167,vs:2,vs_upb:835000,fn:0,fr:2,rate:0.029},{name:"Crosscountry Mortgage",loans:6282,upb:2338032080,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4370,upb:1339181421,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4081,upb:1693251495,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4046,upb:1429254800,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4045,upb:1705034493,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:3326,upb:1484472115,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}]};
-const XCROSS={"202512":{"fannie":{"fico_only":[86265,30746643853],"vs_only":[0,0],"both":[0,0],"neither":[122,30652000]},"freddie":{"fico_only":[99629,37061282552],"vs_only":[0,0],"both":[0,0],"neither":[24,7869000]},"agency":{"fico_only":[185894,67807926405],"vs_only":[0,0],"both":[0,0],"neither":[146,38521000]}},"202601":{"fannie":{"fico_only":[94841,32664254719],"vs_only":[0,0],"both":[0,0],"neither":[170,38919943]},"freddie":{"fico_only":[98178,35099859949],"vs_only":[0,0],"both":[0,0],"neither":[28,5387000]},"agency":{"fico_only":[193019,67764114668],"vs_only":[0,0],"both":[0,0],"neither":[198,44306943]}},"202602":{"fannie":{"fico_only":[75695,27257018490],"vs_only":[0,0],"both":[0,0],"neither":[114,27081000]},"freddie":{"fico_only":[94978,33184833684],"vs_only":[0,0],"both":[0,0],"neither":[18,4391000]},"agency":{"fico_only":[170673,60441852174],"vs_only":[0,0],"both":[0,0],"neither":[132,31472000]}},"202603":{"fannie":{"fico_only":[103784,38207930862],"vs_only":[0,0],"both":[0,0],"neither":[165,37573000]},"freddie":{"fico_only":[87563,32647640694],"vs_only":[0,0],"both":[0,0],"neither":[15,2334000]},"agency":{"fico_only":[191347,70855571557],"vs_only":[0,0],"both":[0,0],"neither":[180,39907000]}},"202604":{"fannie":{"fico_only":[112456,39885907953],"vs_only":[0,0],"both":[0,0],"neither":[215,47602000]},"freddie":{"fico_only":[103103,38183457293],"vs_only":[13,7532000],"both":[0,0],"neither":[18,3865000]},"agency":{"fico_only":[215559,78069365246],"vs_only":[13,7532000],"both":[0,0],"neither":[233,51467000]}},"202605":{"fannie":{"fico_only":[91045,32677044858],"vs_only":[11,4271000],"both":[0,0],"neither":[154,35969890]},"freddie":{"fico_only":[106771,37139170578],"vs_only":[19,7993000],"both":[0,0],"neither":[28,6348000]},"agency":{"fico_only":[197816,69816215436],"vs_only":[30,12264000],"both":[0,0],"neither":[182,42317890]}},"202606":{"fannie":{"fico_only":[97464,33477590979],"vs_only":[649,269844000],"both":[0,0],"neither":[229,55646122]},"freddie":{"fico_only":[88894,32281106466],"vs_only":[687,289302000],"both":[0,0],"neither":[18,3656000]},"agency":{"fico_only":[186358,65758697445],"vs_only":[1336,559146000],"both":[0,0],"neither":[247,59302122]}}};
-const XMONTHS=[{ym:"202512",l:"Dec '25"},{ym:"202601",l:"Jan '26"},{ym:"202602",l:"Feb '26"},{ym:"202603",l:"Mar '26"},{ym:"202604",l:"Apr '26"},{ym:"202605",l:"May '26"},{ym:"202606",l:"Jun '26"}];
+const PRODM={"202512":[{p:"15yr",pct:0.0,vs:0,upb:3705149000},{p:"10yr",pct:0.0,vs:0,upb:257233000},{p:"20yr",pct:0.0,vs:0,upb:3470547899},{p:"30yr",pct:0.0,vs:0,upb:60014984506}],"202601":[{p:"15yr",pct:0.0,vs:0,upb:4326993788},{p:"10yr",pct:0.0,vs:0,upb:308907492},{p:"20yr",pct:0.0,vs:0,upb:2644281048},{p:"30yr",pct:0.0,vs:0,upb:60157315151}],"202602":[{p:"15yr",pct:0.0,vs:0,upb:4328710846},{p:"10yr",pct:0.0,vs:0,upb:216579428},{p:"20yr",pct:0.0,vs:0,upb:2454235587},{p:"30yr",pct:0.0,vs:0,upb:52990215139}],"202603":[{p:"15yr",pct:0.0,vs:0,upb:4518081546},{p:"10yr",pct:0.0,vs:0,upb:305126357},{p:"20yr",pct:0.0,vs:0,upb:1883877985},{p:"30yr",pct:0.0,vs:0,upb:63626625742}],"202604":[{p:"15yr",pct:0.039,vs:2352000,upb:5989819060},{p:"30yr",pct:0.006,vs:4510000,upb:68874545782},{p:"10yr",pct:0.0,vs:0,upb:299208001},{p:"20yr",pct:0.0,vs:0,upb:2298173403}],"202605":[{p:"10yr",pct:0.595,vs:1365000,upb:229505476},{p:"30yr",pct:0.017,vs:10899000,upb:64401164574},{p:"15yr",pct:0.0,vs:0,upb:3414536842},{p:"20yr",pct:0.0,vs:0,upb:1283978053}],"202606":[{p:"10yr",pct:1.967,vs:3583000,upb:182147331},{p:"15yr",pct:1.938,vs:63581000,upb:3281377830},{p:"30yr",pct:0.779,vs:477028000,upb:61271013973},{p:"20yr",pct:0.35,vs:4129000,upb:1180820674}],"202607":[{p:"10yr",pct:9.582,vs:19941000,upb:208108345},{p:"15yr",pct:7.306,vs:270408000,upb:3701298542},{p:"20yr",pct:4.403,vs:39264000,upb:891711000},{p:"30yr",pct:4.278,vs:2339902000,upb:54698749464}]};
+const LENDERM={"202512":[{name:"Rocket Mortgage",loans:20575,upb:6599191000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:15996,upb:6478682374,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:14263,upb:5231110691,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:13064,upb:6000215000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8327,upb:3090199000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6580,upb:2518675000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:5108,upb:1865746000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:4649,upb:1738181506,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4638,upb:1955299588,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4032,upb:1677411000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Fairway Independent Mortgage",loans:3468,upb:1248240000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3043,upb:1135632000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202601":[{name:"Rocket Mortgage",loans:22519,upb:7415795000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17094,upb:6850896639,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9188,upb:4428013000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6590,upb:2474514000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:5711,upb:2078027000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5405,upb:1663908000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5372,upb:2052175000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:4192,upb:1429752000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:4086,upb:1920076985,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Nationstar Mortgage",loans:4051,upb:1656017612,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3221,upb:1087314204,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3140,upb:1301737000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202602":[{name:"Rocket Mortgage",loans:22471,upb:7567747318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:16899,upb:7075583000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:9525,upb:3401995000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8452,upb:3680243000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:5887,upb:2249793000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4709,upb:1654503006,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4418,upb:1683609000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4048,upb:1340773000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:3777,upb:1453053000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3098,upb:1084470000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Phh Mortgage",loans:2844,upb:1324364000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:2802,upb:982150000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202603":[{name:"Rocket Mortgage",loans:24181,upb:8560047895,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:18089,upb:7831972000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:12669,upb:4729151000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:8759,upb:3969852630,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6811,upb:2528206000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:5760,upb:1891011637,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5291,upb:2015990000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4123,upb:1743699000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:3424,upb:1127044542,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Lakeview Loan Servicing",loans:3313,upb:1214113000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3174,upb:1204179000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3166,upb:1395358000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202604":[{name:"Rocket Mortgage",loans:30475,upb:10732222073,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17539,upb:7501000000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:10014,upb:3395284000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:9461,upb:4439201000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8983,upb:3455226000,vs:13,vs_upb:7532000,fn:0,fr:13,rate:0.145},{name:"Crosscountry Mortgage",loans:5917,upb:2220935000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:5237,upb:2406179507,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4826,upb:2093775000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4728,upb:1985005000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:4139,upb:1517196000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4138,upb:1477500000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3853,upb:1320667817,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202605":[{name:"Rocket Mortgage",loans:23642,upb:7866971920,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"United Wholesale Mortgage",loans:17504,upb:6532647505,vs:30,vs_upb:12264000,fn:11,fr:19,rate:0.171},{name:"Jpmorgan Chase Bank",loans:9772,upb:3363850000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:8522,upb:3256353055,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:8152,upb:2763095000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:6479,upb:2857082000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Crosscountry Mortgage",loans:5648,upb:2112073606,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4317,upb:1631371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4175,upb:1446682683,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3959,upb:1598371000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:3667,upb:1541657000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Loandepot.Com",loans:3355,upb:942546000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202606":[{name:"Rocket Mortgage",loans:24836,upb:8577655772,vs:243,vs_upb:68268000,fn:164,fr:79,rate:0.978},{name:"United Wholesale Mortgage",loans:16234,upb:6293544595,vs:1091,vs_upb:490043000,fn:485,fr:606,rate:6.721},{name:"Amerihome Mortgage",loans:8649,upb:3616877318,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Jpmorgan Chase Bank",loans:8373,upb:2821345563,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Pennymac Loan Services",loans:7348,upb:3003525265,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:6998,upb:2344305167,vs:2,vs_upb:835000,fn:0,fr:2,rate:0.029},{name:"Crosscountry Mortgage",loans:6282,upb:2338032080,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4370,upb:1339181421,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:4081,upb:1693251495,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:4046,upb:1429254800,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4045,upb:1705034493,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Onity Mortgage",loans:3326,upb:1484472115,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0}],"202607":[{name:"Rocket Mortgage",loans:23742,upb:8036816059,vs:4038,vs_upb:1267689000,fn:2213,fr:1825,rate:17.008},{name:"United Wholesale Mortgage",loans:16789,upb:6694291000,vs:3328,vs_upb:1443752000,fn:1504,fr:1824,rate:19.823},{name:"Jpmorgan Chase Bank",loans:9359,upb:3146486263,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerihome Mortgage",loans:7571,upb:2635919000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"NewRez",loans:5923,upb:1950959000,vs:1,vs_upb:417000,fn:0,fr:1,rate:0.017},{name:"Pennymac Loan Services",loans:5626,upb:2231564000,vs:5,vs_upb:2093000,fn:5,fr:0,rate:0.089},{name:"Crosscountry Mortgage",loans:4936,upb:1910883877,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"U.S. Bank",loans:4345,upb:1425650000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Cmg Mortgage",loans:4076,upb:1736518542,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Truist Bank",loans:3777,upb:1421219000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Guaranteed Rate",loans:3472,upb:1476548000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Citizens Bank",loans:2780,upb:928592000,vs:0,vs_upb:0,fn:0,fr:0,rate:0.0},{name:"Amerisave Mortgage",loans:501,upb:111768000,vs:28,vs_upb:7688000,fn:28,fr:0,rate:5.589}]};
+const XCROSS={"202512":{"fannie":{"fico_only":[86265,30746643853],"vs_only":[0,0],"both":[0,0],"neither":[122,30652000]},"freddie":{"fico_only":[99629,37061282552],"vs_only":[0,0],"both":[0,0],"neither":[24,7869000]},"agency":{"fico_only":[185894,67807926405],"vs_only":[0,0],"both":[0,0],"neither":[146,38521000]}},"202601":{"fannie":{"fico_only":[94841,32664254719],"vs_only":[0,0],"both":[0,0],"neither":[170,38919943]},"freddie":{"fico_only":[98178,35099859949],"vs_only":[0,0],"both":[0,0],"neither":[28,5387000]},"agency":{"fico_only":[193019,67764114668],"vs_only":[0,0],"both":[0,0],"neither":[198,44306943]}},"202602":{"fannie":{"fico_only":[75695,27257018490],"vs_only":[0,0],"both":[0,0],"neither":[114,27081000]},"freddie":{"fico_only":[94978,33184833684],"vs_only":[0,0],"both":[0,0],"neither":[18,4391000]},"agency":{"fico_only":[170673,60441852174],"vs_only":[0,0],"both":[0,0],"neither":[132,31472000]}},"202603":{"fannie":{"fico_only":[103784,38207930862],"vs_only":[0,0],"both":[0,0],"neither":[165,37573000]},"freddie":{"fico_only":[87563,32647640694],"vs_only":[0,0],"both":[0,0],"neither":[15,2334000]},"agency":{"fico_only":[191347,70855571557],"vs_only":[0,0],"both":[0,0],"neither":[180,39907000]}},"202604":{"fannie":{"fico_only":[112456,39885907953],"vs_only":[0,0],"both":[0,0],"neither":[215,47602000]},"freddie":{"fico_only":[103103,38183457293],"vs_only":[13,7532000],"both":[0,0],"neither":[18,3865000]},"agency":{"fico_only":[215559,78069365246],"vs_only":[13,7532000],"both":[0,0],"neither":[233,51467000]}},"202605":{"fannie":{"fico_only":[91045,32677044858],"vs_only":[11,4271000],"both":[0,0],"neither":[154,35969890]},"freddie":{"fico_only":[106771,37139170578],"vs_only":[19,7993000],"both":[0,0],"neither":[28,6348000]},"agency":{"fico_only":[197816,69816215436],"vs_only":[30,12264000],"both":[0,0],"neither":[182,42317890]}},"202606":{"fannie":{"fico_only":[97464,33477590979],"vs_only":[649,269844000],"both":[0,0],"neither":[229,55646122]},"freddie":{"fico_only":[88894,32281106466],"vs_only":[687,289302000],"both":[0,0],"neither":[18,3656000]},"agency":{"fico_only":[186358,65758697445],"vs_only":[1336,559146000],"both":[0,0],"neither":[247,59302122]}},"202607":{"fannie":{"fico_only":[76259,27308112789],"vs_only":[3750,1357918000],"both":[0,0],"neither":[194,46938000]},"freddie":{"fico_only":[83908,29758667562],"vs_only":[3650,1363721000],"both":[0,0],"neither":[31,7935000]},"agency":{"fico_only":[160167,57066780351],"vs_only":[7400,2721639000],"both":[0,0],"neither":[225,54873000]}}};
+const XMONTHS=[{ym:"202512",l:"Dec '25"},{ym:"202601",l:"Jan '26"},{ym:"202602",l:"Feb '26"},{ym:"202603",l:"Mar '26"},{ym:"202604",l:"Apr '26"},{ym:"202605",l:"May '26"},{ym:"202606",l:"Jun '26"},{ym:"202607",l:"Jul '26"}];
 const LSER=[
-  {name:"United Wholesale Mortgage",vs:[0, 0, 0, 0, 0, 30, 1091],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.1714, 6.7205],loans:[15996, 17094, 16899, 18089, 17539, 17504, 16234],upb:[6478682374, 6850896639, 7075583000, 7831972000, 7501000000, 6532647505, 6293544595]},
-  {name:"Rocket Mortgage",vs:[0, 0, 0, 0, 0, 0, 243],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9784],loans:[20575, 22519, 22471, 24181, 30475, 23642, 24836],upb:[6599191000, 7415795000, 7567747318, 8560047895, 10732222073, 7866971920, 8577655772]},
-  {name:"NewRez",vs:[0, 0, 0, 0, 13, 0, 2],rate:[0.0, 0.0, 0.0, 0.0, 0.1447, 0.0, 0.0286],loans:[6580, 6590, 5887, 6811, 8983, 8152, 6998],upb:[2518675000, 2474514000, 2249793000, 2528206000, 3455226000, 2763095000, 2344305167]},
+  {name:"United Wholesale Mortgage",vs:[0, 0, 0, 0, 0, 30, 1091, 3328],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.1714, 6.7205, 19.8225],loans:[15996, 17094, 16899, 18089, 17539, 17504, 16234, 16789],upb:[6478682374, 6850896639, 7075583000, 7831972000, 7501000000, 6532647505, 6293544595, 6694291000]},
+  {name:"Rocket Mortgage",vs:[0, 0, 0, 0, 0, 0, 243, 4038],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9784, 17.0078],loans:[20575, 22519, 22471, 24181, 30475, 23642, 24836, 23742],upb:[6599191000, 7415795000, 7567747318, 8560047895, 10732222073, 7866971920, 8577655772, 8036816059]},
+  {name:"Amerisave Mortgage",vs:[0, 0, 0, 0, 0, 0, 0, 28],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.5888],loans:[282, 720, 423, 592, 647, 502, 564, 501],upb:[81743000, 165317000, 94717000, 125782755, 147720000, 140884000, 137727456, 111768000]},
+  {name:"NewRez",vs:[0, 0, 0, 0, 13, 0, 2, 1],rate:[0.0, 0.0, 0.0, 0.0, 0.1447, 0.0, 0.0286, 0.0169],loans:[6580, 6590, 5887, 6811, 8983, 8152, 6998, 5923],upb:[2518675000, 2474514000, 2249793000, 2528206000, 3455226000, 2763095000, 2344305167, 1950959000]},
+  {name:"Pennymac Loan Services",vs:[0, 0, 0, 0, 0, 0, 0, 5],rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0889],loans:[13064, 9188, 8452, 8759, 9461, 6479, 7348, 5626],upb:[6000215000, 4428013000, 3680243000, 3969852630, 4439201000, 2857082000, 3003525265, 2231564000]},
 ];
+// origination-vintage view: l=label, n=loans, v=vs_loans, p=vs% of loans, up=vs% of UPB, c=complete cohort
+const VINT=[{l:"Dec '25",n:71142,v:0,p:0.0,up:0.0,c:0},{l:"Jan '26",n:168593,v:0,p:0.0,up:0.0,c:0},{l:"Feb '26",n:193764,v:0,p:0.0,up:0.0,c:1},{l:"Mar '26",n:153458,v:1,p:0.001,up:0.001,c:1},{l:"Apr '26",n:182960,v:6,p:0.003,up:0.005,c:1},{l:"May '26",n:228317,v:5,p:0.002,up:0.004,c:1},{l:"Jun '26",n:193258,v:6,p:0.003,up:0.004,c:1},{l:"Jul '26",n:167739,v:607,p:0.362,up:0.422,c:1},{l:"Aug '26",n:119594,v:6312,p:5.278,up:5.41,c:0},{l:"Sep '26",n:25945,v:3991,p:15.383,up:15.984,c:0}];
+const MTD={"short":"Aug '26","month":"202608","issuers":["FNM","FRE"],"files":12,"partial_issuers":[],"loans":27535,"upb":13151760659,"vs_loans":2149,"vs_upb":1120158000,"pct":7.805,"upb_pct":8.517,"lenders":[{"name":"Rocket Mortgage","loans":4726,"upb":2475644000,"vs_loans":985,"vs_upb":502616000,"fn_vs":738,"fre_vs":247,"rate":20.8421,"upb_rate":20.3024},{"name":"United Wholesale Mortgage","loans":4142,"upb":2172352000,"vs_loans":1157,"vs_upb":614700000,"fn_vs":805,"fre_vs":352,"rate":27.9334,"upb_rate":28.2965},{"name":"Crosscountry Mortgage","loans":1445,"upb":741862000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Guaranteed Rate","loans":1146,"upb":520216000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Truist Bank","loans":1027,"upb":352246000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"NewRez","loans":962,"upb":486222000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Cmg Mortgage","loans":960,"upb":501920542,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Pennymac Loan Services","loans":879,"upb":400010000,"vs_loans":3,"vs_upb":1455000,"fn_vs":3,"fre_vs":0,"rate":0.3413,"upb_rate":0.3637},{"name":"Onity Mortgage","loans":874,"upb":488065000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Guild Mortgage","loans":780,"upb":342104000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Wells Fargo Bank","loans":674,"upb":202498000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Dhi Mortgage Co.","loans":612,"upb":220464000,"vs_loans":0,"vs_upb":0,"fn_vs":0,"fre_vs":0,"rate":0.0,"upb_rate":0.0},{"name":"Amerisave Mortgage","loans":21,"upb":8315000,"vs_loans":4,"vs_upb":1387000,"fn_vs":4,"fre_vs":0,"rate":19.0476,"upb_rate":16.6807}]};
+const VINTL=[{name:"United Wholesale Mortgage",rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0123, 3.6109, 18.5373, 27.9925],loans:[2278, 11685, 16574, 16166, 17688, 20825, 16209, 15093, 15218, 7995],vs:[0, 0, 0, 0, 0, 0, 2, 545, 2821, 2238]},{name:"Rocket Mortgage",rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2538, 15.2614, 37.1071],loans:[3750, 18647, 20694, 20716, 23823, 30964, 25948, 23640, 22665, 4708],vs:[0, 0, 0, 0, 0, 0, 0, 60, 3459, 1747]},{name:"Amerisave Mortgage",rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4329, 10.7407, 11.1111],loans:[119, 498, 513, 492, 500, 685, 641, 462, 270, 9],vs:[0, 0, 0, 0, 0, 0, 0, 2, 29, 1]},{name:"NewRez",rate:[0.0, 0.0, 0.0, 0.0157, 0.0866, 0.0509, 0.0526, 0.0, 0.0, 0.0],loans:[1545, 5367, 6878, 6374, 6930, 9824, 7601, 6156, 5046, 1003],vs:[0, 0, 0, 1, 6, 5, 4, 0, 0, 0]},{name:"Pennymac Loan Services",rate:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0602, 0.5086],loans:[1374, 9483, 11409, 7580, 8155, 10185, 8285, 6672, 4982, 983],vs:[0, 0, 0, 0, 0, 0, 0, 0, 3, 5]}];
 const IDX={upb:0,loans:1,fico:2,vsupb:3,vsupbpct:4,vsloans:5,vsloanpct:6,pools:7,totpools:8};
 const XL=M.map(d=>d.l), MM=M.map(d=>d.m);
+const LAST=M.length-1, PREV=Math.max(0,LAST-1);
+// month name of the latest / previous data month, for KPI labels
+const MON=i=>M[i].l.split(" ")[0];
+// x-index of the Apr 22 2026 interim-phase opening, for the chart annotation
+const ANN=M.findIndex(d=>d.m==="2026-04");
 const VIEWNAME={t:"Total agency",f:"Fannie Mae",r:"Freddie Mac"};
 
 const NS="http://www.w3.org/2000/svg";
@@ -278,6 +311,12 @@ const pctf=(n,d=2)=>n.toFixed(d)+"%";
 function mkTip(box){const t=document.createElement("div");t.className="tt";box.appendChild(t);return t;}
 function place(t,box,x,y){const bw=box.clientWidth,tw=t.offsetWidth;let L=x+14;if(L+tw>bw)L=x-tw-14;if(L<0)L=4;t.style.left=L+"px";t.style.top=Math.max(4,y-10)+"px";}
 function nice(x){const p=Math.pow(10,Math.floor(Math.log10(x)));const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=5)m=5;else m=10;return m*p;}
+// pick 4 or 5 intervals -- whichever yields the fewer decimal places on the labels
+function ticksFor(yMax){
+  const dec=s=>{const t=(Math.round(s*1e6)/1e6).toString();const i=t.indexOf(".");return i<0?0:t.length-i-1;};
+  const best=[4,5].map(k=>({k,d:dec(yMax/k)})).sort((a,b)=>a.d-b.d||a.k-b.k)[0];
+  return Array.from({length:best.k+1},(_,i)=>yMax*i/best.k);
+}
 
 /* ---- generic multi-line ---- */
 function lineChart(box,{series,yMax,yTicks,yFmt,vFmt,annIdx,annText,endLab,tipFmt}){
@@ -425,34 +464,130 @@ function lenderOverTime(){
     lab:ab[s.name]||s.name.split(" ")[0],dy:i===2?13:-3}));
   const mxr=Math.max(...series.flatMap(s=>s.vals),0);const yMax=Math.max(8,Math.ceil(mxr)+1);
   lineChart($("c_lom"),{series,yMax,yTicks:[0,yMax/4,yMax/2,yMax*3/4].map(v=>Math.round(v)),
-    yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
+    yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
     tipFmt:(s,i)=>`${s.vals[i].toFixed(2)}% \u00b7 ${commas(s.loans[i])} loans \u00b7 ${money(s.upb[i])}`});
+}
+
+/* ---- month-to-date (intraday cuts) ----
+   Provisional: built from mid-month intraday files, which are excluded from the
+   month-end series above. Hidden entirely when no intraday files are loaded. */
+function mtdPanel(){
+  if(!MTD) return;
+  const c=$("mtdCard");c.style.display="";
+  const half=MTD.partial_issuers.length?` <b>${MTD.issuers.join(" only")}</b>`:"";
+  $("mtdTitle").textContent=`${MTD.short} month to date`;
+  $("mtdPill").textContent=MTD.partial_issuers.length?MTD.issuers.join("+")+" only":"provisional";
+  const prev=M[LAST].t;
+  $("mtdDesc").innerHTML=
+    `Built from <b>${MTD.files}</b> intraday cut${MTD.files===1?"":"s"}${half}, deduped on Loan Identifier. `+
+    `<b>${commas(MTD.vs_loans)}</b> VS4 loans of <b>${commas(MTD.loans)}</b> `+
+    `(<b style="color:var(--ink)">${MTD.pct.toFixed(2)}%</b> of loans, ${MTD.upb_pct.toFixed(2)}% of UPB), `+
+    `against ${prev[IDX.vsloanpct].toFixed(2)}% for ${M[LAST].l} month-end. `+
+    (MTD.partial_issuers.length
+      ? `<b>Not comparable to the agency totals above</b> &mdash; ${MTD.partial_issuers.join(" and ")} `+
+        `intraday files are not loaded, so this covers one GSE only. `
+      : ``)+
+    `These files are excluded from the month-end series and table on purpose; the month-end file supersedes them.`;
+  const rows=MTD.lenders.filter(r=>r.vs_loans>0||r.loans>=1500).slice(0,14);
+  $("mtdTbl").querySelector("tbody").innerHTML=rows.map(r=>
+    `<tr class="${r.vs_loans?'hot':''}"><td>${r.name}</td>`+
+    `<td class="grpsep">${commas(r.loans)}</td>`+
+    `<td>${r.vs_loans?commas(r.vs_loans):'<span class="z">0</span>'}</td>`+
+    `<td>${r.rate?pctf(r.rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td>${r.upb_rate?pctf(r.upb_rate,2):'<span class="z">0.00%</span>'}</td>`+
+    `<td class="muted">${commas(r.fn_vs)} / ${commas(r.fre_vs)}</td></tr>`).join("");
+}
+
+/* ---- adoption by origination vintage ----
+   Bars are VS% of each origination cohort (First Payment Date, ~2 months after
+   the loan closed). Hatched bars are cohorts we don't yet hold every issuance
+   file for, so they can still move. This is the leading-edge run-rate: it is
+   always well ahead of the issuance-month blend during a ramp. */
+function vintChart(){
+  const box=$("c_vint");box.innerHTML="";
+  const who=$("vintSel").value;
+  const src=who==="agency"?null:VINTL.find(s=>s.name===who);
+  const rate=src?src.rate:VINT.map(v=>v.p);
+  const loans=src?src.loans:VINT.map(v=>v.n);
+  const vs=src?src.vs:VINT.map(v=>v.v);
+  const n=VINT.length;
+  const W=760,H=330,pl=48,pr=18,pt=26,pb=46,plotW=W-pl-pr,plotH=H-pt-pb;
+  const yMax=nice(Math.max(...rate,1));
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
+  const defs=el("defs");defs.innerHTML=
+    '<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'+
+    '<rect width="6" height="6" fill="var(--accent)" opacity=".28"/>'+
+    '<line x1="0" y1="0" x2="0" y2="6" stroke="var(--accent)" stroke-width="3"/></pattern>';
+  svg.appendChild(defs);
+  const Y=v=>pt+(1-v/yMax)*plotH;
+  const vt=ticksFor(yMax), vdec=Math.max(...vt.map(t=>{const s=(Math.round(t*1e6)/1e6).toString();const i=s.indexOf(".");return i<0?0:s.length-i-1;}));
+  vt.forEach(tk=>{const y=Y(tk);
+    svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===0?"axis-l":"grid-l"}));
+    const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk.toFixed(vdec)+"%";svg.appendChild(tx);});
+  const bw=plotW/n*0.62,tip=mkTip(box);
+  VINT.forEach((v,i)=>{
+    const cx=pl+(i+0.5)*plotW/n, r=rate[i], h=Math.max(r/yMax*plotH,r>0?1.5:0);
+    svg.appendChild(el("rect",{x:cx-bw/2,y:pt+plotH-h,width:bw,height:h,rx:2,
+      fill:v.c?"var(--accent)":"url(#hatch)"}));
+    const tx=el("text",{x:cx,y:H-pb+18,"text-anchor":"middle"});tx.textContent=v.l.split(" ")[0];svg.appendChild(tx);
+    if(!v.c){const p=el("text",{x:cx,y:H-pb+31,"text-anchor":"middle"});p.textContent="partial";
+      p.setAttribute("fill","var(--muted)");p.style.fontSize="8.5px";svg.appendChild(p);}
+    if(r>=0.005){const vl=el("text",{x:cx,y:pt+plotH-h-6,"text-anchor":"middle",class:"dlabel"});
+      vl.textContent=r<1?r.toFixed(2)+"%":r.toFixed(1)+"%";svg.appendChild(vl);}
+    const hit=el("rect",{x:pl+i*plotW/n,y:pt,width:plotW/n,height:plotH,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const rc=svg.getBoundingClientRect();
+      tip.innerHTML=`<div class="tm">${v.l} originations${v.c?"":" &middot; partial"}</div>`+
+        `<div class="row"><span class="k">VS share</span><span>${r.toFixed(2)}%</span></div>`+
+        `<div class="row"><span class="k">VS loans</span><span>${commas(vs[i])} of ${commas(loans[i])}</span></div>`;
+      tip.style.opacity=1;place(tip,box,(e.clientX-rc.left),40);});
+    hit.addEventListener("mouseleave",()=>tip.style.opacity=0);
+    svg.appendChild(hit);
+  });
+  box.appendChild(svg);
+  const edge=VINT[n-1];
+  // the contrast that matters: leading-edge cohort vs the headline issuance-month blend
+  const blend=who==="agency"?M[LAST].t[IDX.vsloanpct]
+    :(LSER.find(s=>s.name===who)||{rate:[]}).rate[LAST];
+  $("vintDesc").innerHTML=
+    `Share of each <b>origination</b> cohort carrying a VantageScore 4.0, for `+
+    `${who==="agency"?"all agency issuance":"<b style='color:var(--ink)'>"+who+"</b>"}. `+
+    `Cohorts are keyed off First Payment Date, which lands ~2 months after the loan closes. `+
+    `A loan is securitized 1&ndash;3 months after closing, so the issuance-month series above `+
+    `blends several vintages and lags the true run-rate: the newest cohort here `+
+    `(<b>${edge.l}</b>) is at <b style="color:var(--ink)">${rate[n-1].toFixed(2)}%</b>`+
+    (blend!=null?`, against <b>${blend.toFixed(2)}%</b> for ${M[LAST].l} issuance &mdash; `+
+      `about <b>${blend>0.005?(rate[n-1]/blend).toFixed(1)+"&times;":"far"}</b> the headline number`:"")+
+    `. Hatched bars are cohorts we don't yet hold every issuance file for; they are `+
+    `the fastest-securitized slice, so treat the level as an upper bound until the `+
+    `remaining files land.`;
 }
 
 /* ---- table ---- */
 function cell(a,i){const upb=money(a[IDX.upb]);const p=a[IDX.vsupbpct],l=a[IDX.vsloans];
   return `<td class="grpsep">${upb}</td><td>${p?pctf(p,3):'<span class="z">0.000%</span>'}</td><td>${l?commas(l):'<span class="z">0</span>'}</td>`;}
-$("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===6?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
+$("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===LAST?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
 
 /* ---- view-dependent (KPIs + hero) ---- */
 let view="t";
 function renderView(){
-  const cur=M[6][view], prev=M[5][view];
+  const cur=M[LAST][view], prev=M[PREV][view], mc=MON(LAST), mp=MON(PREV);
   $("heroTitle").textContent=`VantageScore 4.0 penetration \u2014 ${VIEWNAME[view]}`;
   const kp=[
-    {lab:`VS % of UPB (Jun)`,val:pctf(cur[IDX.vsupbpct],2),sub:prev[IDX.vsupbpct]?`<span class="up">\u25b2</span> from ${pctf(prev[IDX.vsupbpct],3)} in May`:`first month with VS`},
-    {lab:`VS-scored balance (Jun)`,val:money(cur[IDX.vsupb]),sub:`up from ${money(prev[IDX.vsupb])} in May`},
-    {lab:`VS-scored loans (Jun)`,val:commas(cur[IDX.vsloans]),sub:`of ${commas(cur[IDX.loans])} loans issued`},
-    {lab:`Pools with VS (Jun)`,val:commas(cur[IDX.pools]),sub:`of ${commas(cur[IDX.totpools])} total pools`},
+    {lab:`VS % of UPB (${mc})`,val:pctf(cur[IDX.vsupbpct],2),sub:prev[IDX.vsupbpct]?`<span class="up">\u25b2</span> from ${pctf(prev[IDX.vsupbpct],3)} in ${mp}`:`first month with VS`},
+    {lab:`VS-scored balance (${mc})`,val:money(cur[IDX.vsupb]),sub:`up from ${money(prev[IDX.vsupb])} in ${mp}`},
+    {lab:`VS-scored loans (${mc})`,val:commas(cur[IDX.vsloans]),sub:`of ${commas(cur[IDX.loans])} loans issued`},
+    {lab:`Pools with VS (${mc})`,val:commas(cur[IDX.pools]),sub:`of ${commas(cur[IDX.totpools])} total pools`},
     {lab:`WA Classic FICO`,val:cur[IDX.fico].toFixed(0),sub:`unchanged as VS ramps`}
   ];
   $("kpis").innerHTML=kp.map(k=>`<div class="kpi"><div class="lab">${k.lab}</div><div class="val">${k.val}</div><div class="sub">${k.sub}</div></div>`).join("");
   $("segHint").textContent=view==="t"?"Showing combined Fannie + Freddie. Switch to view one GSE.":`Showing ${VIEWNAME[view]} only. KPIs and the chart above update.`;
+  const hs=[{vals:M.map(d=>d[view][IDX.vsupbpct]),color:"var(--accent)",lab:"UPB",dy:-2},
+            {vals:M.map(d=>d[view][IDX.vsloanpct]),color:"var(--accent-2)",lab:"Loans",dy:12}];
+  const hMax=nice(Math.max(...hs.flatMap(s=>s.vals),0.5));
   lineChart($("c_hero"),{
-    series:[{vals:M.map(d=>d[view][IDX.vsupbpct]),color:"var(--accent)",lab:"UPB",dy:-2},
-            {vals:M.map(d=>d[view][IDX.vsloanpct]),color:"var(--accent-2)",lab:"Loans",dy:12}],
-    yMax:1.0,yTicks:[0,0.25,0.5,0.75,1.0],yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
-    annIdx:3,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
+    series:hs,yMax:hMax,yTicks:[0,.25,.5,.75,1].map(f=>hMax*f),
+    yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
+    annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
   crossTable();
 }
 
@@ -465,13 +600,19 @@ function renderStatic(){
   prodChart($("c_prod"));
   lenderChart();
   lenderOverTime();
+  vintChart();
+  mtdPanel();
 }
 function ficoChart(){
   const box=$("c_fico");box.innerHTML="";
-  const W=380,H=300,pl=40,pr=58,pt=22,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length,lo=745,hi=768;
+  const W=380,H=300,pl=40,pr=58,pt=22,pb=40,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
+  // axis follows the data (5-pt steps) so a drifting WA FICO can never clip
+  const fv=M.flatMap(d=>[d.f[IDX.fico],d.r[IDX.fico]]);
+  const lo=Math.floor(Math.min(...fv)/5)*5-5, hi=Math.ceil(Math.max(...fv)/5)*5+5;
   const X=i=>pl+i*(plotW/(n-1)),Y=v=>pt+(1-(v-lo)/(hi-lo))*plotH;
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
-  [745,750,755,760,765].forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===745?"axis-l":"grid-l"}));
+  const fTicks=[];for(let t=lo;t<=hi;t+=5)fTicks.push(t);
+  fTicks.forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===lo?"axis-l":"grid-l"}));
     const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk;svg.appendChild(tx);});
   XL.forEach((lb,i)=>{if(i%2===0||i===n-1){const tx=el("text",{x:X(i),y:H-pb+18,"text-anchor":"middle"});tx.textContent=lb.slice(0,3);svg.appendChild(tx);}});
   [["f","var(--accent)","Fan"],["r","var(--accent-2)","Fre"]].forEach(([k,c,nm],si)=>{
@@ -510,6 +651,15 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
   ls.addEventListener("change",lenderChart);
   const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=rev[0].ym;
   ps.addEventListener("change",()=>prodChart($("c_prod")));
+  // vintage: agency plus every seller that has ever delivered a VS loan
+  const vsel=$("vintSel");
+  vsel.innerHTML=`<option value="agency">All agency</option>`+
+    VINTL.map(s=>`<option value="${s.name}">${s.name}</option>`).join("");
+  vsel.value="agency";
+  vsel.addEventListener("change",vintChart);
+  $("vintLeg").innerHTML=
+    `<span class="it"><span class="swatch" style="background:var(--accent)"></span>complete</span>`+
+    `<span class="it"><span class="swatch" style="background:var(--accent);opacity:.45"></span>partial</span>`;
 })();
 
 renderStatic();renderView();
