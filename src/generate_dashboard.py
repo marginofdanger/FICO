@@ -33,6 +33,13 @@ def short(n):
 
 def js_data(m):
     series = m['series']; months = m['months']
+    mtd = m.get('mtd')
+    # The partial month rides in the same keyed dicts as the finished months, so the
+    # month selectors can offer it. It is deliberately kept OUT of M / XMONTHS /
+    # PSER -- those drive the line charts and the "last 4 months" cross-tab, which
+    # must stay a clean month-end series.
+    mym = mtd['month'] if mtd else None
+    sel_months = ([mym] if mym else []) + months
     lines = ["// per month arrays: [base_upb, base_loans, wa_fico, vs_upb, vs_upb_pct, vs_loans, vs_loan_pct, n_vs_pools] -- LOAN-LEVEL",
              "const M=["]
     for s in series:
@@ -41,12 +48,12 @@ def js_data(m):
 
     # product per month (standard term buckets, sorted by penetration desc)
     def pblock(ym):
-        pj = m['product'][ym]
+        pj = mtd['product'] if ym == mym else m['product'][ym]
         rows = sorted([(k, v) for k, v in pj.items() if k in ('30yr', '20yr', '15yr', '10yr')],
                       key=lambda kv: -kv[1]['pct'])
         return "[" + ",".join(f'{{p:"{k}",pct:{round(v["pct"],3)},vs:{v["vs_upb"]},upb:{v["upb"]}}}'
                               for k, v in rows) + "]"
-    lines.append("const PRODM={" + ",".join(f'"{ym}":{pblock(ym)}' for ym in months) + "};")
+    lines.append("const PRODM={" + ",".join(f'"{ym}":{pblock(ym)}' for ym in sel_months) + "};")
 
     # LENDERM: top lenders per month (top-N by volume + any VS lender) for the "who's driving" bar +
     # month selector, keyed by loan purpose. Ranked *within* each purpose -- the biggest purchase
@@ -55,10 +62,14 @@ def js_data(m):
         return ('{name:%s,loans:%d,upb:%d,vs:%d,vs_upb:%d,fn:%d,fr:%d,rate:%s}' %
                 (json.dumps(short(v['name'])), v['loans'], v['upb'], v['vs_loans'], v['vs_upb'],
                  v['fn_vs'], v['fre_vs'], round(v['rate'], 3)))
-    def lblock(src):
-        return "{" + ",".join(f'"{ym}":[' + ",".join(lrow(v) for v in src[ym]) + "]" for ym in months) + "}"
+    def lblock(src, mtd_rows):
+        rows = lambda ym: mtd_rows if ym == mym else src[ym]
+        return "{" + ",".join(f'"{ym}":[' + ",".join(lrow(v) for v in rows(ym)) + "]"
+                              for ym in sel_months) + "}"
     lines.append("const LENDERM={" + ",".join(
-        f'{pk}:{lblock(m["lenders"] if pk == "all" else m["lenders_p"][pk])}' for pk in PALL) + "};")
+        '%s:%s' % (pk, lblock(m['lenders'] if pk == 'all' else m['lenders_p'][pk],
+                              mtd and (mtd['lenders'] if pk == 'all' else mtd['lenders_p'][pk])))
+        for pk in PALL) + "};")
 
     # PSER: agency issuance by loan purpose, per month, following the GSE toggle.
     # f/r/t = [loans, upb, vs_loans, vs_upb, vs_loan_pct, vs_upb_pct]
@@ -70,9 +81,14 @@ def js_data(m):
                                json.dumps(s['p'][pk]['t'])) for pk in PK))
         for s in m['purpose_series']) + "];")
 
-    # cross-tab for ALL months + the month list (for the month selector)
-    lines.append("const XCROSS=" + json.dumps(m['crosstab'], separators=(',', ':')) + ";")
+    # cross-tab for ALL months (partial month included) + the month lists.
+    # XMONTHS is month-end only; SELMONTHS is what the month dropdowns offer.
+    xcross = dict(m['crosstab'], **({mym: mtd['crosstab']} if mtd else {}))
+    lines.append("const XCROSS=" + json.dumps(xcross, separators=(',', ':')) + ";")
     lines.append("const XMONTHS=[" + ",".join(f'{{ym:"{s["month"]}",l:"{s["short"]}"}}' for s in series) + "];")
+    lines.append("const SELMONTHS=[" + ",".join(
+        ([f'{{ym:"{mym}",l:"{mtd["short"]}",mtd:1}}'] if mtd else []) +
+        [f'{{ym:"{s["month"]}",l:"{s["short"]}",mtd:0}}' for s in reversed(series)]) + "];")
 
     # LSER: per-lender time series (line chart) with loans/upb totals for hover, by purpose
     def lserblock(src):

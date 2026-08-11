@@ -5,14 +5,16 @@
     --ink:#101319; --ink-2:#4b5560; --muted:#868c96;
     --grid:#e6e9ee; --axis:#ccd1d9; --border:rgba(16,19,25,.09);
     --accent:#2a78d6; --accent-2:#1baf7a; --accent-3:#4a3aa7; --accent-soft:rgba(42,120,214,.10);
-    --good:#0a8a3f; --shadow:0 1px 2px rgba(16,19,25,.04),0 8px 24px rgba(16,19,25,.05);
+    --good:#0a8a3f; --warn:#a1620b; --warn-soft:rgba(161,98,11,.11);
+    --shadow:0 1px 2px rgba(16,19,25,.04),0 8px 24px rgba(16,19,25,.05);
   }
   .dash[data-theme="dark"]{
     --plane:#0c0d0f; --surface:#17191c; --surface-2:#1e2024;
     --ink:#f4f6f8; --ink-2:#b6bcc4; --muted:#7f858e;
     --grid:#282b30; --axis:#3a3e44; --border:rgba(255,255,255,.10);
     --accent:#3987e5; --accent-2:#22b581; --accent-3:#9085e9; --accent-soft:rgba(57,135,229,.16);
-    --good:#22b34e; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --good:#22b34e; --warn:#e0a45c; --warn-soft:rgba(224,164,92,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box}
   .dash{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--plane);color:var(--ink);
@@ -112,6 +114,12 @@
   .ptag{display:none;font-size:.7rem;padding:2px 9px;border-radius:999px;background:var(--accent-soft);
     border:1px solid var(--border);color:var(--accent-3);font-weight:650;white-space:nowrap}
   .ptag.on{display:inline-block}
+  /* month-to-date marker: shown on any card whose month selector is on the partial month */
+  .prov{display:none;font-size:.7rem;padding:2px 9px;border-radius:999px;background:var(--warn-soft);
+    border:1px solid var(--border);color:var(--warn);font-weight:650;white-space:nowrap}
+  .prov.on{display:inline-block}
+  .card.prov-on{border-color:var(--warn)}
+  .msel.mtd{border-color:var(--warn);color:var(--warn);font-weight:640}
   .xtblock+.xtblock{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
   .xtmonth{font-size:.82rem;font-weight:660;color:var(--ink-2);margin-bottom:8px}
   hr.sep{border:none;border-top:1px solid var(--border);margin:26px 0}
@@ -165,7 +173,8 @@
 
   <div class="card block">
     <div class="head"><h2 id="xtabTitle">Credit-score model mix</h2>
-      <div style="display:flex;gap:8px"><select id="xmetricSel" class="msel" aria-label="Metric"></select><select id="xmonthSel" class="msel" aria-label="Months"></select></div></div>
+      <div style="display:flex;gap:8px;align-items:center"><span class="prov"></span>
+        <select id="xmetricSel" class="msel" aria-label="Metric"></select><select id="xmonthSel" class="msel" aria-label="Months"></select></div></div>
     <div class="desc">How newly-issued loans split by which score they carry, across the last 4 months (or pick a single month) &mdash; choose the metric: % of loans, loan count, UPB, or % of UPB. Follows the GSE toggle. VantageScore is delivered <b>100% standalone</b> &mdash; no loan carries both.</div>
     <div id="c_cross"></div>
   </div>
@@ -202,8 +211,9 @@
 
   <div class="card block">
     <div class="head"><h2>VantageScore penetration by product (agency)</h2>
-      <select id="pmonthSel" class="msel" aria-label="Choose month"></select></div>
-    <div class="desc">VS-scored share of UPB within each product term, Fannie + Freddie combined, for the selected month. Shorter terms (10yr, 15yr) adopt fastest.</div>
+      <div style="display:flex;gap:8px;align-items:center"><span class="prov"></span>
+        <select id="pmonthSel" class="msel" aria-label="Choose month"></select></div></div>
+    <div class="desc" id="prodDesc">VS-scored share of UPB within each product term, Fannie + Freddie combined, for the selected month. Shorter terms (10yr, 15yr) adopt fastest.</div>
     <div class="chartbox" id="c_prod"></div>
   </div>
 
@@ -226,9 +236,9 @@
 
   <div class="card block">
     <div class="head"><h2 id="lenderTitle">Top 10 agency lenders &mdash; VantageScore penetration</h2>
-      <div style="display:flex;gap:8px;align-items:center"><span class="ptag"></span>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ptag"></span><span class="prov"></span>
         <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div></div>
-    <div class="desc" id="lenderDesc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is still narrow but no longer a single name &mdash; in July <b style="color:var(--ink)">UWM</b> (19.8% of its own book) and <b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a distant third; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
+    <div class="desc" id="lenderDesc">The 10 biggest agency lenders in the selected month and each one's VantageScore-scored share of its <i>own</i> book. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
     <div class="chartbox" id="c_lender"></div>
   </div>
 
@@ -316,6 +326,33 @@ const MON=i=>M[i].l.split(" ")[0];
 const ANN=M.findIndex(d=>d.m==="2026-04");
 const VIEWNAME={t:"Total agency",f:"Fannie Mae",r:"Freddie Mac"};
 
+/* ---- the partial (month-to-date) month ----
+   Built from mid-month intraday cuts, so it is a running total of whatever has
+   been securitized so far, not a finished month. It rides in the same keyed data
+   as the finished months (PRODM / LENDERM / XCROSS) and is offered by every month
+   dropdown, but it is kept OUT of M / XMONTHS / PSER -- the line charts and the
+   monthly table stay a clean month-end series, which is the whole reason the
+   month-end file supersedes these cuts. Every card showing it says so. */
+const MTDYM=MTD?MTD.month:null;
+const isMTD=ym=>MTDYM!==null&&ym===MTDYM;
+function mtdNote(){
+  return MTD.partial_issuers.length
+    ? `<b style="color:var(--warn)">${MTD.short} is month-to-date and covers ${MTD.issuers.join("+")} only</b> `+
+      `(${MTD.files} intraday cut${MTD.files===1?"":"s"}; ${MTD.partial_issuers.join(" and ")} not loaded), `+
+      `so it is not comparable to the finished months. `
+    : `<b style="color:var(--warn)">${MTD.short} is month-to-date</b>, built from ${MTD.files} intraday `+
+      `cut${MTD.files===1?"":"s"} rather than the month-end file. It is a running total of what has been `+
+      `securitized so far this month, and the fastest-delivered loans land first &mdash; treat the level `+
+      `as provisional. `;
+}
+// paint the provisional badge + border on whichever card owns this selector
+function markProv(sel, on){
+  const card=sel.closest(".card"), tag=card.querySelector(".prov");
+  sel.classList.toggle("mtd",on);
+  card.classList.toggle("prov-on",on);
+  if(tag){tag.textContent=on?"month to date":"";tag.classList.toggle("on",on);}
+}
+
 const NS="http://www.w3.org/2000/svg";
 const el=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
 const $=id=>document.getElementById(id);
@@ -393,7 +430,12 @@ function stackBars(box,{fn,fr,unit,axisFmt,vFmt,poolTot}){
 /* ---- product horizontal bars ---- */
 function prodChart(box){
   box.innerHTML="";
-  const rows=PRODM[$("pmonthSel").value]||[],W=760,rh=40,pt=8,pl=78,pr=70,H=pt*2+rows.length*rh,plotW=W-pl-pr;
+  const psel=$("pmonthSel"), pym=psel.value, mt=isMTD(pym);
+  markProv(psel,mt);
+  $("prodDesc").innerHTML=(mt?mtdNote():``)+
+    `VS-scored share of UPB within each product term, Fannie + Freddie combined, for the selected `+
+    `month. Shorter terms (10yr, 15yr) adopt fastest.`;
+  const rows=PRODM[pym]||[],W=760,rh=40,pt=8,pl=78,pr=70,H=pt*2+rows.length*rh,plotW=W-pl-pr;
   const mx=Math.max(...rows.map(r=>r.pct),0.1);
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
   const tip=mkTip(box);
@@ -417,19 +459,28 @@ function prodChart(box){
    agency issuance. */
 function lenderChart(){
   const box=$("c_lender");box.innerHTML="";
-  const ym=$("lmonthSel").value, plow=plab().toLowerCase();
+  const lsel=$("lmonthSel"), ym=lsel.value, plow=plab().toLowerCase(), mt=isMTD(ym);
   const rows=((LENDERM[purpose]||{})[ym]||[]).slice(0,10);  // top 10 by volume in this loan type
+  markProv(lsel,mt);
+  // market-share denominator has to come from the same cut as the rows
   const mi=XMONTHS.findIndex(x=>x.ym===ym);
-  const mkt=(purpose==="all"?M[mi].t[IDX.loans]:PSER[mi].p[purpose].t[0])||1;
+  const mkt=(mt?(purpose==="all"?MTD.loans:MTD.p[purpose].loans)
+              :(purpose==="all"?M[mi].t[IDX.loans]:PSER[mi].p[purpose].t[0]))||1;
   $("lenderTitle").innerHTML=purpose==="all"
     ?"Top 10 agency lenders &mdash; VantageScore penetration"
     :`Top 10 agency <b style="color:var(--accent-3)">${plow}</b> lenders &mdash; VantageScore penetration`;
-  if(purpose!=="all")$("lenderDesc").innerHTML=
-    `The 10 biggest agency <b>${plow}</b> originators in the selected month, and each one's `+
-    `VantageScore-scored share of its own <b>${plow}</b> book. Ranking, penetration and share of `+
-    `market are all computed within ${plow} lending only. Right label: penetration % and `+
-    `VS-of-total loans. Hover for balances and the Fannie/Freddie split.`;
-  else $("lenderDesc").innerHTML=LDESC0;
+  // the "who's at scale" narrative is about the latest finished month, so it only
+  // rides along when that is what's on screen
+  const story=(purpose==="all"&&ym===M[LAST].m.replace("-",""))
+    ?` Adoption is still narrow but no longer a single name &mdash; in ${MON(LAST)} `+
+      `<b style="color:var(--ink)">UWM</b> (19.8% of its own book) and `+
+      `<b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a `+
+      `distant third; the other giants sit at ~0%.`:``;
+  $("lenderDesc").innerHTML=(mt?mtdNote():``)+(purpose==="all"?LDESC0+story
+    :`The 10 biggest agency <b>${plow}</b> originators in the selected month, and each one's `+
+     `VantageScore-scored share of its own <b>${plow}</b> book. Ranking, penetration and share of `+
+     `market are all computed within ${plow} lending only. Right label: penetration % and `+
+     `VS-of-total loans. Hover for balances and the Fannie/Freddie split.`);
   const W=760,rh=42,pt=24,pl=196,plotW=270,H=pt+8+rows.length*rh,lblX=pl+plotW+10;
   const mx=Math.max(...rows.map(r=>r.rate),0.5);
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
@@ -463,10 +514,15 @@ function lenderChart(){
 /* ---- cross-tab: categories (rows) x months (columns), selectable metric ---- */
 function crossTable(){
   const key=view==='t'?'agency':view==='f'?'fannie':'freddie';
-  const sel=$('xmonthSel').value, metric=$('xmetricSel').value;
+  const xsel=$('xmonthSel'), sel=xsel.value, metric=$('xmetricSel').value;
+  // "Last 4 months" stays month-end only -- mixing a running total into a
+  // month-over-month comparison would read as a collapse in volume
   const yms=sel==='last4'?XMONTHS.slice(-4).map(x=>x.ym):[sel];
-  const lab={};XMONTHS.forEach(x=>lab[x.ym]=x.l);
-  const pf=p=>p===0?'0.00%':p<1?p.toFixed(3)+'%':p.toFixed(2)+'%';
+  const lab={};SELMONTHS.forEach(x=>lab[x.ym]=x.l+(x.mtd?' MTD':''));
+  const mt=isMTD(sel);
+  markProv(xsel,mt);
+  // a one-GSE partial month leaves the other GSE's column empty -- guard the ratio
+  const pf=p=>!isFinite(p)?'-':p===0?'0.00%':p<1?p.toFixed(3)+'%':p.toFixed(2)+'%';
   const cats=[
     {k:'FICO only',col:'var(--muted)',ck:'fico_only',cls:'dim'},
     {k:'VantageScore 4.0 only',col:'var(--accent)',ck:'vs_only',cls:'hl'},
@@ -480,11 +536,12 @@ function crossTable(){
     if(metric==='upb')return money(d[1]);
     if(metric==='upbpct')return pf(d[1]/tus(c)*100);
     return pf(d[0]/tls(c)*100);}
-  function totc(c){if(metric==='loans')return commas(tls(c));if(metric==='upb')return money(tus(c));return '100%';}
+  function totc(c){if(metric==='loans')return commas(tls(c));if(metric==='upb')return money(tus(c));
+    return tls(c)?'100%':'-';}
   let h=`<table class="xt"><thead><tr><th>Score(s) on the loan</th>${yms.map(ym=>`<th>${lab[ym]}</th>`).join('')}</tr></thead><tbody>`;
   for(const cat of cats) h+=`<tr class="${cat.cls}"><td><span class="cat"><span class="catdot" style="background:${cat.col}"></span>${cat.k}</span></td>${yms.map(ym=>`<td>${cell(XCROSS[ym][key],cat.ck)}</td>`).join('')}</tr>`;
   h+=`<tr><td class="bignum">Total</td>${yms.map(ym=>`<td class="bignum">${totc(XCROSS[ym][key])}</td>`).join('')}</tr></tbody></table>`;
-  $('c_cross').innerHTML=h;
+  $('c_cross').innerHTML=(mt?`<div class="desc" style="margin:0 0 10px">${mtdNote()}</div>`:``)+h;
   $('xtabTitle').textContent=`Credit-score model mix \u2014 ${VIEWNAME[view]}`;
 }
 
@@ -774,15 +831,19 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
 
 /* ---- month selectors ---- */
 (function(){
-  const rev=XMONTHS.slice().reverse();
-  const optList=rev.map(x=>`<option value="${x.ym}">${x.l}</option>`).join("");
+  // SELMONTHS is newest-first and leads with the partial month when one is loaded.
+  // Every month dropdown offers it, but none DEFAULTS to it -- these cards headline
+  // a finished month, and the partial one is opt-in.
+  const optList=SELMONTHS.map(x=>
+    `<option value="${x.ym}">${x.l}${x.mtd?" (MTD)":""}</option>`).join("");
+  const firstFinal=SELMONTHS.find(x=>!x.mtd).ym;
   const xs=$("xmonthSel");xs.innerHTML=`<option value="last4">Last 4 months</option>`+optList;xs.value="last4";
   xs.addEventListener("change",crossTable);
   const xm=$("xmetricSel");xm.innerHTML=`<option value="loanpct">% of loans</option><option value="loans">Loan count</option><option value="upb">UPB ($)</option><option value="upbpct">% of UPB</option>`;xm.value="loanpct";
   xm.addEventListener("change",crossTable);
-  const ls=$("lmonthSel");ls.innerHTML=optList;ls.value=rev[0].ym;
+  const ls=$("lmonthSel");ls.innerHTML=optList;ls.value=firstFinal;
   ls.addEventListener("change",lenderChart);
-  const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=rev[0].ym;
+  const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=firstFinal;
   ps.addEventListener("change",()=>prodChart($("c_prod")));
   // vintage: agency plus every seller that has ever delivered a VS loan.
   // The seller list is identical across loan types on purpose, so switching the

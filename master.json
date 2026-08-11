@@ -2059,14 +2059,20 @@
  ],
  "product": {
   "202512": {
-   "30yr": {
-    "upb": 60014984506,
+   "20yr": {
+    "upb": 3470547899,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
    },
    "other": {
     "upb": 398533000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
+   },
+   "30yr": {
+    "upb": 60014984506,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2082,23 +2088,23 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 3470547899,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202601": {
-   "30yr": {
-    "upb": 60157315151,
+   "20yr": {
+    "upb": 2644281048,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
    },
    "other": {
     "upb": 370924133,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
+   },
+   "30yr": {
+    "upb": 60157315151,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2114,23 +2120,23 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 2644281048,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202602": {
-   "30yr": {
-    "upb": 52990215139,
+   "20yr": {
+    "upb": 2454235587,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
    },
    "other": {
     "upb": 483583174,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
+   },
+   "30yr": {
+    "upb": 52990215139,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2146,23 +2152,23 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 2454235587,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202603": {
-   "30yr": {
-    "upb": 63626625742,
+   "20yr": {
+    "upb": 1883877985,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
    },
    "other": {
     "upb": 561766926,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
+   },
+   "30yr": {
+    "upb": 63626625742,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2178,26 +2184,26 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 1883877985,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202604": {
-   "30yr": {
-    "upb": 68874545782,
-    "vs_upb": 4510000,
-    "pct": 0.0065,
-    "vs_loans": 8
+   "20yr": {
+    "upb": 2298173403,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
    },
    "other": {
     "upb": 666618000,
     "vs_upb": 670000,
     "pct": 0.1005,
     "vs_loans": 1
+   },
+   "30yr": {
+    "upb": 68874545782,
+    "vs_upb": 4510000,
+    "pct": 0.0065,
+    "vs_loans": 8
    },
    "15yr": {
     "upb": 5989819060,
@@ -2210,26 +2216,26 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 2298173403,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202605": {
-   "30yr": {
-    "upb": 64401164574,
-    "vs_upb": 10899000,
-    "pct": 0.0169,
-    "vs_loans": 28
+   "20yr": {
+    "upb": 1283978053,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
    },
    "other": {
     "upb": 541612382,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
+   },
+   "30yr": {
+    "upb": 64401164574,
+    "vs_upb": 10899000,
+    "pct": 0.0169,
+    "vs_loans": 28
    },
    "15yr": {
     "upb": 3414536842,
@@ -2242,26 +2248,26 @@
     "vs_upb": 1365000,
     "pct": 0.5948,
     "vs_loans": 2
-   },
-   "20yr": {
-    "upb": 1283978053,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
    }
   },
   "202606": {
-   "30yr": {
-    "upb": 61271013973,
-    "vs_upb": 477028000,
-    "pct": 0.7786,
-    "vs_loans": 1126
+   "20yr": {
+    "upb": 1180820674,
+    "vs_upb": 4129000,
+    "pct": 0.3497,
+    "vs_loans": 12
    },
    "other": {
     "upb": 461785759,
     "vs_upb": 10825000,
     "pct": 2.3442,
     "vs_loans": 24
+   },
+   "30yr": {
+    "upb": 61271013973,
+    "vs_upb": 477028000,
+    "pct": 0.7786,
+    "vs_loans": 1126
    },
    "15yr": {
     "upb": 3281377830,
@@ -2274,26 +2280,26 @@
     "vs_upb": 3583000,
     "pct": 1.9671,
     "vs_loans": 14
-   },
-   "20yr": {
-    "upb": 1180820674,
-    "vs_upb": 4129000,
-    "pct": 0.3497,
-    "vs_loans": 12
    }
   },
   "202607": {
-   "30yr": {
-    "upb": 54698749464,
-    "vs_upb": 2339902000,
-    "pct": 4.2778,
-    "vs_loans": 6115
+   "20yr": {
+    "upb": 891711000,
+    "vs_upb": 39264000,
+    "pct": 4.4032,
+    "vs_loans": 128
    },
    "other": {
     "upb": 343425000,
     "vs_upb": 52124000,
     "pct": 15.1777,
     "vs_loans": 176
+   },
+   "30yr": {
+    "upb": 54698749464,
+    "vs_upb": 2339902000,
+    "pct": 4.2778,
+    "vs_loans": 6115
    },
    "15yr": {
     "upb": 3701298542,
@@ -2306,12 +2312,6 @@
     "vs_upb": 19941000,
     "pct": 9.582,
     "vs_loans": 85
-   },
-   "20yr": {
-    "upb": 891711000,
-    "vs_upb": 39264000,
-    "pct": 4.4032,
-    "vs_loans": 128
    }
   }
  },
@@ -3331,9 +3331,9 @@
      "upb_rate": 0.0
     },
     {
-     "name": "THE HUNTINGTON NATIONAL BANK",
+     "name": "GUARANTEED RATE, INC.",
      "loans": 47,
-     "upb": 8830000,
+     "upb": 15339000,
      "vs_loans": 0,
      "vs_upb": 0,
      "fn_vs": 0,
@@ -3342,9 +3342,9 @@
      "upb_rate": 0.0
     },
     {
-     "name": "GUARANTEED RATE, INC.",
+     "name": "THE HUNTINGTON NATIONAL BANK",
      "loans": 47,
-     "upb": 15339000,
+     "upb": 8830000,
      "vs_loans": 0,
      "vs_upb": 0,
      "fn_vs": 0,
@@ -3432,9 +3432,9 @@
      "upb_rate": 0.0
     },
     {
-     "name": "TRUIST BANK",
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
      "loans": 91,
-     "upb": 31595000,
+     "upb": 46274000,
      "vs_loans": 0,
      "vs_upb": 0,
      "fn_vs": 0,
@@ -3443,9 +3443,9 @@
      "upb_rate": 0.0
     },
     {
-     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "name": "TRUIST BANK",
      "loans": 91,
-     "upb": 46274000,
+     "upb": 31595000,
      "vs_loans": 0,
      "vs_upb": 0,
      "fn_vs": 0,
@@ -3534,6 +3534,94 @@
     "vs_upb": 255509000,
     "pct": 14.3347,
     "upb_pct": 15.6192
+   }
+  },
+  "crosstab": {
+   "fannie": {
+    "fico_only": [
+     20984,
+     10359557179
+    ],
+    "vs_only": [
+     1550,
+     846103000
+    ],
+    "both": [
+     0,
+     0
+    ],
+    "neither": [
+     47,
+     11753000
+    ]
+   },
+   "freddie": {
+    "fico_only": [
+     4354,
+     1659769481
+    ],
+    "vs_only": [
+     599,
+     274055000
+    ],
+    "both": [
+     0,
+     0
+    ],
+    "neither": [
+     1,
+     523000
+    ]
+   },
+   "agency": {
+    "fico_only": [
+     25338,
+     12019326659
+    ],
+    "vs_only": [
+     2149,
+     1120158000
+    ],
+    "both": [
+     0,
+     0
+    ],
+    "neither": [
+     48,
+     12276000
+    ]
+   }
+  },
+  "product": {
+   "20yr": {
+    "upb": 148127000,
+    "vs_upb": 8716000,
+    "pct": 5.8841,
+    "vs_loans": 24
+   },
+   "other": {
+    "upb": 76138000,
+    "vs_upb": 21039000,
+    "pct": 27.6327,
+    "vs_loans": 39
+   },
+   "30yr": {
+    "upb": 12065309118,
+    "vs_upb": 1021336000,
+    "pct": 8.4651,
+    "vs_loans": 1942
+   },
+   "15yr": {
+    "upb": 849358542,
+    "vs_upb": 65295000,
+    "pct": 7.6876,
+    "vs_loans": 136
+   },
+   "10yr": {
+    "upb": 12828000,
+    "vs_upb": 3772000,
+    "pct": 29.4044,
+    "vs_loans": 8
    }
   }
  },

@@ -319,6 +319,18 @@ def build():
                          'fn_vs': g[s][4], 'fre_vs': g[s][5],
                          'rate': pct(g[s][2], g[s][0]), 'upb_rate': pct(g[s][3], g[s][1])}
                         for s in sorted(keep, key=lambda s: -g[s][0])]
+            # cross-tab and product mix for the partial month, in exactly the same
+            # shapes as their month-end counterparts, so the dashboard's month
+            # selectors can offer this month alongside the finished ones.
+            CATS = ('fico_only', 'vs_only', 'both', 'neither')
+            def mct(p):
+                return {c: [p['ct'][c][0], round(p['ct'][c][1])] for c in CATS} if p \
+                    else {c: [0, 0] for c in CATS}
+            mprod = {}
+            for k in {k for p in parts.values() for k in p['prod']}:
+                a = [sum(p['prod'].get(k, [0, 0, 0, 0])[i] for p in parts.values()) for i in range(4)]
+                mprod[k] = {'upb': round(a[0]), 'vs_upb': round(a[1]),
+                            'pct': pct(a[1], a[0]), 'vs_loans': a[3]}
             mtd = {'month': ym, 'short': month_label(ym),
                    'issuers': sorted(parts), 'files': sum(len(intra[i].get(ym, [])) for i in parts),
                    'partial_issuers': sorted(set(('FNM', 'FRE')) - set(parts)),
@@ -329,7 +341,13 @@ def build():
                    'p': {pk: {'loans': mpurp[pk][0], 'upb': round(mpurp[pk][1]),
                               'vs_loans': mpurp[pk][2], 'vs_upb': round(mpurp[pk][3]),
                               'pct': pct(mpurp[pk][2], mpurp[pk][0]),
-                              'upb_pct': pct(mpurp[pk][3], mpurp[pk][1])} for pk in PSPLIT}}
+                              'upb_pct': pct(mpurp[pk][3], mpurp[pk][1])} for pk in PSPLIT},
+                   'crosstab': {
+                       'fannie': mct(parts.get('FNM')), 'freddie': mct(parts.get('FRE')),
+                       'agency': {c: [sum(p['ct'][c][0] for p in parts.values()),
+                                      round(sum(p['ct'][c][1] for p in parts.values()))]
+                                  for c in CATS}},
+                   'product': mprod}
     intra_sellers = {s for ck in vint_sell for s, pm in vint_sell[ck].items()
                      if sum(v[1] for v in pm.values()) > 0}
 
