@@ -4,8 +4,16 @@ generate_dashboard.py — master.json + template.html -> output/dashboard.html
 Builds the JS data literals (M, PROD, LENDERS, CROSS, LMONTH) from master.json
 and injects them at the //__DATA__ marker in template.html. Output is pure ASCII
 (numbers + ASCII names), so it publishes cleanly as an Artifact.
+
+Everything the loan-purpose filter touches is emitted keyed by purpose --
+LENDERM/LSER/VINT/VINTL/MTD.lenders are all {all,P,C,N} -> (what they used to
+be). That keeps the JS a single lookup away from filtered, rather than
+threading a purpose argument through every render function.
 """
 import json, os
+
+PK = ('P', 'C', 'N')            # purchase / cash-out refi / rate-term refi
+PALL = ('all',) + PK
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(HERE, "..", "master.json")
@@ -40,35 +48,52 @@ def js_data(m):
                               for k, v in rows) + "]"
     lines.append("const PRODM={" + ",".join(f'"{ym}":{pblock(ym)}' for ym in months) + "};")
 
-    # LENDERM: top lenders per month (top-N by volume + any VS lender) for the "who's driving" bar + month selector
+    # LENDERM: top lenders per month (top-N by volume + any VS lender) for the "who's driving" bar +
+    # month selector, keyed by loan purpose. Ranked *within* each purpose -- the biggest purchase
+    # shop is not the biggest cash-out shop.
     def lrow(v):
         return ('{name:%s,loans:%d,upb:%d,vs:%d,vs_upb:%d,fn:%d,fr:%d,rate:%s}' %
                 (json.dumps(short(v['name'])), v['loans'], v['upb'], v['vs_loans'], v['vs_upb'],
                  v['fn_vs'], v['fre_vs'], round(v['rate'], 3)))
-    lines.append("const LENDERM={" +
-                 ",".join(f'"{ym}":[' + ",".join(lrow(v) for v in m['lenders'][ym]) + "]" for ym in months) + "};")
+    def lblock(src):
+        return "{" + ",".join(f'"{ym}":[' + ",".join(lrow(v) for v in src[ym]) + "]" for ym in months) + "}"
+    lines.append("const LENDERM={" + ",".join(
+        f'{pk}:{lblock(m["lenders"] if pk == "all" else m["lenders_p"][pk])}' for pk in PALL) + "};")
+
+    # PSER: agency issuance by loan purpose, per month, following the GSE toggle.
+    # f/r/t = [loans, upb, vs_loans, vs_upb, vs_loan_pct, vs_upb_pct]
+    lines.append("// by loan purpose: f/r/t = [loans, upb, vs_loans, vs_upb, vs_loan_pct, vs_upb_pct]")
+    lines.append("const PSER=[" + ",".join(
+        '{l:%s,p:{%s}}' % (json.dumps(s['short']),
+                           ",".join('%s:{f:%s,r:%s,t:%s}' % (
+                               pk, json.dumps(s['p'][pk]['f']), json.dumps(s['p'][pk]['r']),
+                               json.dumps(s['p'][pk]['t'])) for pk in PK))
+        for s in m['purpose_series']) + "];")
 
     # cross-tab for ALL months + the month list (for the month selector)
     lines.append("const XCROSS=" + json.dumps(m['crosstab'], separators=(',', ':')) + ";")
     lines.append("const XMONTHS=[" + ",".join(f'{{ym:"{s["month"]}",l:"{s["short"]}"}}' for s in series) + "];")
 
-    # LSER: per-lender time series (line chart) with loans/upb totals for hover
-    lines.append("const LSER=[")
-    for s in m['lender_series']:
-        lines.append('  {name:%s,vs:%s,rate:%s,loans:%s,upb:%s},' % (
+    # LSER: per-lender time series (line chart) with loans/upb totals for hover, by purpose
+    def lserblock(src):
+        return "[" + ",".join('{name:%s,vs:%s,rate:%s,loans:%s,upb:%s}' % (
             json.dumps(short(s['name'])), json.dumps(s['vs']), json.dumps(s['rate']),
-            json.dumps(s['loans']), json.dumps(s['upb'])))
-    lines.append("];")
+            json.dumps(s['loans']), json.dumps(s['upb'])) for s in src) + "]"
+    lines.append("const LSER={" + ",".join(
+        f'{pk}:{lserblock(m["lender_series"] if pk == "all" else m["lender_series_p"][pk])}'
+        for pk in PALL) + "};")
 
     # VINT: agency VS penetration by origination cohort (First Payment Date).
     # `c` flags a cohort with all three bulk issuance months on hand; the rest are partial.
     lines.append("// origination-vintage view: l=label, n=loans, v=vs_loans, p=vs% of loans,"
                  " up=vs% of UPB, c=complete cohort")
-    lines.append("const VINT=[" + ",".join(
-        '{l:%s,n:%d,v:%d,p:%s,up:%s,c:%d}' % (json.dumps(v['short']), v['loans'], v['vs_loans'],
-                                              round(v['pct'], 3), round(v['upb_pct'], 3),
-                                              int(v['complete']))
-        for v in m['vintage']) + "];")
+    def vblock(src):
+        return "[" + ",".join(
+            '{l:%s,n:%d,v:%d,p:%s,up:%s,c:%d}' % (json.dumps(v['short']), v['loans'], v['vs_loans'],
+                                                  round(v['pct'], 3), round(v['upb_pct'], 3),
+                                                  int(v['complete'])) for v in src) + "]"
+    lines.append("const VINT={" + ",".join(
+        f'{pk}:{vblock(m["vintage"] if pk == "all" else m["vintage_p"][pk])}' for pk in PALL) + "};")
     # MTD: provisional month-to-date from intraday cuts. null when none are loaded.
     d = m.get('mtd')
     if d:
@@ -77,17 +102,30 @@ def js_data(m):
             'files': d['files'], 'partial_issuers': d['partial_issuers'],
             'loans': d['loans'], 'upb': d['upb'], 'vs_loans': d['vs_loans'],
             'vs_upb': d['vs_upb'], 'pct': round(d['pct'], 3), 'upb_pct': round(d['upb_pct'], 3),
-            'lenders': [dict(x, name=short(x['name'])) for x in d['lenders']],
+            'lenders': {pk: [dict(x, name=short(x['name']))
+                             for x in (d['lenders'] if pk == 'all' else d['lenders_p'][pk])]
+                        for pk in PALL},
+            'p': dict({'all': {'loans': d['loans'], 'upb': d['upb'], 'vs_loans': d['vs_loans'],
+                               'vs_upb': d['vs_upb'], 'pct': round(d['pct'], 3),
+                               'upb_pct': round(d['upb_pct'], 3)}},
+                      **{pk: {k: (round(v, 3) if isinstance(v, float) else v)
+                              for k, v in d['p'][pk].items()} for pk in PK}),
         }, separators=(',', ':')) + ";")
     else:
         lines.append("const MTD=null;")
-    lines.append("const VINTL=[" + ",".join(
-        '{name:%s,rate:%s,loans:%s,vs:%s,upb:%s,vs_upb:%s,upb_rate:%s,fn:%s,fr:%s}' % (
-            json.dumps(short(s['name'])), json.dumps(s['rate']), json.dumps(s['loans']),
-            json.dumps(s['vs']), json.dumps(s['upb']), json.dumps(s['vs_upb']),
-            json.dumps([round(x, 3) for x in s['upb_rate']]),
-            json.dumps(s['fn_vs']), json.dumps(s['fre_vs']))
-        for s in m['vintage_lender']) + "];")
+    def vlblock(src):
+        return "[" + ",".join(
+            '{name:%s,rate:%s,loans:%s,vs:%s,upb:%s,vs_upb:%s,upb_rate:%s,fn:%s,fr:%s}' % (
+                json.dumps(short(s['name'])), json.dumps(s['rate']), json.dumps(s['loans']),
+                json.dumps(s['vs']), json.dumps(s['upb']), json.dumps(s['vs_upb']),
+                json.dumps([round(x, 3) for x in s['upb_rate']]),
+                json.dumps(s['fn_vs']), json.dumps(s['fre_vs'])) for s in src) + "]"
+    # seller set + order is identical across purposes, so the lender dropdown is stable
+    lines.append("const VINTL={" + ",".join(
+        f'{pk}:{vlblock(m["vintage_lender"] if pk == "all" else m["vintage_lender_p"][pk])}'
+        for pk in PALL) + "};")
+    lines.append('const PURP=[{k:"all",l:"All loan types"},{k:"P",l:"Purchase"},'
+                 '{k:"C",l:"Cash-out refi"},{k:"N",l:"Rate/term refi"}];')
     # cohort labels + partial flag, so the vintage lender table can name its cohort
     lines.append("const VINTC=[" + ",".join(
         '{l:%s,c:%d}' % (json.dumps(v['short']), int(v['complete'])) for v in m['vintage']) + "];")

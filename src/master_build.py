@@ -22,6 +22,13 @@ so each issuance file carries cohorts at age -1 (newest), 0, +1, ... A cohort is
 only materially complete once the issuance file for cohort+1 has landed; later
 cohorts are partial and flagged as such.
 
+Loan purpose: every seller/cohort/month tally is also kept split by Loan Purpose
+(P purchase, C cash-out refi, N rate/term refi, O everything else -- chiefly the
+'M' modified loans that ride in reperforming pools). The `*_p` keys mirror their
+unsplit counterparts exactly, so the dashboard can filter any lender or cohort
+view by loan type. Refis run well ahead of purchase, and by different margins at
+different lenders, so the blended number hides most of the story.
+
 Run directly or via refresh.py.
 """
 import json, os, glob, re
@@ -34,6 +41,10 @@ OUT  = os.path.join(HERE, "..", "master.json")
 NA = {'9999', '7777', ''}          # 9999=Not Available, 7777=Not Applicable; 777 is a valid score
 LAB = {'01':"Jan",'02':"Feb",'03':"Mar",'04':"Apr",'05':"May",'06':"Jun",'07':"Jul",
        '08':"Aug",'09':"Sep",'10':"Oct",'11':"Nov",'12':"Dec"}
+
+PK     = ('P', 'C', 'N', 'O')   # every loan lands in exactly one, so these sum to the total
+PSPLIT = ('P', 'C', 'N')        # the three the dashboard offers as filters
+Z4     = [0, 0.0, 0, 0.0]
 
 def month_label(ym):   # 202606 -> "Jun '26"
     return f"{LAB[ym[4:6]]} '{ym[2:4]}"
@@ -93,6 +104,10 @@ def bucket(t):
     if 100 <= t < 150: return '10yr'
     return 'other'
 
+def psum(pm, n=4):
+    """Collapse a {purpose: [...]} tally back to the unsplit total."""
+    return [sum(v[i] for v in pm.values()) for i in range(n)]
+
 def scan(issuer, ym):
     return scan_paths([os.path.join(DATA, f"{issuer}_ILLD_{ym}.txt")])
 
@@ -108,9 +123,11 @@ def scan_paths(paths):
     ct = {k: [0, 0.0] for k in ('fico_only', 'vs_only', 'both', 'neither')}
     prod = defaultdict(lambda: [0.0, 0.0, 0, 0])   # upb, vs_upb, loans, vs_loans
     vs_secs = set(); all_secs = set()
-    sell = defaultdict(lambda: [0, 0.0, 0, 0.0])   # loans, upb, vs_loans, vs_upb
-    vint = defaultdict(lambda: [0, 0, 0.0, 0.0])         # cohort -> loans, vs_loans, upb, vs_upb
-    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0, 0.0, 0.0]))  # cohort -> seller -> loans, vs_loans, upb, vs_upb
+    # every purpose-keyed tally below is {purpose: [...]}, summing to the total
+    sell = defaultdict(lambda: {k: [0, 0.0, 0, 0.0] for k in PK})   # loans, upb, vs_loans, vs_upb
+    purp = {k: [0, 0.0, 0, 0.0] for k in PK}                        # same, all sellers
+    vint = defaultdict(lambda: {k: [0, 0, 0.0, 0.0] for k in PK})   # loans, vs_loans, upb, vs_upb
+    vint_sell = defaultdict(lambda: defaultdict(lambda: {k: [0, 0, 0.0, 0.0] for k in PK}))
     for path in paths:
       with open(path, encoding='utf-8', errors='replace') as f:
         h = f.readline().rstrip('\n').split('|'); ix = {n: i for i, n in enumerate(h)}
@@ -123,6 +140,7 @@ def scan_paths(paths):
         iU, iS, iT, iSec = (ix['Issuance Investor Loan UPB'], ix['Seller Name'],
                             ix['Loan Term'], ix['Security Identifier'])
         iFP, iID = ix['First Payment Date'], ix['Loan Identifier']
+        iP, iPo = ix['Loan Purpose'], ix['Origination Loan Purpose']
         for line in f:
             p = line.rstrip('\n').split('|')
             if len(p) <= iS: continue
@@ -143,20 +161,26 @@ def scan_paths(paths):
                 try: fico_wsum += float(fico) * u; fico_wden += u
                 except ValueError: pass
             b = prod[bucket(p[iT])]; b[0] += u; b[2] += 1
-            s = p[iS].strip() or '(blank)'; d = sell[s]; d[0] += 1; d[1] += u
+            # 'M' (modified) and anything unexpected fall into 'O'
+            pk = p[iP].strip() or p[iPo].strip()
+            pk = pk if pk in PSPLIT else 'O'
+            s = p[iS].strip() or '(blank)'
+            d = sell[s][pk]; d[0] += 1; d[1] += u
+            a = purp[pk];    a[0] += 1; a[1] += u
             ck = cohort_key(p[iFP])
             if ck:
-                v = vint[ck]; v[0] += 1; v[2] += u
-                vsl = vint_sell[ck][s]; vsl[0] += 1; vsl[2] += u
+                v = vint[ck][pk]; v[0] += 1; v[2] += u
+                vsl = vint_sell[ck][s][pk]; vsl[0] += 1; vsl[2] += u
             if hv:
-                vs_secs.add(p[iSec]); b[1] += u; b[3] += 1; d[2] += 1; d[3] += u
+                vs_secs.add(p[iSec]); b[1] += u; b[3] += 1
+                d[2] += 1; d[3] += u; a[2] += 1; a[3] += u
                 if ck:
                     v[1] += 1; v[3] += u; vsl[1] += 1; vsl[3] += u
     return {'tot_l': tot_l, 'tot_u': tot_u,
             'wa_fico': round(fico_wsum / fico_wden, 1) if fico_wden else None,
             'ct': ct, 'prod': {k: list(v) for k, v in prod.items()},
             'n_vs_pools': len(vs_secs), 'n_pools': len(all_secs), 'sell': sell,
-            'vint': vint, 'vint_sell': vint_sell}
+            'purp': purp, 'vint': vint, 'vint_sell': vint_sell}
 
 def pct(a, b): return round(a / b * 100, 4) if b else 0.0
 
@@ -166,24 +190,30 @@ def build():
         raise SystemExit(f"No paired FNM/FRE loan-level files found in {DATA}")
     TOP_N = 12   # top lenders (by volume) kept per month for the "top lenders" chart
     series = []; crosstab = {}; lenders = {}; product = {}; combined = {}
+    purpose_series = []
+    # combined[ym][seller][purpose] = [loans, upb, vs_loans, vs_upb, fn_vs, fre_vs]
+    lenders_p = {pk: {} for pk in PSPLIT}
     # origination-cohort accumulators, pooled across every issuance file.
     # A loan appears in exactly one issuance file, so summing is safe (no dedup).
-    vint = defaultdict(lambda: [0, 0, 0.0, 0.0])
-    # cohort -> seller -> loans, vs_loans, upb, vs_upb, fn_vs, fre_vs
-    vint_sell = defaultdict(lambda: defaultdict(lambda: [0, 0, 0.0, 0.0, 0, 0]))
+    vint = defaultdict(lambda: {k: [0, 0, 0.0, 0.0] for k in PK})
+    # cohort -> seller -> purpose -> loans, vs_loans, upb, vs_upb, fn_vs, fre_vs
+    vint_sell = defaultdict(lambda: defaultdict(lambda: {k: [0, 0, 0.0, 0.0, 0, 0] for k in PK}))
 
     def merge_vint(src, iss):
         """Fold one issuer-month's cohort tallies into the pooled accumulators."""
-        for ck, v in src['vint'].items():
+        for ck, pm in src['vint'].items():
             a = vint[ck]
-            for i in range(4):
-                a[i] += v[i]
-        for ck, sm in src['vint_sell'].items():
-            for s, v in sm.items():
-                a = vint_sell[ck][s]
+            for pk, v in pm.items():
                 for i in range(4):
-                    a[i] += v[i]
-                a[4 if iss == 'FNM' else 5] += v[1]
+                    a[pk][i] += v[i]
+        for ck, sm in src['vint_sell'].items():
+            for s, pm in sm.items():
+                a = vint_sell[ck][s]
+                for pk, v in pm.items():
+                    t = a[pk]
+                    for i in range(4):
+                        t[i] += v[i]
+                    t[4 if iss == 'FNM' else 5] += v[1]
 
     for ym in months:
         fn = scan('FNM', ym); fr = scan('FRE', ym)
@@ -205,19 +235,44 @@ def build():
             'fannie':  {c: [fn['ct'][c][0], round(fn['ct'][c][1])] for c in fn['ct']},
             'freddie': {c: [fr['ct'][c][0], round(fr['ct'][c][1])] for c in fr['ct']},
             'agency':  {c: [fn['ct'][c][0] + fr['ct'][c][0], round(fn['ct'][c][1] + fr['ct'][c][1])] for c in fn['ct']}}
-        # combined per-seller stats: [loans, upb, vs_loans, vs_upb, fn_vs, fre_vs]
+        # ---- agency issuance by loan purpose (per GSE + total) ----
+        # Same VS-only numerator as the headline, cut by Loan Purpose.
+        def ppack(m, pk):
+            n, u, v, vu = m['purp'][pk]
+            return [n, round(u), v, round(vu), pct(v, n), pct(vu, u)]
+        pblk = {}
+        for pk in PSPLIT:
+            a = fn['purp'][pk]; b = fr['purp'][pk]
+            n = a[0] + b[0]; u = a[1] + b[1]; v = a[2] + b[2]; vu = a[3] + b[3]
+            pblk[pk] = {'f': ppack(fn, pk), 'r': ppack(fr, pk),
+                        't': [n, round(u), v, round(vu), pct(v, n), pct(vu, u)]}
+        purpose_series.append({'month': ym, 'short': month_label(ym), 'p': pblk})
+        # ---- per-seller stats, kept by purpose; 'all' is the sum ----
+        # comb[seller][purpose] = [loans, upb, vs_loans, vs_upb, fn_vs, fre_vs]
         comb = {}
         for s in set(fn['sell']) | set(fr['sell']):
-            a = fn['sell'].get(s, [0, 0, 0, 0]); b = fr['sell'].get(s, [0, 0, 0, 0])
-            comb[s] = [a[0] + b[0], a[1] + b[1], a[2] + b[2], a[3] + b[3], a[2], b[2]]
+            a = fn['sell'].get(s); b = fr['sell'].get(s)
+            comb[s] = {pk: [(a[pk][0] if a else 0) + (b[pk][0] if b else 0),
+                            (a[pk][1] if a else 0.0) + (b[pk][1] if b else 0.0),
+                            (a[pk][2] if a else 0) + (b[pk][2] if b else 0),
+                            (a[pk][3] if a else 0.0) + (b[pk][3] if b else 0.0),
+                            (a[pk][2] if a else 0), (b[pk][2] if b else 0)] for pk in PK}
         combined[ym] = comb
-        # keep top-N by volume, plus any seller with VS this month
-        keep = set(sorted(comb, key=lambda s: -comb[s][0])[:TOP_N]) | {s for s in comb if comb[s][2] > 0}
-        lenders[ym] = [{'name': s, 'loans': comb[s][0], 'upb': round(comb[s][1]),
-                        'vs_loans': comb[s][2], 'vs_upb': round(comb[s][3]),
-                        'fn_vs': comb[s][4], 'fre_vs': comb[s][5],
-                        'rate': pct(comb[s][2], comb[s][0])}
-                       for s in sorted(keep, key=lambda s: -comb[s][0])]
+
+        def lender_rows(pick):
+            """Rank sellers on `pick(seller) -> [loans, upb, vs, vs_upb, fn_vs, fre_vs]`."""
+            g = {s: pick(s) for s in comb}
+            keep = set(sorted(g, key=lambda s: -g[s][0])[:TOP_N]) | {s for s in g if g[s][2] > 0}
+            return [{'name': s, 'loans': g[s][0], 'upb': round(g[s][1]),
+                     'vs_loans': g[s][2], 'vs_upb': round(g[s][3]),
+                     'fn_vs': g[s][4], 'fre_vs': g[s][5],
+                     'rate': pct(g[s][2], g[s][0]), 'upb_rate': pct(g[s][3], g[s][1])}
+                    for s in sorted(keep, key=lambda s: -g[s][0])]
+        lenders[ym] = lender_rows(lambda s: psum(comb[s], 6))
+        for pk in PSPLIT:
+            # ranked within the purpose -- the biggest purchase shop is not the
+            # biggest cash-out shop, and that is the point of the filter
+            lenders_p[pk][ym] = lender_rows(lambda s, pk=pk: comb[s][pk])
         pm = {}
         for k in set(fn['prod']) | set(fr['prod']):
             a = fn['prod'].get(k, [0, 0, 0, 0]); b = fr['prod'].get(k, [0, 0, 0, 0])
@@ -243,37 +298,59 @@ def build():
             vl = sum(p['ct']['vs_only'][0] for p in parts.values())
             vu = sum(p['ct']['vs_only'][1] for p in parts.values())
             # per-seller MTD, same shape as the month-end lender rows
-            msell = defaultdict(lambda: [0, 0.0, 0, 0.0, 0, 0])   # loans, upb, vs, vs_upb, fn_vs, fre_vs
+            msell = defaultdict(lambda: {k: [0, 0.0, 0, 0.0, 0, 0] for k in PK})
+            mpurp = {k: [0, 0.0, 0, 0.0] for k in PK}
             for iss, p in parts.items():
-                for s, d in p['sell'].items():
-                    a = msell[s]
-                    a[0] += d[0]; a[1] += d[1]; a[2] += d[2]; a[3] += d[3]
-                    a[4 if iss == 'FNM' else 5] += d[2]
-            keep = (set(sorted(msell, key=lambda s: -msell[s][0])[:TOP_N])
-                    | {s for s in msell if msell[s][2] > 0})
+                for s, pmm in p['sell'].items():
+                    for pk, d in pmm.items():
+                        a = msell[s][pk]
+                        a[0] += d[0]; a[1] += d[1]; a[2] += d[2]; a[3] += d[3]
+                        a[4 if iss == 'FNM' else 5] += d[2]
+                for pk, d in p['purp'].items():
+                    a = mpurp[pk]
+                    for i in range(4):
+                        a[i] += d[i]
+
+            def mtd_rows(pick):
+                g = {s: pick(s) for s in msell}
+                keep = set(sorted(g, key=lambda s: -g[s][0])[:TOP_N]) | {s for s in g if g[s][2] > 0}
+                return [{'name': s, 'loans': g[s][0], 'upb': round(g[s][1]),
+                         'vs_loans': g[s][2], 'vs_upb': round(g[s][3]),
+                         'fn_vs': g[s][4], 'fre_vs': g[s][5],
+                         'rate': pct(g[s][2], g[s][0]), 'upb_rate': pct(g[s][3], g[s][1])}
+                        for s in sorted(keep, key=lambda s: -g[s][0])]
             mtd = {'month': ym, 'short': month_label(ym),
                    'issuers': sorted(parts), 'files': sum(len(intra[i].get(ym, [])) for i in parts),
                    'partial_issuers': sorted(set(('FNM', 'FRE')) - set(parts)),
                    'loans': tl, 'upb': round(tu), 'vs_loans': vl, 'vs_upb': round(vu),
                    'pct': pct(vl, tl), 'upb_pct': pct(vu, tu),
-                   'lenders': [{'name': s, 'loans': msell[s][0], 'upb': round(msell[s][1]),
-                                'vs_loans': msell[s][2], 'vs_upb': round(msell[s][3]),
-                                'fn_vs': msell[s][4], 'fre_vs': msell[s][5],
-                                'rate': pct(msell[s][2], msell[s][0]),
-                                'upb_rate': pct(msell[s][3], msell[s][1])}
-                               for s in sorted(keep, key=lambda s: -msell[s][0])]}
-    intra_sellers = {s for ck in vint_sell for s, v in vint_sell[ck].items() if v[1] > 0}
+                   'lenders': mtd_rows(lambda s: psum(msell[s], 6)),
+                   'lenders_p': {pk: mtd_rows(lambda s, pk=pk: msell[s][pk]) for pk in PSPLIT},
+                   'p': {pk: {'loans': mpurp[pk][0], 'upb': round(mpurp[pk][1]),
+                              'vs_loans': mpurp[pk][2], 'vs_upb': round(mpurp[pk][3]),
+                              'pct': pct(mpurp[pk][2], mpurp[pk][0]),
+                              'upb_pct': pct(mpurp[pk][3], mpurp[pk][1])} for pk in PSPLIT}}
+    intra_sellers = {s for ck in vint_sell for s, pm in vint_sell[ck].items()
+                     if sum(v[1] for v in pm.values()) > 0}
 
     # per-lender time series for every seller that ever delivered VS (for the over-time chart + hover)
-    ever_vs = {s for ym in months for s in combined[ym] if combined[ym][s][2] > 0}
-    lender_series = []
-    for s in sorted(ever_vs, key=lambda s: -sum(combined[ym].get(s, [0,0,0,0,0,0])[2] for ym in months)):
-        lender_series.append({
-            'name': s,
-            'vs':    [combined[ym].get(s, [0,0,0,0,0,0])[2] for ym in months],
-            'rate':  [pct(combined[ym].get(s, [0,0,0,0,0,0])[2], combined[ym].get(s, [1,0,0,0,0,0])[0]) for ym in months],
-            'loans': [combined[ym].get(s, [0,0,0,0,0,0])[0] for ym in months],
-            'upb':   [round(combined[ym].get(s, [0,0,0,0,0,0])[1]) for ym in months]})
+    ever_vs = {s for ym in months for s in combined[ym] if psum(combined[ym][s], 6)[2] > 0}
+    ZP = {pk: [0, 0.0, 0, 0.0, 0, 0] for pk in PK}
+
+    def cget(ym, s, pk=None):
+        """One seller's month, for a purpose or (pk=None) summed across all."""
+        c = combined[ym].get(s, ZP)
+        return c[pk] if pk else psum(c, 6)
+
+    def lseries(pk=None):
+        order = sorted(ever_vs, key=lambda s: -sum(cget(ym, s, pk)[2] for ym in months))
+        return [{'name': s,
+                 'vs':    [cget(ym, s, pk)[2] for ym in months],
+                 'rate':  [pct(cget(ym, s, pk)[2], cget(ym, s, pk)[0]) for ym in months],
+                 'loans': [cget(ym, s, pk)[0] for ym in months],
+                 'upb':   [round(cget(ym, s, pk)[1]) for ym in months]} for s in order]
+    lender_series = lseries()
+    lender_series_p = {pk: lseries(pk) for pk in PSPLIT}
     # ---- origination-vintage view ----
     # Loan Age = issuance_month - cohort + 1, so cohort C is fed by issuance month
     # C-2 (age -1, the newest loans), C-1 (age 0) and C (age 1) -- that's the bulk;
@@ -285,33 +362,49 @@ def build():
     lo, hi = I0, madd(last_any, 2)             # cohorts worth showing
     cfull_lo, cfull_hi = madd(I0, 2), I1
     cohorts = [c for c in sorted(vint) if lo <= c <= hi]
-    vintage = []
-    for c in cohorts:
-        n, v, u, vu = vint[c]
-        vintage.append({'cohort': c, 'short': month_label(c),
-                        'loans': n, 'vs_loans': v, 'upb': round(u), 'vs_upb': round(vu),
-                        'pct': pct(v, n), 'upb_pct': pct(vu, u),
-                        'complete': cfull_lo <= c <= cfull_hi})
-    # per-lender cohort series, for every seller that ever delivered VS
-    ZS = [0, 0, 0.0, 0.0, 0, 0]
-    vintage_lender = []
-    for s in sorted(ever_vs | intra_sellers,
-                    key=lambda s: -sum(vint_sell[c].get(s, ZS)[1] for c in cohorts)):
-        g = [vint_sell[c].get(s, ZS) for c in cohorts]
-        vintage_lender.append({
-            'name': s,
-            'loans':    [x[0] for x in g],
-            'vs':       [x[1] for x in g],
-            'rate':     [pct(x[1], x[0]) for x in g],
-            'upb':      [round(x[2]) for x in g],
-            'vs_upb':   [round(x[3]) for x in g],
-            'upb_rate': [pct(x[3], x[2]) for x in g],
-            'fn_vs':    [x[4] for x in g],
-            'fre_vs':   [x[5] for x in g]})
+
+    def vrow(c, t):
+        n, v, u, vu = t[0], t[1], t[2], t[3]
+        return {'cohort': c, 'short': month_label(c),
+                'loans': n, 'vs_loans': v, 'upb': round(u), 'vs_upb': round(vu),
+                'pct': pct(v, n), 'upb_pct': pct(vu, u),
+                'complete': cfull_lo <= c <= cfull_hi}
+    vintage = [vrow(c, psum(vint[c])) for c in cohorts]
+    vintage_p = {pk: [vrow(c, vint[c][pk]) for c in cohorts] for pk in PSPLIT}
+    # per-lender cohort series, for every seller that ever delivered VS.
+    # The seller SET and its order are held fixed across purposes so the
+    # dashboard's lender dropdown does not reshuffle when the filter changes.
+    ZS = {pk: [0, 0, 0.0, 0.0, 0, 0] for pk in PK}
+
+    def vget(c, s, pk=None):
+        d = vint_sell[c].get(s, ZS)
+        return d[pk] if pk else psum(d, 6)
+    vl_order = sorted(ever_vs | intra_sellers,
+                      key=lambda s: -sum(vget(c, s)[1] for c in cohorts))
+
+    def vlseries(pk=None):
+        out = []
+        for s in vl_order:
+            g = [vget(c, s, pk) for c in cohorts]
+            out.append({'name': s,
+                        'loans':    [x[0] for x in g],
+                        'vs':       [x[1] for x in g],
+                        'rate':     [pct(x[1], x[0]) for x in g],
+                        'upb':      [round(x[2]) for x in g],
+                        'vs_upb':   [round(x[3]) for x in g],
+                        'upb_rate': [pct(x[3], x[2]) for x in g],
+                        'fn_vs':    [x[4] for x in g],
+                        'fre_vs':   [x[5] for x in g]})
+        return out
+    vintage_lender = vlseries()
+    vintage_lender_p = {pk: vlseries(pk) for pk in PSPLIT}
     out = {'series': series, 'crosstab': crosstab, 'lenders': lenders,
            'lender_series': lender_series, 'product': product, 'months': months,
            'vintage': vintage, 'vintage_lender': vintage_lender,
-           'vintage_complete_through': cfull_hi, 'mtd': mtd}
+           'vintage_complete_through': cfull_hi, 'mtd': mtd,
+           'purpose_series': purpose_series, 'lenders_p': lenders_p,
+           'lender_series_p': lender_series_p, 'vintage_p': vintage_p,
+           'vintage_lender_p': vintage_lender_p}
     json.dump(out, open(OUT, 'w'), indent=1)
     return out
 
@@ -322,4 +415,7 @@ if __name__ == '__main__':
     for s in o['series']:
         t = s['t']
         print(f"{s['label']:<8}{t[0]/1e9:>9.2f}{t[2] or 0:>7.1f}{t[3]/1e6:>9.1f}{t[4]:>8.3f}{t[5]:>8,}{t[7]:>7}")
+    print(f"\n{'Month':<8}{'Purchase':>11}{'Cash-out':>11}{'Rate/term':>11}   VS % of loans")
+    for s in o['purpose_series']:
+        print(f"{s['short']:<8}" + "".join(f"{s['p'][pk]['t'][4]:>10.2f}%" for pk in ('P', 'C', 'N')))
     print(f"\nwrote {os.path.relpath(OUT, HERE)}")

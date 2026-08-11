@@ -13,8 +13,23 @@ disclosure. Produces a self-contained HTML dashboard (published as a claude.ai A
 - **FICO-only / VS-only / Both / Neither** cross-tab (Both is always 0 — VS is delivered standalone)
 - **Lender view**: who's driving adoption (UWM dominates), and each lender's penetration over time
 - VS penetration by product term
+- **Loan purpose**: purchase vs cash-out refi vs rate/term refi over time, plus a
+  **loan-type filter** that re-cuts every lender and vintage card within one purpose
 
 Everything is loan-level (each loan counted once), so every view reconciles.
+
+### The loan-type filter
+
+The `Loan Type Filter` bar sits above the lender block and governs the four cards
+below it — top-10 lenders, adoption over time, month-to-date, and origination
+vintage. Picking a purpose re-cuts those cards *entirely* within it: the lender
+ranking, the penetration denominator and the share-of-market denominator all
+move together, so a lender's purchase rate and its cash-out rate are directly
+comparable. Everything above the bar always covers all loan types.
+
+Why it matters: refis run roughly 3x purchase penetration, and that is not just a
+mix effect from refi-heavy adopters — it holds *within* every lender that has
+adopted. UWM leads in rate/term, Rocket in cash-out, AmeriSave is cash-out-only.
 
 ## Monthly refresh (the runbook)
 
@@ -27,7 +42,8 @@ Everything is loan-level (each loan counted once), so every view reconciles.
    python src/refresh.py
    ```
    This extracts the zips, rebuilds `master.json`, regenerates `output/dashboard.html`,
-   and writes `output/monthly.csv` + `output/lender_by_month.csv`.
+   and writes the CSVs (`monthly`, `lender_by_month`, `vintage`, `purpose_by_month`,
+   `lender_by_purpose`).
 5. **Publish:** re-publish `output/dashboard.html` to the same Artifact URL (ask Claude,
    or open the file to view locally).
 
@@ -41,7 +57,7 @@ agency-mbs-tracker/
     generate_dashboard.py   # master.json + template.html -> output/dashboard.html
     template.html           # the dashboard shell with a //__DATA__ injection marker
     refresh.py              # orchestrator: extract -> build -> generate -> CSVs
-  output/                   # dashboard.html, monthly.csv, lender_by_month.csv
+  output/                   # dashboard.html + the CSVs
   master.json               # intermediate data (rebuilt each run)
   FETCH.md                  # how to download the monthly files
   README.md
@@ -56,6 +72,11 @@ agency-mbs-tracker/
 - **VS-scored = VS-only**, since no loan carries both.
 - **Penetration** = VS-only ÷ all newly-issued loans, by UPB and by loan count.
 - **Products** bucketed by loan term; **lenders** by Seller Name.
+- **Loan purpose** from the `Loan Purpose` field: `P` purchase, `C` cash-out refi,
+  `N` rate/term refi. A fourth code `M` (modified, reperforming pools) is not a new
+  origination and carries no VantageScore — it is excluded from the three purpose
+  series but stays in the unfiltered totals. In `master.json` every `*_p` key mirrors
+  its unsplit counterpart, and the splits reconcile to the totals exactly.
 
 ## Regulatory context
 

@@ -4,7 +4,8 @@ refresh.py — one command to rebuild the tracker.
   1. Extract any {FNM,FRE}_ILLD_*.zip sitting in ../data  ->  .txt
   2. master_build : all loan-level files      ->  ../master.json
   3. generate_dashboard : master.json + template -> ../output/dashboard.html
-  4. Write ../output/monthly.csv and ../output/lender_by_month.csv
+  4. Write the CSVs: monthly, lender_by_month, vintage, purpose_by_month,
+     lender_by_purpose
 
 Usage:  python src/refresh.py
 Drop the new month's FNM_ILLD_YYYYMM.zip + FRE_ILLD_YYYYMM.zip into data/ first
@@ -16,6 +17,8 @@ import master_build, generate_dashboard
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 OUTDIR = os.path.join(HERE, "..", "output")
+
+PURPOSES = {'P': 'purchase', 'C': 'cash_out_refi', 'N': 'rate_term_refi'}
 
 def extract_zips():
     n = 0
@@ -59,6 +62,28 @@ def write_csvs(m):
         for v in m["vintage"]:
             w.writerow([f"{v['cohort'][:4]}-{v['cohort'][4:]}", v["loans"], v["vs_loans"],
                         v["pct"], v["upb"], v["vs_upb"], v["upb_pct"], int(v["complete"])])
+    # agency issuance by loan purpose (long form), per GSE and total
+    with open(os.path.join(OUTDIR, "purpose_by_month.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["month", "purpose", "issuer", "loans", "upb", "vs_loans", "vs_upb",
+                    "vs_loan_pct", "vs_upb_pct"])
+        for s in m["purpose_series"]:
+            ym = s["month"]
+            for pk in PURPOSES:
+                for iss, key in (("fannie", "f"), ("freddie", "r"), ("total", "t")):
+                    w.writerow([f"{ym[:4]}-{ym[4:]}", PURPOSES[pk], iss] + s["p"][pk][key])
+    # lender x loan purpose x month -- only rows where the lender delivered VS in that purpose
+    with open(os.path.join(OUTDIR, "lender_by_purpose.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["month", "purpose", "seller", "vs_loans", "vs_upb", "seller_loans",
+                    "vs_rate_pct", "fannie_vs", "freddie_vs"])
+        for ym in m["months"]:
+            for pk in PURPOSES:
+                for v in sorted(m["lenders_p"][pk][ym], key=lambda d: -d["vs_loans"]):
+                    if not v["vs_loans"]:
+                        continue
+                    w.writerow([f"{ym[:4]}-{ym[4:]}", PURPOSES[pk], v["name"], v["vs_loans"],
+                                v["vs_upb"], v["loans"], v["rate"], v["fn_vs"], v["fre_vs"]])
 
 def main():
     nz = extract_zips()
@@ -68,7 +93,8 @@ def main():
     out = generate_dashboard.generate()
     print(f"[3/4] wrote {os.path.relpath(out, os.path.join(HERE,'..'))}")
     write_csvs(m)
-    print(f"[4/4] wrote output/monthly.csv + lender_by_month.csv + vintage.csv")
+    print(f"[4/4] wrote output/monthly.csv + lender_by_month.csv + vintage.csv"
+          f" + purpose_by_month.csv + lender_by_purpose.csv")
     latest = m["series"][-1]; t = latest["t"]
     print(f"\nLatest month {latest['label']}:  ${t[0]/1e9:.1f}B issued  |  "
           f"VS {t[5]:,} loans ({t[4]:.3f}% UPB / {t[6]:.3f}% loans)  |  {t[7]} pools with VS")

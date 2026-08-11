@@ -101,6 +101,17 @@
   .xt .bignum{font-weight:640;color:var(--ink)}
   .msel{border:1px solid var(--border);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;font-family:inherit;font-size:.8rem;cursor:pointer}
   .msel:hover{border-color:var(--axis)}
+  /* loan-type filter bar: governs every lender/cohort view below it */
+  .purpbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0 0;padding:12px 15px;
+    background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent-3);
+    border-radius:12px;box-shadow:var(--shadow);position:sticky;top:0;z-index:5}
+  .purpbar .lab{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:650}
+  .purpbar .hint{font-size:.8rem;color:var(--muted);flex:1 1 200px;min-width:0}
+  .purpbar .seg button[aria-pressed="true"]{color:var(--accent-3)}
+  .card.filtered{border-color:var(--accent-3)}
+  .ptag{display:none;font-size:.7rem;padding:2px 9px;border-radius:999px;background:var(--accent-soft);
+    border:1px solid var(--border);color:var(--accent-3);font-weight:650;white-space:nowrap}
+  .ptag.on{display:inline-block}
   .xtblock+.xtblock{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
   .xtmonth{font-size:.82rem;font-weight:660;color:var(--ink-2);margin-bottom:8px}
   hr.sep{border:none;border-top:1px solid var(--border);margin:26px 0}
@@ -197,25 +208,42 @@
   </div>
 
   <div class="card block">
-    <div class="head"><h2>Top 10 agency lenders &mdash; VantageScore penetration</h2>
-      <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div>
-    <div class="desc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is still narrow but no longer a single name &mdash; in July <b style="color:var(--ink)">UWM</b> (19.8% of its own book) and <b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a distant third; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
+    <div class="head"><h2 id="purpTitle">VantageScore penetration by loan purpose</h2>
+      <div class="legend">
+        <span class="it"><span class="swatch" style="background:var(--accent)"></span>Purchase</span>
+        <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Cash-out refi</span>
+        <span class="it"><span class="swatch" style="background:var(--accent-3)"></span>Rate/term refi</span>
+      </div></div>
+    <div class="desc" id="purpDesc"></div>
+    <div class="chartbox" id="c_purp"></div>
+  </div>
+
+  <div class="purpbar" id="purpBar">
+    <span class="lab">Loan type filter</span>
+    <div class="seg" id="pseg" role="group" aria-label="Filter by loan purpose"></div>
+    <span class="hint" id="purpHint"></span>
+  </div>
+
+  <div class="card block">
+    <div class="head"><h2 id="lenderTitle">Top 10 agency lenders &mdash; VantageScore penetration</h2>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ptag"></span>
+        <select id="lmonthSel" class="msel" aria-label="Choose month"></select></div></div>
+    <div class="desc" id="lenderDesc">The 10 biggest agency lenders that month and each one's VantageScore-scored share of its <i>own</i> book. Adoption is still narrow but no longer a single name &mdash; in July <b style="color:var(--ink)">UWM</b> (19.8% of its own book) and <b style="color:var(--ink)">Rocket</b> (17.0%) both run it at scale, with AmeriSave a distant third; the other giants sit at ~0%. Right label: penetration % and VS-of-total loans. Hover for balances and the Fannie/Freddie split.</div>
     <div class="chartbox" id="c_lender"></div>
   </div>
 
   <div class="card block">
-    <div class="head"><h2>Lender adoption over time</h2>
-      <div class="legend">
-        <span class="it"><span class="swatch" style="background:var(--accent)"></span>UWM</span>
-        <span class="it"><span class="swatch" style="background:var(--accent-2)"></span>Rocket</span>
-        <span class="it"><span class="swatch" style="background:var(--accent-3)"></span>NewRez</span>
-      </div></div>
-    <div class="desc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book) and reached ~20% in July; Rocket joined in June and jumped from 1% to 17% in a single month.</div>
+    <div class="head"><h2 id="lomTitle">Lender adoption over time</h2>
+      <div style="display:flex;gap:10px;align-items:center"><span class="ptag"></span>
+        <div class="legend" id="lomLeg"></div></div></div>
+    <div class="desc" id="lomDesc">Each lender's VantageScore-scored share of its <i>own</i> agency loans, by month. NewRez was the April pioneer, UWM ramped hard through June (~7% of its book) and reached ~20% in July; Rocket joined in June and jumped from 1% to 17% in a single month.</div>
     <div class="chartbox" id="c_lom"></div>
   </div>
 
   <div class="card block" id="mtdCard" style="display:none">
-    <div class="head"><h2 id="mtdTitle">Month to date</h2><span class="pill" id="mtdPill">provisional</span></div>
+    <div class="head"><h2 id="mtdTitle">Month to date</h2>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ptag"></span>
+        <span class="pill" id="mtdPill">provisional</span></div></div>
     <div class="desc" id="mtdDesc"></div>
     <div class="tablewrap"><table id="mtdTbl">
       <thead><tr><th>Originator</th><th class="grpsep">Loans</th><th>VS4 loans</th>
@@ -226,6 +254,7 @@
   <div class="card block">
     <div class="head"><h2>Adoption by origination vintage</h2>
       <div style="display:flex;gap:8px;align-items:center">
+        <span class="ptag"></span>
         <div class="legend" id="vintLeg"></div>
         <select id="vintSel" class="msel" aria-label="Choose vintage series"></select>
       </div></div>
@@ -265,6 +294,7 @@
       <li><b>Data &mdash; loan-level, straight from the GSE disclosure portals.</b> Every figure is derived from the <b>month-end single-family MBS loan-level issuance files</b>: Fannie Mae via PoolTalk&reg; (<a href="https://fanniemae.mbs-securities.com" target="_blank" rel="noopener">fanniemae.mbs-securities.com</a>, files <span class="pill">FNM_ILLD</span>) and Freddie Mac via its disclosure site (<a href="https://freddiemac.mbs-securities.com" target="_blank" rel="noopener">freddiemac.mbs-securities.com</a>, files <span class="pill">FRE_ILLD</span>), Dec 2025&ndash;Jul 2026. <b>Release timing:</b> both GSEs post each month-end loan-level file on the <b>first business day of the following month</b> (rolling to the next business day when that falls on a weekend or holiday) &mdash; July issuance posted Aug&nbsp;3,&nbsp;2026, so the next update (August issuance) is expected <b>~Sep&nbsp;1,&nbsp;2026</b>. These are <b>loan-level</b> records (one row per loan) &mdash; issuance, penetration, the cross-tab, product mix, and the lender view all come from this single dataset (no pool-level rollups or third-party data), so every view reconciles. Regulatory dates verified against <a href="https://www.fhfa.gov/policy/credit-scores" target="_blank" rel="noopener">FHFA</a>.</li>
       <li><b>Fields &amp; categories.</b> Per loan we read Classic FICO / VantageScore 4.0 (plus the <i>Origination</i> variants for modified/reperforming loans), Seller Name, loan term, and issuance UPB. A loan "has" a score if it is a valid 300&ndash;850 value. VS-scored = <b>VS-only</b>; <b>zero loans carry both</b> &mdash; consistent with FHFA, which will not accept a loan delivered with more than one score model.</li>
       <li><b>Denominators &amp; levels.</b> Base = all newly-issued SF loans that month (loan-level count and UPB). Penetration = VS-only &divide; base. <b>Lender-level</b>: each loan attributed to its Seller Name; a lender's rate = its VS loans &divide; its own loans; market share = its loans &divide; all agency loans. Product = by loan term; "pools" = distinct security identifiers.</li>
+      <li><b>Loan type.</b> The purpose split reads the disclosure's <span class="pill">Loan Purpose</span> field: <b>P</b> purchase, <b>C</b> cash-out refinance, <b>N</b> no-cash-out (rate/term) refinance. A fourth code, <b>M</b> (modified), appears only in reperforming pools &mdash; those loans are not new originations, carry no VantageScore, and are excluded from all three purpose lines while remaining in the unfiltered totals (7,245 loans in Jun&nbsp;2026, none elsewhere). The <b>loan type filter</b> re-cuts the lender and vintage cards <i>entirely</i> within the chosen purpose &mdash; the ranking, the penetration denominator and the share-of-market denominator all move together, so a lender's purchase rate and its cash-out rate are directly comparable. Everything above the filter bar (KPIs, headline penetration, cross-tab, issuance, pools, WA FICO, product mix) always covers all loan types.</li>
       <li><b>Issuance month vs origination vintage &mdash; why the headline lags.</b> A loan is securitized one to three months <i>after</i> it closes, so any single issuance month blends several origination vintages. During a ramp that materially understates the current run-rate. The <b>Adoption by origination vintage</b> chart re-cuts the same loans by <b>First Payment Date</b> (which falls ~2 months after closing), pooling every issuance file we hold; because each loan appears in exactly one issuance file, the cohorts sum without double-counting. Using <span class="pill">Loan&nbsp;Age = issuance&nbsp;month &minus; cohort + 1</span>, a cohort is fed by issuance months cohort&minus;2 (age&nbsp;&minus;1), cohort&minus;1 and cohort; a bar is marked <b>solid</b> only once all three are on hand. <b>Hatched (partial)</b> bars are the fastest-securitized slice of a cohort and should be read as an <i>upper bound</i> &mdash; treat the level with care, though the direction of travel is reliable. A ~5% tail at ages&nbsp;2+ can still trickle into otherwise-complete cohorts.</li>
     </ol>
     <p style="margin-top:14px"><b>The pilot.</b> FHFA authorized VantageScore 4.0 for GSE loans on <b>Jul 8, 2025</b>; the disclosure fields went live <b>Nov 17, 2025</b>; and the <b>interim phase</b> &mdash; approved lenders may deliver a loan under <i>either</i> Classic FICO <i>or</i> VantageScore 4.0 &mdash; opened <b>Apr 22, 2026</b> to a <b>limited set of approved lenders</b> (reported to include Rocket Mortgage, PennyMac, NewRez and roughly 18 other large originators). Being an approved participant is not the same as delivering VantageScore &mdash; e.g., PennyMac is on the list but shows ~0 VS deliveries through July (5 loans, 0.09% of its book). FICO&nbsp;Score&nbsp;10T historical data was published Jul&nbsp;1,&nbsp;2026, with adoption to follow.</p>
@@ -294,7 +324,8 @@ const commas=n=>Math.round(n).toLocaleString("en-US");
 const pctf=(n,d=2)=>n.toFixed(d)+"%";
 function mkTip(box){const t=document.createElement("div");t.className="tt";box.appendChild(t);return t;}
 function place(t,box,x,y){const bw=box.clientWidth,tw=t.offsetWidth;let L=x+14;if(L+tw>bw)L=x-tw-14;if(L<0)L=4;t.style.left=L+"px";t.style.top=Math.max(4,y-10)+"px";}
-function nice(x){const p=Math.pow(10,Math.floor(Math.log10(x)));const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=5)m=5;else m=10;return m*p;}
+// 3 is in the ladder so a 26.9% bar gets a 30% axis, not a 50% one with half the plot empty
+function nice(x){const p=Math.pow(10,Math.floor(Math.log10(x)));const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=3)m=3;else if(n<=5)m=5;else m=10;return m*p;}
 // pick 4 or 5 intervals -- whichever yields the fewer decimal places on the labels
 function ticksFor(yMax){
   const dec=s=>{const t=(Math.round(s*1e6)/1e6).toString();const i=t.indexOf(".");return i<0?0:t.length-i-1;};
@@ -303,9 +334,11 @@ function ticksFor(yMax){
 }
 
 /* ---- generic multi-line ---- */
-function lineChart(box,{series,yMax,yTicks,yFmt,vFmt,annIdx,annText,endLab,tipFmt}){
+function lineChart(box,{series,yMax,yTicks,yFmt,vFmt,annIdx,annText,endLab,tipFmt,padR}){
   box.innerHTML="";
-  const W=760,H=340,pl=46,pr=94,pt=22,pb=42,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
+  // padR: end-of-line labels are drawn in the right gutter, so a chart with long
+  // series names ("Rate/term 7.62%") needs a wider one or the text clips.
+  const W=760,H=340,pl=46,pr=padR||94,pt=22,pb=42,plotW=W-pl-pr,plotH=H-pt-pb,n=XL.length;
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
   const X=i=>pl+i*(plotW/(n-1)), Y=v=>pt+(1-v/yMax)*plotH;
   yTicks.forEach(tk=>{const y=Y(tk);svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===0?"axis-l":"grid-l"}));
@@ -378,16 +411,31 @@ function prodChart(box){
   box.appendChild(svg);
 }
 
-/* ---- top-10 lenders: VS penetration + market share (any month) ---- */
+/* ---- top-10 lenders: VS penetration + market share (any month) ----
+   Under a loan-type filter the ranking is re-cut within that purpose, and so is
+   the market-share denominator -- "share of the purchase market", not of all
+   agency issuance. */
 function lenderChart(){
   const box=$("c_lender");box.innerHTML="";
-  const ym=$("lmonthSel").value;
-  const rows=(LENDERM[ym]||[]).slice(0,10);   // top 10 by volume, sorted by total market share (desc)
-  const totL={};M.forEach(d=>totL[d.m.replace("-","")]=d.t[IDX.loans]);const mkt=totL[ym]||1;
+  const ym=$("lmonthSel").value, plow=plab().toLowerCase();
+  const rows=((LENDERM[purpose]||{})[ym]||[]).slice(0,10);  // top 10 by volume in this loan type
+  const mi=XMONTHS.findIndex(x=>x.ym===ym);
+  const mkt=(purpose==="all"?M[mi].t[IDX.loans]:PSER[mi].p[purpose].t[0])||1;
+  $("lenderTitle").innerHTML=purpose==="all"
+    ?"Top 10 agency lenders &mdash; VantageScore penetration"
+    :`Top 10 agency <b style="color:var(--accent-3)">${plow}</b> lenders &mdash; VantageScore penetration`;
+  if(purpose!=="all")$("lenderDesc").innerHTML=
+    `The 10 biggest agency <b>${plow}</b> originators in the selected month, and each one's `+
+    `VantageScore-scored share of its own <b>${plow}</b> book. Ranking, penetration and share of `+
+    `market are all computed within ${plow} lending only. Right label: penetration % and `+
+    `VS-of-total loans. Hover for balances and the Fannie/Freddie split.`;
+  else $("lenderDesc").innerHTML=LDESC0;
   const W=760,rh=42,pt=24,pl=196,plotW=270,H=pt+8+rows.length*rh,lblX=pl+plotW+10;
   const mx=Math.max(...rows.map(r=>r.rate),0.5);
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
-  const hdr=el("text",{x:W-4,y:15,"text-anchor":"end"});hdr.textContent="SHARE OF MARKET";hdr.setAttribute("fill","var(--muted)");hdr.style.fontSize="9.5px";svg.appendChild(hdr);
+  const hdr=el("text",{x:W-4,y:15,"text-anchor":"end"});
+  hdr.textContent=purpose==="all"?"SHARE OF MARKET":"SHARE OF "+plab().toUpperCase()+" MARKET";
+  hdr.setAttribute("fill","var(--muted)");hdr.style.fontSize="9.5px";svg.appendChild(hdr);
   const tip=mkTip(box);
   rows.forEach((r,i)=>{const y=pt+i*rh,bh=20,w=r.rate/mx*plotW,on=r.rate>0,share=r.loans/mkt*100;
     const lb=el("text",{x:pl-12,y:y+bh/2+4,"text-anchor":"end"});lb.textContent=r.name;lb.setAttribute("fill",on?"var(--ink-2)":"var(--muted)");lb.style.fontWeight=on?600:400;svg.appendChild(lb);
@@ -402,9 +450,9 @@ function lenderChart(){
         `<div class="row"><span class="k">VS penetration</span><span>${r.rate.toFixed(2)}%</span></div>`+
         `<div class="row"><span class="k">VS-scored loans</span><span>${commas(r.vs)}</span></div>`+
         `<div class="row"><span class="k">VS balance</span><span>${money(r.vs_upb)}</span></div>`+
-        `<div class="row tot"><span class="k">Total loans</span><span>${commas(r.loans)}</span></div>`+
-        `<div class="row"><span class="k">Total UPB</span><span>${money(r.upb)}</span></div>`+
-        `<div class="row"><span class="k">Share of market</span><span>${share.toFixed(1)}%</span></div>`+
+        `<div class="row tot"><span class="k">${purpose==="all"?"Total loans":plab()+" loans"}</span><span>${commas(r.loans)}</span></div>`+
+        `<div class="row"><span class="k">${purpose==="all"?"Total UPB":plab()+" UPB"}</span><span>${money(r.upb)}</span></div>`+
+        `<div class="row"><span class="k">Share of ${purpose==="all"?"":plab().toLowerCase()+" "}market</span><span>${share.toFixed(1)}%</span></div>`+
         (r.vs>0?`<div class="row"><span class="k">Fannie / Freddie VS</span><span>${commas(r.fn)} / ${commas(r.fr)}</span></div>`:'');
       tip.style.opacity=1;place(tip,box,e.clientX-rc.left,e.clientY-rc.top);});
     hit.addEventListener("mouseleave",()=>tip.style.opacity=0);svg.appendChild(hit);
@@ -440,16 +488,57 @@ function crossTable(){
   $('xtabTitle').textContent=`Credit-score model mix \u2014 ${VIEWNAME[view]}`;
 }
 
-/* ---- lender adoption over time (penetration rate lines) ---- */
+/* ---- lender adoption over time (penetration rate lines) ----
+   The top 3 are re-picked within the active loan type, so the legend is built
+   here rather than hard-coded -- who leads in cash-out is not who leads overall. */
+const ABBR={"United Wholesale Mortgage":"UWM","Rocket Mortgage":"Rocket","NewRez":"NewRez"};
 function lenderOverTime(){
   const cols=["var(--accent)","var(--accent-2)","var(--accent-3)"];
-  const ab={"United Wholesale Mortgage":"UWM","Rocket Mortgage":"Rocket","NewRez":"NewRez"};
-  const series=LSER.slice(0,3).map((s,i)=>({vals:s.rate,loans:s.loans,upb:s.upb,color:cols[i],
-    lab:ab[s.name]||s.name.split(" ")[0],dy:i===2?13:-3}));
+  const top=(LSER[purpose]||[]).slice(0,3);
+  const series=top.map((s,i)=>({vals:s.rate,loans:s.loans,upb:s.upb,color:cols[i],
+    lab:ABBR[s.name]||s.name.split(" ")[0],dy:i===2?13:-3}));
+  $("lomLeg").innerHTML=top.map((s,i)=>
+    `<span class="it"><span class="swatch" style="background:${cols[i]}"></span>${ABBR[s.name]||s.name}</span>`).join("");
+  $("lomTitle").innerHTML=purpose==="all"?"Lender adoption over time"
+    :`Lender adoption over time &mdash; <b style="color:var(--accent-3)">${plab().toLowerCase()}</b>`;
+  $("lomDesc").innerHTML=purpose==="all"?MDESC0
+    :`Each lender's VantageScore-scored share of its own agency <b>${plab().toLowerCase()}</b> loans, `+
+     `by month, for the three biggest ${plab().toLowerCase()} adopters. A lender's rate here is `+
+     `its ${plab().toLowerCase()} VS loans divided by its own ${plab().toLowerCase()} loans, so it is `+
+     `directly comparable across the loan types.`;
   const mxr=Math.max(...series.flatMap(s=>s.vals),0);const yMax=Math.max(8,Math.ceil(mxr)+1);
   lineChart($("c_lom"),{series,yMax,yTicks:[0,yMax/4,yMax/2,yMax*3/4].map(v=>Math.round(v)),
     yFmt:v=>v+"%",vFmt:v=>v.toFixed(2)+"%",annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
     tipFmt:(s,i)=>`${s.vals[i].toFixed(2)}% \u00b7 ${commas(s.loans[i])} loans \u00b7 ${money(s.upb[i])}`});
+}
+
+/* ---- VS penetration by loan purpose, over time ----
+   Purchase / cash-out refi / rate-term refi as three lines, following the GSE
+   toggle. Refis lead purchase by a wide margin; this is the card that says so.
+   Loans coded 'M' (modified, in reperforming pools) are not an origination
+   purpose and sit outside all three lines -- they carry no VantageScore. */
+function purposeChart(){
+  const cols={P:"var(--accent)",C:"var(--accent-2)",N:"var(--accent-3)"};
+  const nm={P:"Purchase",C:"Cash-out",N:"Rate/term"};
+  const series=["P","C","N"].map((k,i)=>({key:k,color:cols[k],lab:nm[k],dy:[-4,9,-4][i],
+    vals:PSER.map(d=>d.p[k][view][4]),
+    rows:PSER.map(d=>d.p[k][view])}));
+  const yMax=nice(Math.max(...series.flatMap(s=>s.vals),0.5));
+  $("purpTitle").innerHTML=`VantageScore penetration by loan purpose &mdash; ${VIEWNAME[view]}`;
+  const L=series.map(s=>s.vals[LAST]);
+  $("purpDesc").innerHTML=
+    `Share of each month's newly-issued loans carrying a VantageScore 4.0, split by <b>Loan Purpose</b>. `+
+    `In ${M[LAST].l}: purchase <b style="color:var(--ink)">${L[0].toFixed(2)}%</b>, `+
+    `cash-out refi <b style="color:var(--ink)">${L[1].toFixed(2)}%</b>, `+
+    `rate/term refi <b style="color:var(--ink)">${L[2].toFixed(2)}%</b> `+
+    `&mdash; refis run <b>${L[0]>0.005?(Math.max(L[1],L[2])/L[0]).toFixed(1)+"\u00d7":"well ahead of"}</b> purchase. `+
+    `That gap is not just a mix effect: it holds <i>within</i> every lender that has adopted `+
+    `(use the loan-type filter below). Hover for counts and the UPB cut.`;
+  lineChart($("c_purp"),{series,yMax,yTicks:ticksFor(yMax),padR:132,
+    yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(2)+"%",
+    annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true,
+    tipFmt:(s,i)=>{const r=s.rows[i];
+      return `${r[4].toFixed(2)}% \u00b7 ${commas(r[2])} of ${commas(r[0])} \u00b7 ${r[5].toFixed(2)}% of UPB`;}});
 }
 
 /* ---- month-to-date (intraday cuts) ----
@@ -459,20 +548,24 @@ function mtdPanel(){
   if(!MTD) return;
   const c=$("mtdCard");c.style.display="";
   const half=MTD.partial_issuers.length?` <b>${MTD.issuers.join(" only")}</b>`:"";
+  const d=MTD.p[purpose], pl=plab().toLowerCase();
   $("mtdTitle").textContent=`${MTD.short} month to date`;
   $("mtdPill").textContent=MTD.partial_issuers.length?MTD.issuers.join("+")+" only":"provisional";
-  const prev=M[LAST].t;
+  // month-end comparator has to move with the filter, or the two numbers are not the same cut
+  const prevPct=purpose==="all"?M[LAST].t[IDX.vsloanpct]:PSER[LAST].p[purpose].t[4];
   $("mtdDesc").innerHTML=
     `Built from <b>${MTD.files}</b> intraday cut${MTD.files===1?"":"s"}${half}, deduped on Loan Identifier. `+
-    `<b>${commas(MTD.vs_loans)}</b> VS4 loans of <b>${commas(MTD.loans)}</b> `+
-    `(<b style="color:var(--ink)">${MTD.pct.toFixed(2)}%</b> of loans, ${MTD.upb_pct.toFixed(2)}% of UPB), `+
-    `against ${prev[IDX.vsloanpct].toFixed(2)}% for ${M[LAST].l} month-end. `+
+    (purpose==="all"?``:`Showing <b style="color:var(--accent-3)">${pl}</b> loans only. `)+
+    `<b>${commas(d.vs_loans)}</b> VS4 loans of <b>${commas(d.loans)}</b> `+
+    `(<b style="color:var(--ink)">${d.pct.toFixed(2)}%</b> of loans, ${d.upb_pct.toFixed(2)}% of UPB), `+
+    `against ${prevPct.toFixed(2)}% for ${M[LAST].l} month-end${purpose==="all"?``:` ${pl}`}. `+
     (MTD.partial_issuers.length
       ? `<b>Not comparable to the agency totals above</b> &mdash; ${MTD.partial_issuers.join(" and ")} `+
         `intraday files are not loaded, so this covers one GSE only. `
       : ``)+
     `These files are excluded from the month-end series and table on purpose; the month-end file supersedes them.`;
-  const rows=MTD.lenders.filter(r=>r.vs_loans>0||r.loans>=1500).slice(0,14);
+  const cut=purpose==="all"?1500:400;
+  const rows=MTD.lenders[purpose].filter(r=>r.vs_loans>0||r.loans>=cut).slice(0,14);
   $("mtdTbl").querySelector("tbody").innerHTML=rows.map(r=>
     `<tr class="${r.vs_loans?'hot':''}"><td>${r.name}</td>`+
     `<td class="grpsep">${commas(r.loans)}</td>`+
@@ -488,14 +581,17 @@ function mtdPanel(){
    the VS numerator in full but not the whole cohort denominator -- the residual
    line makes that explicit rather than letting the columns look like they sum. */
 function vintLenderTable(){
-  const i=+$("vcohSel").value, coh=VINTC[i], agg=VINT[i];
-  const rows=VINTL.map(s=>({name:s.name,loans:s.loans[i],vs:s.vs[i],rate:s.rate[i],
+  const i=+$("vcohSel").value, coh=VINTC[i], agg=VINT[purpose][i];
+  const rows=VINTL[purpose].map(s=>({name:s.name,loans:s.loans[i],vs:s.vs[i],rate:s.rate[i],
                             upb_rate:s.upb_rate[i],fn:s.fn[i],fr:s.fr[i]}))
                   .filter(r=>r.loans||r.vs).sort((a,b)=>b.vs-a.vs||b.loans-a.loans);
-  $("vlTitle").textContent=`${coh.l} cohort by originator`;
+  $("vlTitle").textContent=`${coh.l} cohort by originator`+
+    (purpose==="all"?``:` (${plab().toLowerCase()})`);
   const tracked=rows.reduce((a,r)=>a+r.loans,0), rest=agg.n-tracked;
   $("vlDesc").innerHTML=
-    `<b>${commas(agg.v)}</b> VS4 loans of <b>${commas(agg.n)}</b> in the ${coh.l} origination cohort `+
+    `<b>${commas(agg.v)}</b> VS4 loans of <b>${commas(agg.n)}</b> `+
+    (purpose==="all"?``:`<b style="color:var(--accent-3)">${plab().toLowerCase()}</b> loans `)+
+    `in the ${coh.l} origination cohort `+
     `(<b style="color:var(--ink)">${agg.p.toFixed(2)}%</b> of loans, ${agg.up.toFixed(2)}% of UPB). `+
     (coh.c?``:`This cohort is <b>partial</b> &mdash; the fastest-securitized slice, so read the rates as an upper bound. `)+
     (rest>0?`The ${commas(rest)} loans not listed belong to originators that have never delivered a VantageScore loan; `+
@@ -519,12 +615,12 @@ function vintLenderTable(){
    always well ahead of the issuance-month blend during a ramp. */
 function vintChart(){
   const box=$("c_vint");box.innerHTML="";
-  const who=$("vintSel").value;
-  const src=who==="agency"?null:VINTL.find(s=>s.name===who);
-  const rate=src?src.rate:VINT.map(v=>v.p);
-  const loans=src?src.loans:VINT.map(v=>v.n);
-  const vs=src?src.vs:VINT.map(v=>v.v);
-  const n=VINT.length;
+  const who=$("vintSel").value, VC=VINT[purpose];
+  const src=who==="agency"?null:VINTL[purpose].find(s=>s.name===who);
+  const rate=src?src.rate:VC.map(v=>v.p);
+  const loans=src?src.loans:VC.map(v=>v.n);
+  const vs=src?src.vs:VC.map(v=>v.v);
+  const n=VC.length;
   const W=760,H=330,pl=48,pr=18,pt=26,pb=46,plotW=W-pl-pr,plotH=H-pt-pb;
   const yMax=nice(Math.max(...rate,1));
   const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",role:"img"});svg.style.display="block";
@@ -539,7 +635,7 @@ function vintChart(){
     svg.appendChild(el("line",{x1:pl,y1:y,x2:pl+plotW,y2:y,class:tk===0?"axis-l":"grid-l"}));
     const tx=el("text",{x:pl-8,y:y+3.5,"text-anchor":"end"});tx.textContent=tk.toFixed(vdec)+"%";svg.appendChild(tx);});
   const bw=plotW/n*0.62,tip=mkTip(box);
-  VINT.forEach((v,i)=>{
+  VC.forEach((v,i)=>{
     const cx=pl+(i+0.5)*plotW/n, r=rate[i], h=Math.max(r/yMax*plotH,r>0?1.5:0);
     svg.appendChild(el("rect",{x:cx-bw/2,y:pt+plotH-h,width:bw,height:h,rx:2,
       fill:v.c?"var(--accent)":"url(#hatch)"}));
@@ -558,13 +654,15 @@ function vintChart(){
     svg.appendChild(hit);
   });
   box.appendChild(svg);
-  const edge=VINT[n-1];
+  const edge=VC[n-1];
   // the contrast that matters: leading-edge cohort vs the headline issuance-month blend
-  const blend=who==="agency"?M[LAST].t[IDX.vsloanpct]
-    :(LSER.find(s=>s.name===who)||{rate:[]}).rate[LAST];
+  const blend=who==="agency"
+    ?(purpose==="all"?M[LAST].t[IDX.vsloanpct]:PSER[LAST].p[purpose].t[4])
+    :(LSER[purpose].find(s=>s.name===who)||{rate:[]}).rate[LAST];
   $("vintDesc").innerHTML=
     `Share of each <b>origination</b> cohort carrying a VantageScore 4.0, for `+
-    `${who==="agency"?"all agency issuance":"<b style='color:var(--ink)'>"+who+"</b>"}. `+
+    `${who==="agency"?"all agency issuance":"<b style='color:var(--ink)'>"+who+"</b>"}`+
+    `${purpose==="all"?"":", <b style='color:var(--accent-3)'>"+plab().toLowerCase()+"</b> loans only"}. `+
     `Cohorts are keyed off First Payment Date, which lands ~2 months after the loan closes. `+
     `A loan is securitized 1&ndash;3 months after closing, so the issuance-month series above `+
     `blends several vintages and lags the true run-rate: the newest cohort here `+
@@ -580,6 +678,26 @@ function vintChart(){
 function cell(a,i){const upb=money(a[IDX.upb]);const p=a[IDX.vsupbpct],l=a[IDX.vsloans];
   return `<td class="grpsep">${upb}</td><td>${p?pctf(p,3):'<span class="z">0.000%</span>'}</td><td>${l?commas(l):'<span class="z">0</span>'}</td>`;}
 $("tbl").querySelector("tbody").innerHTML=M.map((d,i)=>`<tr class="${i===LAST?'hot':''}"><td>${d.m}</td>${cell(d.f,i)}${cell(d.r,i)}${cell(d.t,i)}</tr>`).join("");
+
+/* ---- loan-type filter ----
+   One shared bit of state driving every lender/cohort view below the filter bar.
+   The KPIs, hero, cross-tab, issuance/pool bars and product mix deliberately do
+   NOT follow it -- they describe agency issuance as a whole, and the note under
+   the bar says so. */
+let purpose="all";
+const plab=()=>PURP.find(p=>p.k===purpose).l;
+const LDESC0=$("lenderDesc").innerHTML, MDESC0=$("lomDesc").innerHTML;
+function setPurpose(k){
+  purpose=k;
+  [...$("pseg").children].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.p===k)));
+  document.querySelectorAll(".ptag").forEach(t=>{
+    t.textContent=plab();t.classList.toggle("on",k!=="all");
+    t.closest(".card").classList.toggle("filtered",k!=="all");});
+  $("purpHint").innerHTML=k==="all"
+    ?`Applies to the four cards below &mdash; lenders, adoption over time, month-to-date and origination vintage. The KPIs and charts above always show all loan types.`
+    :`Showing <b style="color:var(--ink)">${plab().toLowerCase()}</b> loans only in the four cards below. Rankings, penetration rates and market shares are all re-cut within ${plab().toLowerCase()} lending. The KPIs and charts above are unaffected.`;
+  lenderChart();lenderOverTime();vintChart();vintLenderTable();mtdPanel();
+}
 
 /* ---- view-dependent (KPIs + hero) ---- */
 let view="t";
@@ -603,6 +721,7 @@ function renderView(){
     yFmt:v=>v.toFixed(2)+"%",vFmt:v=>v.toFixed(3)+"%",
     annIdx:ANN,annText:"Interim phase opens \u00b7 Apr 22",endLab:true});
   crossTable();
+  purposeChart();
 }
 
 /* ---- static charts ---- */
@@ -665,12 +784,19 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
   ls.addEventListener("change",lenderChart);
   const ps=$("pmonthSel");ps.innerHTML=optList;ps.value=rev[0].ym;
   ps.addEventListener("change",()=>prodChart($("c_prod")));
-  // vintage: agency plus every seller that has ever delivered a VS loan
+  // vintage: agency plus every seller that has ever delivered a VS loan.
+  // The seller list is identical across loan types on purpose, so switching the
+  // filter never resets this selection.
   const vsel=$("vintSel");
   vsel.innerHTML=`<option value="agency">All agency</option>`+
-    VINTL.map(s=>`<option value="${s.name}">${s.name}</option>`).join("");
+    VINTL.all.map(s=>`<option value="${s.name}">${s.name}</option>`).join("");
   vsel.value="agency";
   vsel.addEventListener("change",vintChart);
+  // loan-type filter bar
+  $("pseg").innerHTML=PURP.map(p=>
+    `<button data-p="${p.k}" aria-pressed="${p.k==="all"}">${p.l}</button>`).join("");
+  $("pseg").addEventListener("click",e=>{const b=e.target.closest("button");
+    if(b)setPurpose(b.dataset.p);});
   $("vintLeg").innerHTML=
     `<span class="it"><span class="swatch" style="background:var(--accent)"></span>complete</span>`+
     `<span class="it"><span class="swatch" style="background:var(--accent);opacity:.45"></span>partial</span>`;
@@ -679,8 +805,8 @@ $("themeBtn").addEventListener("click",()=>setTheme(dash.getAttribute("data-them
   cs.innerHTML=VINTC.map((c,i)=>`<option value="${i}">${c.l}${c.c?"":" (partial)"}</option>`).reverse().join("");
   cs.value=String(VINTC.length-1);
   cs.addEventListener("change",vintLenderTable);
-  vintLenderTable();
 })();
 
 renderStatic();renderView();
+setPurpose("all");   // paints the filter bar + the four cards it governs
 </script>

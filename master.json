@@ -765,7 +765,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -775,7 +776,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -785,7 +787,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -795,7 +798,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -805,7 +809,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -815,7 +820,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -825,7 +831,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -835,7 +842,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NATIONSTAR MORTGAGE LLC",
@@ -845,7 +853,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -855,7 +864,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
@@ -865,7 +875,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -875,7 +886,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202601": [
@@ -887,7 +899,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -897,7 +910,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -907,7 +921,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -917,7 +932,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -927,7 +943,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -937,7 +954,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -947,7 +965,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "LAKEVIEW LOAN SERVICING, LLC",
@@ -957,7 +976,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PHH MORTGAGE CORPORATION",
@@ -967,7 +987,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NATIONSTAR MORTGAGE LLC",
@@ -977,7 +998,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -987,7 +1009,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -997,7 +1020,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202602": [
@@ -1009,7 +1033,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1019,7 +1044,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1029,7 +1055,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1039,7 +1066,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1049,7 +1077,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1059,7 +1088,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1069,7 +1099,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1079,7 +1110,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1089,7 +1121,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "LAKEVIEW LOAN SERVICING, LLC",
@@ -1099,7 +1132,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PHH MORTGAGE CORPORATION",
@@ -1109,7 +1143,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -1119,7 +1154,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202603": [
@@ -1131,7 +1167,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1141,7 +1178,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1151,7 +1189,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1161,7 +1200,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1171,7 +1211,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1181,7 +1222,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1191,7 +1233,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -1201,7 +1244,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1211,7 +1255,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "LAKEVIEW LOAN SERVICING, LLC",
@@ -1221,7 +1266,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -1231,7 +1277,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1241,7 +1288,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202604": [
@@ -1253,7 +1301,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1263,7 +1312,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1273,7 +1323,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1283,7 +1334,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1293,7 +1345,8 @@
     "vs_upb": 7532000,
     "fn_vs": 0,
     "fre_vs": 13,
-    "rate": 0.1447
+    "rate": 0.1447,
+    "upb_rate": 0.218
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1303,7 +1356,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "ONITY MORTGAGE CORPORATION",
@@ -1313,7 +1367,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -1323,7 +1378,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1333,7 +1389,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1343,7 +1400,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1353,7 +1411,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "LOANDEPOT.COM, LLC",
@@ -1363,7 +1422,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202605": [
@@ -1375,7 +1435,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1385,7 +1446,8 @@
     "vs_upb": 12264000,
     "fn_vs": 11,
     "fre_vs": 19,
-    "rate": 0.1714
+    "rate": 0.1714,
+    "upb_rate": 0.1877
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1395,7 +1457,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1405,7 +1468,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1415,7 +1479,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1425,7 +1490,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1435,7 +1501,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -1445,7 +1512,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1455,7 +1523,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1465,7 +1534,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -1475,7 +1545,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "LOANDEPOT.COM, LLC",
@@ -1485,7 +1556,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202606": [
@@ -1497,7 +1569,8 @@
     "vs_upb": 68268000,
     "fn_vs": 164,
     "fre_vs": 79,
-    "rate": 0.9784
+    "rate": 0.9784,
+    "upb_rate": 0.7959
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1507,7 +1580,8 @@
     "vs_upb": 490043000,
     "fn_vs": 485,
     "fre_vs": 606,
-    "rate": 6.7205
+    "rate": 6.7205,
+    "upb_rate": 7.7864
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1517,7 +1591,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1527,7 +1602,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1537,7 +1613,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1547,7 +1624,8 @@
     "vs_upb": 835000,
     "fn_vs": 0,
     "fre_vs": 2,
-    "rate": 0.0286
+    "rate": 0.0286,
+    "upb_rate": 0.0356
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1557,7 +1635,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1567,7 +1646,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1577,7 +1657,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -1587,7 +1668,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -1597,7 +1679,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "ONITY MORTGAGE CORPORATION",
@@ -1607,7 +1690,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    }
   ],
   "202607": [
@@ -1619,7 +1703,8 @@
     "vs_upb": 1267689000,
     "fn_vs": 2213,
     "fre_vs": 1825,
-    "rate": 17.0078
+    "rate": 17.0078,
+    "upb_rate": 15.7735
    },
    {
     "name": "UNITED WHOLESALE MORTGAGE, LLC",
@@ -1629,7 +1714,8 @@
     "vs_upb": 1443752000,
     "fn_vs": 1504,
     "fre_vs": 1824,
-    "rate": 19.8225
+    "rate": 19.8225,
+    "upb_rate": 21.5669
    },
    {
     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
@@ -1639,7 +1725,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
@@ -1649,7 +1736,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "NEWREZ LLC",
@@ -1659,7 +1747,8 @@
     "vs_upb": 417000,
     "fn_vs": 0,
     "fre_vs": 1,
-    "rate": 0.0169
+    "rate": 0.0169,
+    "upb_rate": 0.0214
    },
    {
     "name": "PENNYMAC LOAN SERVICES, LLC",
@@ -1669,7 +1758,8 @@
     "vs_upb": 2093000,
     "fn_vs": 5,
     "fre_vs": 0,
-    "rate": 0.0889
+    "rate": 0.0889,
+    "upb_rate": 0.0938
    },
    {
     "name": "CROSSCOUNTRY MORTGAGE, LLC",
@@ -1679,7 +1769,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "U.S. BANK NATIONAL ASSOCIATION",
@@ -1689,7 +1780,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CMG MORTGAGE, INC.",
@@ -1699,7 +1791,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "TRUIST BANK",
@@ -1709,7 +1802,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "GUARANTEED RATE, INC.",
@@ -1719,7 +1813,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "CITIZENS BANK, NATIONAL ASSOCIATION",
@@ -1729,7 +1824,8 @@
     "vs_upb": 0,
     "fn_vs": 0,
     "fre_vs": 0,
-    "rate": 0.0
+    "rate": 0.0,
+    "upb_rate": 0.0
    },
    {
     "name": "AMERISAVE MORTGAGE CORPORATION",
@@ -1739,7 +1835,8 @@
     "vs_upb": 7688000,
     "fn_vs": 28,
     "fre_vs": 0,
-    "rate": 5.5888
+    "rate": 5.5888,
+    "upb_rate": 6.8785
    }
   ]
  },
@@ -1962,14 +2059,8 @@
  ],
  "product": {
   "202512": {
-   "15yr": {
-    "upb": 3705149000,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 3470547899,
+   "30yr": {
+    "upb": 60014984506,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -1980,8 +2071,8 @@
     "pct": 0.0,
     "vs_loans": 0
    },
-   "30yr": {
-    "upb": 60014984506,
+   "15yr": {
+    "upb": 3705149000,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -1991,17 +2082,17 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   }
-  },
-  "202601": {
-   "15yr": {
-    "upb": 4326993788,
+   },
+   "20yr": {
+    "upb": 3470547899,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 2644281048,
+   }
+  },
+  "202601": {
+   "30yr": {
+    "upb": 60157315151,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2012,8 +2103,8 @@
     "pct": 0.0,
     "vs_loans": 0
    },
-   "30yr": {
-    "upb": 60157315151,
+   "15yr": {
+    "upb": 4326993788,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2023,17 +2114,17 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   }
-  },
-  "202602": {
-   "15yr": {
-    "upb": 4328710846,
+   },
+   "20yr": {
+    "upb": 2644281048,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 2454235587,
+   }
+  },
+  "202602": {
+   "30yr": {
+    "upb": 52990215139,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2044,8 +2135,8 @@
     "pct": 0.0,
     "vs_loans": 0
    },
-   "30yr": {
-    "upb": 52990215139,
+   "15yr": {
+    "upb": 4328710846,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2055,17 +2146,17 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   }
-  },
-  "202603": {
-   "15yr": {
-    "upb": 4518081546,
+   },
+   "20yr": {
+    "upb": 2454235587,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 1883877985,
+   }
+  },
+  "202603": {
+   "30yr": {
+    "upb": 63626625742,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2076,8 +2167,8 @@
     "pct": 0.0,
     "vs_loans": 0
    },
-   "30yr": {
-    "upb": 63626625742,
+   "15yr": {
+    "upb": 4518081546,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
@@ -2087,20 +2178,20 @@
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
-   }
-  },
-  "202604": {
-   "15yr": {
-    "upb": 5989819060,
-    "vs_upb": 2352000,
-    "pct": 0.0393,
-    "vs_loans": 4
    },
    "20yr": {
-    "upb": 2298173403,
+    "upb": 1883877985,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
+   }
+  },
+  "202604": {
+   "30yr": {
+    "upb": 68874545782,
+    "vs_upb": 4510000,
+    "pct": 0.0065,
+    "vs_loans": 8
    },
    "other": {
     "upb": 666618000,
@@ -2108,31 +2199,31 @@
     "pct": 0.1005,
     "vs_loans": 1
    },
-   "30yr": {
-    "upb": 68874545782,
-    "vs_upb": 4510000,
-    "pct": 0.0065,
-    "vs_loans": 8
+   "15yr": {
+    "upb": 5989819060,
+    "vs_upb": 2352000,
+    "pct": 0.0393,
+    "vs_loans": 4
    },
    "10yr": {
     "upb": 299208001,
     "vs_upb": 0,
     "pct": 0.0,
     "vs_loans": 0
+   },
+   "20yr": {
+    "upb": 2298173403,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
    }
   },
   "202605": {
-   "15yr": {
-    "upb": 3414536842,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
-   },
-   "20yr": {
-    "upb": 1283978053,
-    "vs_upb": 0,
-    "pct": 0.0,
-    "vs_loans": 0
+   "30yr": {
+    "upb": 64401164574,
+    "vs_upb": 10899000,
+    "pct": 0.0169,
+    "vs_loans": 28
    },
    "other": {
     "upb": 541612382,
@@ -2140,31 +2231,31 @@
     "pct": 0.0,
     "vs_loans": 0
    },
-   "30yr": {
-    "upb": 64401164574,
-    "vs_upb": 10899000,
-    "pct": 0.0169,
-    "vs_loans": 28
+   "15yr": {
+    "upb": 3414536842,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
    },
    "10yr": {
     "upb": 229505476,
     "vs_upb": 1365000,
     "pct": 0.5948,
     "vs_loans": 2
+   },
+   "20yr": {
+    "upb": 1283978053,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "vs_loans": 0
    }
   },
   "202606": {
-   "15yr": {
-    "upb": 3281377830,
-    "vs_upb": 63581000,
-    "pct": 1.9376,
-    "vs_loans": 160
-   },
-   "20yr": {
-    "upb": 1180820674,
-    "vs_upb": 4129000,
-    "pct": 0.3497,
-    "vs_loans": 12
+   "30yr": {
+    "upb": 61271013973,
+    "vs_upb": 477028000,
+    "pct": 0.7786,
+    "vs_loans": 1126
    },
    "other": {
     "upb": 461785759,
@@ -2172,31 +2263,31 @@
     "pct": 2.3442,
     "vs_loans": 24
    },
-   "30yr": {
-    "upb": 61271013973,
-    "vs_upb": 477028000,
-    "pct": 0.7786,
-    "vs_loans": 1126
+   "15yr": {
+    "upb": 3281377830,
+    "vs_upb": 63581000,
+    "pct": 1.9376,
+    "vs_loans": 160
    },
    "10yr": {
     "upb": 182147331,
     "vs_upb": 3583000,
     "pct": 1.9671,
     "vs_loans": 14
+   },
+   "20yr": {
+    "upb": 1180820674,
+    "vs_upb": 4129000,
+    "pct": 0.3497,
+    "vs_loans": 12
    }
   },
   "202607": {
-   "15yr": {
-    "upb": 3701298542,
-    "vs_upb": 270408000,
-    "pct": 7.3058,
-    "vs_loans": 896
-   },
-   "20yr": {
-    "upb": 891711000,
-    "vs_upb": 39264000,
-    "pct": 4.4032,
-    "vs_loans": 128
+   "30yr": {
+    "upb": 54698749464,
+    "vs_upb": 2339902000,
+    "pct": 4.2778,
+    "vs_loans": 6115
    },
    "other": {
     "upb": 343425000,
@@ -2204,17 +2295,23 @@
     "pct": 15.1777,
     "vs_loans": 176
    },
-   "30yr": {
-    "upb": 54698749464,
-    "vs_upb": 2339902000,
-    "pct": 4.2778,
-    "vs_loans": 6115
+   "15yr": {
+    "upb": 3701298542,
+    "vs_upb": 270408000,
+    "pct": 7.3058,
+    "vs_loans": 896
    },
    "10yr": {
     "upb": 208108345,
     "vs_upb": 19941000,
     "pct": 9.582,
     "vs_loans": 85
+   },
+   "20yr": {
+    "upb": 891711000,
+    "vs_upb": 39264000,
+    "pct": 4.4032,
+    "vs_loans": 128
    }
   }
  },
@@ -2996,6 +3093,6840 @@
     "fre_vs": 0,
     "rate": 19.0476,
     "upb_rate": 16.6807
+   }
+  ],
+  "lenders_p": {
+   "P": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 3496,
+     "upb": 1911197000,
+     "vs_loans": 604,
+     "vs_upb": 330441000,
+     "fn_vs": 469,
+     "fre_vs": 135,
+     "rate": 17.2769,
+     "upb_rate": 17.2897
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 3066,
+     "upb": 1576443000,
+     "vs_loans": 768,
+     "vs_upb": 397531000,
+     "fn_vs": 464,
+     "fre_vs": 304,
+     "rate": 25.0489,
+     "upb_rate": 25.217
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1292,
+     "upb": 671369000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 1054,
+     "upb": 484632000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 870,
+     "upb": 456963542,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 824,
+     "upb": 298829000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 720,
+     "upb": 405119000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 705,
+     "upb": 375442000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUILD MORTGAGE COMPANY, LLC",
+     "loans": 684,
+     "upb": 301322000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 675,
+     "upb": 318046000,
+     "vs_loans": 3,
+     "vs_upb": 1455000,
+     "fn_vs": 3,
+     "fre_vs": 0,
+     "rate": 0.4444,
+     "upb_rate": 0.4575
+    },
+    {
+     "name": "DHI MORTGAGE CO., LTD.",
+     "loans": 612,
+     "upb": 220464000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "MOVEMENT MORTGAGE, LLC",
+     "loans": 557,
+     "upb": 266845000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "C": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 572,
+     "upb": 231457000,
+     "vs_loans": 214,
+     "vs_upb": 85425000,
+     "fn_vs": 137,
+     "fre_vs": 77,
+     "rate": 37.4126,
+     "upb_rate": 36.9075
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 319,
+     "upb": 159175000,
+     "vs_loans": 96,
+     "vs_upb": 48410000,
+     "fn_vs": 77,
+     "fre_vs": 19,
+     "rate": 30.094,
+     "upb_rate": 30.4131
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 144,
+     "upb": 28491000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 117,
+     "upb": 38610000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 112,
+     "upb": 21822000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FIFTH THIRD BANK, NATIONAL ASSOCIATION",
+     "loans": 102,
+     "upb": 23998000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 75,
+     "upb": 22432000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 62,
+     "upb": 24219000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CITIZENS BANK, NATIONAL ASSOCIATION",
+     "loans": 57,
+     "upb": 19165000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "THE HUNTINGTON NATIONAL BANK",
+     "loans": 47,
+     "upb": 8830000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 47,
+     "upb": 15339000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 43,
+     "upb": 16224000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 18,
+     "upb": 7253000,
+     "vs_loans": 4,
+     "vs_upb": 1387000,
+     "fn_vs": 4,
+     "fre_vs": 0,
+     "rate": 22.2222,
+     "upb_rate": 19.1231
+    }
+   ],
+   "N": [
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 757,
+     "upb": 436734000,
+     "vs_loans": 293,
+     "vs_upb": 168759000,
+     "fn_vs": 264,
+     "fre_vs": 29,
+     "rate": 38.7054,
+     "upb_rate": 38.6411
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 658,
+     "upb": 332990000,
+     "vs_loans": 167,
+     "vs_upb": 86750000,
+     "fn_vs": 132,
+     "fre_vs": 35,
+     "rate": 25.3799,
+     "upb_rate": 26.0518
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 140,
+     "upb": 72170000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 129,
+     "upb": 59532000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 112,
+     "upb": 64220000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 91,
+     "upb": 31595000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 91,
+     "upb": 46274000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 88,
+     "upb": 46710000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUILD MORTGAGE COMPANY, LLC",
+     "loans": 57,
+     "upb": 27241000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 54,
+     "upb": 28072000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 50,
+     "upb": 11362000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 45,
+     "upb": 20245000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ]
+  },
+  "p": {
+   "P": {
+    "loans": 21865,
+    "upb": 10578055179,
+    "vs_loans": 1375,
+    "vs_upb": 729427000,
+    "pct": 6.2886,
+    "upb_pct": 6.8957
+   },
+   "C": {
+    "loans": 2461,
+    "upb": 937841000,
+    "vs_loans": 314,
+    "vs_upb": 135222000,
+    "pct": 12.759,
+    "upb_pct": 14.4184
+   },
+   "N": {
+    "loans": 3209,
+    "upb": 1635864481,
+    "vs_loans": 460,
+    "vs_upb": 255509000,
+    "pct": 14.3347,
+    "upb_pct": 15.6192
+   }
+  }
+ },
+ "purpose_series": [
+  {
+   "month": "202512",
+   "short": "Dec '25",
+   "p": {
+    "P": {
+     "f": [
+      53152,
+      18714933035,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      62265,
+      23373539622,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      115417,
+      42088472657,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "C": {
+     "f": [
+      10955,
+      2910920511,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      12805,
+      3400757930,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      23760,
+      6311678441,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "N": {
+     "f": [
+      22280,
+      9151442308,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      24583,
+      10294854000,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      46863,
+      19446296308,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  {
+   "month": "202601",
+   "short": "Jan '26",
+   "p": {
+    "P": {
+     "f": [
+      55977,
+      19240828570,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      64400,
+      23128182647,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      120377,
+      42369011217,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "C": {
+     "f": [
+      15668,
+      3994675544,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      12689,
+      3207566929,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      28357,
+      7202242473,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "N": {
+     "f": [
+      23366,
+      9467670548,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      21117,
+      8769497373,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      44483,
+      18237167922,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  {
+   "month": "202602",
+   "short": "Feb '26",
+   "p": {
+    "P": {
+     "f": [
+      41827,
+      14910929672,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      56461,
+      19750403446,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      98288,
+      34661333118,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "C": {
+     "f": [
+      11843,
+      3160386227,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      13965,
+      3402224005,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      25808,
+      6562610232,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "N": {
+     "f": [
+      22139,
+      9212783591,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      24570,
+      10036597233,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      46709,
+      19249380824,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  {
+   "month": "202603",
+   "short": "Mar '26",
+   "p": {
+    "P": {
+     "f": [
+      57495,
+      20908020066,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      47152,
+      17413125272,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      104647,
+      38321145338,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "C": {
+     "f": [
+      15846,
+      4200629949,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      12316,
+      3249739314,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      28162,
+      7450369263,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "N": {
+     "f": [
+      30608,
+      13136853847,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      28110,
+      11987110108,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      58718,
+      25123963955,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  {
+   "month": "202604",
+   "short": "Apr '26",
+   "p": {
+    "P": {
+     "f": [
+      61310,
+      21645212165,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      56677,
+      21018290614,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      117987,
+      42663502779,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "C": {
+     "f": [
+      16779,
+      4259805840,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      14377,
+      3817008402,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "t": [
+      31156,
+      8076814242,
+      0,
+      0,
+      0.0,
+      0.0
+     ]
+    },
+    "N": {
+     "f": [
+      34582,
+      14028491947,
+      0,
+      0,
+      0.0,
+      0.0
+     ],
+     "r": [
+      32080,
+      13359555277,
+      13,
+      7532000,
+      0.0405,
+      0.0564
+     ],
+     "t": [
+      66662,
+      27388047224,
+      13,
+      7532000,
+      0.0195,
+      0.0275
+     ]
+    }
+   }
+  },
+  {
+   "month": "202605",
+   "short": "May '26",
+   "p": {
+    "P": {
+     "f": [
+      57859,
+      21173771564,
+      6,
+      2486000,
+      0.0104,
+      0.0117
+     ],
+     "r": [
+      67681,
+      24085970838,
+      10,
+      3950000,
+      0.0148,
+      0.0164
+     ],
+     "t": [
+      125540,
+      45259742402,
+      16,
+      6436000,
+      0.0127,
+      0.0142
+     ]
+    },
+    "C": {
+     "f": [
+      13434,
+      3446281927,
+      2,
+      726000,
+      0.0149,
+      0.0211
+     ],
+     "r": [
+      15583,
+      3877875347,
+      5,
+      2442000,
+      0.0321,
+      0.063
+     ],
+     "t": [
+      29017,
+      7324157275,
+      7,
+      3168000,
+      0.0241,
+      0.0433
+     ]
+    },
+    "N": {
+     "f": [
+      19917,
+      8097232256,
+      3,
+      1059000,
+      0.0151,
+      0.0131
+     ],
+     "r": [
+      23554,
+      9189665393,
+      4,
+      1601000,
+      0.017,
+      0.0174
+     ],
+     "t": [
+      43471,
+      17286897649,
+      7,
+      2660000,
+      0.0161,
+      0.0154
+     ]
+    }
+   }
+  },
+  {
+   "month": "202606",
+   "short": "Jun '26",
+   "p": {
+    "P": {
+     "f": [
+      64724,
+      23685546409,
+      304,
+      142781000,
+      0.4697,
+      0.6028
+     ],
+     "r": [
+      63122,
+      24011475275,
+      423,
+      189779000,
+      0.6701,
+      0.7904
+     ],
+     "t": [
+      127846,
+      47697021684,
+      727,
+      332560000,
+      0.5687,
+      0.6972
+     ]
+    },
+    "C": {
+     "f": [
+      12667,
+      3180648153,
+      158,
+      42105000,
+      1.2473,
+      1.3238
+     ],
+     "r": [
+      12586,
+      3146537689,
+      117,
+      34580000,
+      0.9296,
+      1.099
+     ],
+     "t": [
+      25253,
+      6327185843,
+      275,
+      76685000,
+      1.089,
+      1.212
+     ]
+    },
+    "N": {
+     "f": [
+      13888,
+      5329654486,
+      187,
+      84958000,
+      1.3465,
+      1.5941
+     ],
+     "r": [
+      13709,
+      5356320617,
+      147,
+      64943000,
+      1.0723,
+      1.2125
+     ],
+     "t": [
+      27597,
+      10685975103,
+      334,
+      149901000,
+      1.2103,
+      1.4028
+     ]
+    }
+   }
+  },
+  {
+   "month": "202607",
+   "short": "Jul '26",
+   "p": {
+    "P": {
+     "f": [
+      58928,
+      22300250559,
+      1692,
+      733687000,
+      2.8713,
+      3.29
+     ],
+     "r": [
+      66600,
+      24681852689,
+      2020,
+      851525000,
+      3.033,
+      3.45
+     ],
+     "t": [
+      125528,
+      46982103248,
+      3712,
+      1585212000,
+      2.9571,
+      3.3741
+     ]
+    },
+    "C": {
+     "f": [
+      11336,
+      2791844000,
+      1283,
+      312538000,
+      11.3179,
+      11.1947
+     ],
+     "r": [
+      10950,
+      2740741247,
+      883,
+      225666000,
+      8.0639,
+      8.2338
+     ],
+     "t": [
+      22286,
+      5532585247,
+      2166,
+      538204000,
+      9.7191,
+      9.7279
+     ]
+    },
+    "N": {
+     "f": [
+      9939,
+      3620874230,
+      775,
+      311693000,
+      7.7976,
+      8.6082
+     ],
+     "r": [
+      10039,
+      3707729626,
+      747,
+      286530000,
+      7.441,
+      7.7279
+     ],
+     "t": [
+      19978,
+      7328603856,
+      1522,
+      598223000,
+      7.6184,
+      8.1629
+     ]
+    }
+   }
+  }
+ ],
+ "lenders_p": {
+  "P": {
+   "202512": [
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 9335,
+     "upb": 3357567691,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 8126,
+     "upb": 3691148000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 7472,
+     "upb": 2810964374,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6012,
+     "upb": 2291936000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 5914,
+     "upb": 2216122000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 3879,
+     "upb": 1515364000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 3551,
+     "upb": 1238624000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 3303,
+     "upb": 1216628000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 3031,
+     "upb": 1366615006,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 2860,
+     "upb": 1166963000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 2366,
+     "upb": 818044000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 2131,
+     "upb": 792900000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202601": [
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 9019,
+     "upb": 3339336389,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 8949,
+     "upb": 3146713000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 5498,
+     "upb": 2629385000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 3931,
+     "upb": 1492255000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 3891,
+     "upb": 1422902000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 3753,
+     "upb": 1424225000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 2802,
+     "upb": 943076000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 2706,
+     "upb": 924199000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 2651,
+     "upb": 1176013001,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PHH MORTGAGE CORPORATION",
+     "loans": 2444,
+     "upb": 1149797000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 2332,
+     "upb": 741836204,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 2321,
+     "upb": 944546000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202602": [
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 8271,
+     "upb": 3281609000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 7173,
+     "upb": 2725561645,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 5182,
+     "upb": 1919790000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 4754,
+     "upb": 2056286000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 3713,
+     "upb": 1294227006,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 3036,
+     "upb": 1164584000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 2985,
+     "upb": 1103290000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 2846,
+     "upb": 914426000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 2326,
+     "upb": 878333000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 1969,
+     "upb": 690120000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 1754,
+     "upb": 642065000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 1731,
+     "upb": 622894000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202603": [
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 9257,
+     "upb": 3813730000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 8411,
+     "upb": 3269940675,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 7108,
+     "upb": 2548187000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 4651,
+     "upb": 2120983000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 3403,
+     "upb": 1229771000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 3370,
+     "upb": 1273049000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 3279,
+     "upb": 1155140637,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 2699,
+     "upb": 1103905000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 2251,
+     "upb": 991047000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 2199,
+     "upb": 690235542,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 1835,
+     "upb": 648680000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUILD MORTGAGE COMPANY, LLC",
+     "loans": 1785,
+     "upb": 683419816,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202604": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 10010,
+     "upb": 3942322965,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 8863,
+     "upb": 3675783000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 5559,
+     "upb": 1912669000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 5523,
+     "upb": 2577786000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 4678,
+     "upb": 1779564000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 3799,
+     "upb": 1428644000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 3139,
+     "upb": 1286092000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 3114,
+     "upb": 1302969000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 2717,
+     "upb": 1210861775,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 2659,
+     "upb": 871433000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 2372,
+     "upb": 821717000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 2311,
+     "upb": 875110000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202605": [
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 10607,
+     "upb": 4002841505,
+     "vs_loans": 16,
+     "vs_upb": 6436000,
+     "fn_vs": 6,
+     "fre_vs": 10,
+     "rate": 0.1508,
+     "upb_rate": 0.1608
+    },
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 9563,
+     "upb": 3839944296,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 5984,
+     "upb": 2280481055,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 5533,
+     "upb": 1916545000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 5041,
+     "upb": 1751813000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 4601,
+     "upb": 1751836606,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 4490,
+     "upb": 2033732000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 3115,
+     "upb": 1240310000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 2999,
+     "upb": 1253484000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 2848,
+     "upb": 947756000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 2552,
+     "upb": 890450000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 2134,
+     "upb": 811274000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202606": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 11567,
+     "upb": 5027579916,
+     "vs_loans": 56,
+     "vs_upb": 23360000,
+     "fn_vs": 40,
+     "fre_vs": 16,
+     "rate": 0.4841,
+     "upb_rate": 0.4646
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 11144,
+     "upb": 4452833943,
+     "vs_loans": 670,
+     "vs_upb": 308950000,
+     "fn_vs": 264,
+     "fre_vs": 406,
+     "rate": 6.0122,
+     "upb_rate": 6.9383
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 6760,
+     "upb": 2866189562,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 5384,
+     "upb": 2243167000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 5382,
+     "upb": 2047733447,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 5005,
+     "upb": 1734920286,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 4884,
+     "upb": 1694919000,
+     "vs_loans": 1,
+     "vs_upb": 250000,
+     "fn_vs": 0,
+     "fre_vs": 1,
+     "rate": 0.0205,
+     "upb_rate": 0.0147
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 3506,
+     "upb": 1490821000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 3472,
+     "upb": 1460170113,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 3334,
+     "upb": 1069214364,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 2353,
+     "upb": 970754236,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 2312,
+     "upb": 889922775,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202607": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 12880,
+     "upb": 5194394059,
+     "vs_loans": 1434,
+     "vs_upb": 581992000,
+     "fn_vs": 733,
+     "fre_vs": 701,
+     "rate": 11.1335,
+     "upb_rate": 11.2042
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 12457,
+     "upb": 5065804000,
+     "vs_loans": 2273,
+     "vs_upb": 1001127000,
+     "fn_vs": 954,
+     "fre_vs": 1319,
+     "rate": 18.2468,
+     "upb_rate": 19.7625
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 6609,
+     "upb": 2312682000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 6294,
+     "upb": 2195639426,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 4478,
+     "upb": 1816273000,
+     "vs_loans": 5,
+     "vs_upb": 2093000,
+     "fn_vs": 5,
+     "fre_vs": 0,
+     "rate": 0.1117,
+     "upb_rate": 0.1152
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 4381,
+     "upb": 1725058877,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 4187,
+     "upb": 1484027000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 3782,
+     "upb": 1247924000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 3702,
+     "upb": 1594445542,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 3205,
+     "upb": 1371565000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 2773,
+     "upb": 1095149000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CITIZENS BANK, NATIONAL ASSOCIATION",
+     "loans": 2188,
+     "upb": 747900000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ]
+  },
+  "C": {
+   "202512": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6904,
+     "upb": 1608572000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1554,
+     "upb": 483671000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1391,
+     "upb": 447993000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 1149,
+     "upb": 435080000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 996,
+     "upb": 257918000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 927,
+     "upb": 243780000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 654,
+     "upb": 143639000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 591,
+     "upb": 160531582,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 589,
+     "upb": 122158000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 445,
+     "upb": 115325000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 303,
+     "upb": 82273000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 287,
+     "upb": 103761000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202601": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6628,
+     "upb": 1657991000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1857,
+     "upb": 566493000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1390,
+     "upb": 267375000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 987,
+     "upb": 254891000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 900,
+     "upb": 191699000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 855,
+     "upb": 354338000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 648,
+     "upb": 166279367,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 630,
+     "upb": 131427000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FREEDOM MORTGAGE CORPORATION",
+     "loans": 535,
+     "upb": 127118000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 533,
+     "upb": 150278000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 505,
+     "upb": 102438000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 492,
+     "upb": 110051000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202602": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 7113,
+     "upb": 1703898000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1754,
+     "upb": 556530000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1717,
+     "upb": 416160000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 1302,
+     "upb": 251007000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 983,
+     "upb": 252310000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 837,
+     "upb": 290475000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 455,
+     "upb": 116389000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 445,
+     "upb": 93709000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 436,
+     "upb": 106215000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 409,
+     "upb": 141073000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PHH MORTGAGE CORPORATION",
+     "loans": 377,
+     "upb": 129637000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 367,
+     "upb": 75786000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202603": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6830,
+     "upb": 1703329220,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1787,
+     "upb": 615703000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1503,
+     "upb": 471845000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 1492,
+     "upb": 287937000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1067,
+     "upb": 275775000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1043,
+     "upb": 211907000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 844,
+     "upb": 295932630,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 524,
+     "upb": 104931755,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 494,
+     "upb": 91981000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 434,
+     "upb": 110891000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 428,
+     "upb": 102780000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 409,
+     "upb": 112590000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202604": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 9095,
+     "upb": 2261302124,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1856,
+     "upb": 670325000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1625,
+     "upb": 394248000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 1471,
+     "upb": 322294148,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1326,
+     "upb": 365851000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 626,
+     "upb": 232155000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 540,
+     "upb": 108992000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 510,
+     "upb": 132696000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 473,
+     "upb": 161063000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 446,
+     "upb": 93110794,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 426,
+     "upb": 132405000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 425,
+     "upb": 117358000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202605": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 7825,
+     "upb": 1751071818,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 2409,
+     "upb": 717813000,
+     "vs_loans": 7,
+     "vs_upb": 3168000,
+     "fn_vs": 2,
+     "fre_vs": 5,
+     "rate": 0.2906,
+     "upb_rate": 0.4413
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 1616,
+     "upb": 312410000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1531,
+     "upb": 350787000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1299,
+     "upb": 295439000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 732,
+     "upb": 228865000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 606,
+     "upb": 147632000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 565,
+     "upb": 192893000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 499,
+     "upb": 131947683,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 496,
+     "upb": 113320000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FREEDOM MORTGAGE CORPORATION",
+     "loans": 430,
+     "upb": 122594489,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 410,
+     "upb": 105358000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202606": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 7580,
+     "upb": 1692779046,
+     "vs_loans": 132,
+     "vs_upb": 29420000,
+     "fn_vs": 89,
+     "fre_vs": 43,
+     "rate": 1.7414,
+     "upb_rate": 1.738
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1980,
+     "upb": 554719452,
+     "vs_loans": 143,
+     "vs_upb": 47265000,
+     "fn_vs": 69,
+     "fre_vs": 74,
+     "rate": 7.2222,
+     "upb_rate": 8.5205
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1505,
+     "upb": 339236510,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1110,
+     "upb": 268427993,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 820,
+     "upb": 170968455,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 715,
+     "upb": 226184000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 564,
+     "upb": 189691961,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 553,
+     "upb": 138549262,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 457,
+     "upb": 102203499,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 455,
+     "upb": 93274343,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 421,
+     "upb": 91942000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 405,
+     "upb": 125890970,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202607": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6787,
+     "upb": 1519371000,
+     "vs_loans": 1763,
+     "vs_upb": 407264000,
+     "fn_vs": 1035,
+     "fre_vs": 728,
+     "rate": 25.9761,
+     "upb_rate": 26.8048
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 1854,
+     "upb": 551236000,
+     "vs_loans": 376,
+     "vs_upb": 123556000,
+     "fn_vs": 221,
+     "fre_vs": 155,
+     "rate": 20.2805,
+     "upb_rate": 22.4144
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1439,
+     "upb": 304186000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1106,
+     "upb": 249395000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 759,
+     "upb": 158263000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 527,
+     "upb": 132346000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 513,
+     "upb": 158960000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+     "loans": 485,
+     "upb": 100258000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 464,
+     "upb": 99644000,
+     "vs_loans": 27,
+     "vs_upb": 7384000,
+     "fn_vs": 27,
+     "fre_vs": 0,
+     "rate": 5.819,
+     "upb_rate": 7.4104
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 336,
+     "upb": 96605000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 323,
+     "upb": 88026000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 290,
+     "upb": 84047000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ]
+  },
+  "N": {
+   "202512": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 7659,
+     "upb": 2698683000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 7133,
+     "upb": 3219725000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 3789,
+     "upb": 1873987000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 3374,
+     "upb": 1389872000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1774,
+     "upb": 759531000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1417,
+     "upb": 616159000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 1112,
+     "upb": 511797000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1075,
+     "upb": 432385000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 1016,
+     "upb": 428153000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 885,
+     "upb": 406687000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 839,
+     "upb": 349068000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 708,
+     "upb": 282771240,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202601": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6942,
+     "upb": 2611091000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 6218,
+     "upb": 2945067250,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 2835,
+     "upb": 1444290000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1672,
+     "upb": 727368000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1287,
+     "upb": 504847000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1216,
+     "upb": 510081000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1213,
+     "upb": 453457000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PHH MORTGAGE CORPORATION",
+     "loans": 1165,
+     "upb": 616383000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 997,
+     "upb": 385156000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NATIONSTAR MORTGAGE LLC",
+     "loans": 752,
+     "upb": 313725243,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 626,
+     "upb": 290144000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 625,
+     "upb": 268785000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202602": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 8185,
+     "upb": 3138287673,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 6874,
+     "upb": 3237444000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 2861,
+     "upb": 1333482000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 2626,
+     "upb": 1066045000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1868,
+     "upb": 832899000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1166,
+     "upb": 486411000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1024,
+     "upb": 439246000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PHH MORTGAGE CORPORATION",
+     "loans": 874,
+     "upb": 452361000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 770,
+     "upb": 365985000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 769,
+     "upb": 299947000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 767,
+     "upb": 297974000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 747,
+     "upb": 309958000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202603": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 8940,
+     "upb": 3586778000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 7045,
+     "upb": 3402539000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 4058,
+     "upb": 1709119000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 3264,
+     "upb": 1552937000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 2341,
+     "upb": 1022660000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1541,
+     "upb": 633003000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1438,
+     "upb": 523964000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 1163,
+     "upb": 548324000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 1096,
+     "upb": 621700000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 1095,
+     "upb": 461591000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 1069,
+     "upb": 452843000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FAIRWAY INDEPENDENT MORTGAGE CORPORATION",
+     "loans": 871,
+     "upb": 358873000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202604": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 11370,
+     "upb": 4528596983,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 6820,
+     "upb": 3154892000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 3312,
+     "upb": 1629260000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 2979,
+     "upb": 1309811000,
+     "vs_loans": 13,
+     "vs_upb": 7532000,
+     "fn_vs": 0,
+     "fre_vs": 13,
+     "rate": 0.4364,
+     "upb_rate": 0.575
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 2830,
+     "upb": 1088367000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 2047,
+     "upb": 1034254732,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 1692,
+     "upb": 659886000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1451,
+     "upb": 603559000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CMG MORTGAGE, INC.",
+     "loans": 1437,
+     "upb": 689877000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "GUARANTEED RATE, INC.",
+     "loans": 1344,
+     "upb": 617451000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LOANDEPOT.COM, LLC",
+     "loans": 1270,
+     "upb": 588507904,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 1258,
+     "upb": 505172000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202605": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 6254,
+     "upb": 2275955805,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 4488,
+     "upb": 1811993000,
+     "vs_loans": 7,
+     "vs_upb": 2660000,
+     "fn_vs": 3,
+     "fre_vs": 4,
+     "rate": 0.156,
+     "upb_rate": 0.1468
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 2708,
+     "upb": 1096518000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 1812,
+     "upb": 715843000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1806,
+     "upb": 747007000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 1577,
+     "upb": 672465000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 1424,
+     "upb": 630457000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FREEDOM MORTGAGE CORPORATION",
+     "loans": 1368,
+     "upb": 638740029,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 1065,
+     "upb": 434535000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CITIMORTGAGE, INC.",
+     "loans": 947,
+     "upb": 480414000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 847,
+     "upb": 399972644,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "U.S. BANK NATIONAL ASSOCIATION",
+     "loans": 828,
+     "upb": 366979000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202606": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 5277,
+     "upb": 1755362224,
+     "vs_loans": 55,
+     "vs_upb": 15488000,
+     "fn_vs": 35,
+     "fre_vs": 20,
+     "rate": 1.0423,
+     "upb_rate": 0.8823
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 2871,
+     "upb": 1211562667,
+     "vs_loans": 278,
+     "vs_upb": 133828000,
+     "fn_vs": 152,
+     "fre_vs": 126,
+     "rate": 9.683,
+     "upb_rate": 11.0459
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1785,
+     "upb": 730843151,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 1240,
+     "upb": 531210000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 1203,
+     "upb": 533484629,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 981,
+     "upb": 375915108,
+     "vs_loans": 1,
+     "vs_upb": 585000,
+     "fn_vs": 0,
+     "fre_vs": 1,
+     "rate": 0.1019,
+     "upb_rate": 0.1556
+    },
+    {
+     "name": "FREEDOM MORTGAGE CORPORATION",
+     "loans": 828,
+     "upb": 378306174,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 690,
+     "upb": 281018718,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 662,
+     "upb": 269988455,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 591,
+     "upb": 278870728,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 468,
+     "upb": 167326586,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CITIZENS BANK, NATIONAL ASSOCIATION",
+     "loans": 447,
+     "upb": 164374864,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    }
+   ],
+   "202607": [
+    {
+     "name": "ROCKET MORTGAGE, LLC",
+     "loans": 4075,
+     "upb": 1323051000,
+     "vs_loans": 841,
+     "vs_upb": 278433000,
+     "fn_vs": 445,
+     "fre_vs": 396,
+     "rate": 20.638,
+     "upb_rate": 21.0448
+    },
+    {
+     "name": "UNITED WHOLESALE MORTGAGE, LLC",
+     "loans": 2478,
+     "upb": 1077251000,
+     "vs_loans": 679,
+     "vs_upb": 319069000,
+     "fn_vs": 329,
+     "fre_vs": 350,
+     "rate": 27.4011,
+     "upb_rate": 29.6188
+    },
+    {
+     "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+     "loans": 1626,
+     "upb": 646660837,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "PENNYMAC LOAN SERVICES, LLC",
+     "loans": 635,
+     "upb": 256331000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "NEWREZ LLC",
+     "loans": 630,
+     "upb": 217537000,
+     "vs_loans": 1,
+     "vs_upb": 417000,
+     "fn_vs": 0,
+     "fre_vs": 1,
+     "rate": 0.1587,
+     "upb_rate": 0.1917
+    },
+    {
+     "name": "AMERIHOME MORTGAGE COMPANY, LLC",
+     "loans": 626,
+     "upb": 226632000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "FREEDOM MORTGAGE CORPORATION",
+     "loans": 588,
+     "upb": 237395000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "LAKEVIEW LOAN SERVICING, LLC",
+     "loans": 510,
+     "upb": 195423000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "TRUIST BANK",
+     "loans": 477,
+     "upb": 193724000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "ONITY MORTGAGE CORPORATION",
+     "loans": 316,
+     "upb": 153006000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CITIZENS BANK, NATIONAL ASSOCIATION",
+     "loans": 303,
+     "upb": 103330000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "CROSSCOUNTRY MORTGAGE, LLC",
+     "loans": 268,
+     "upb": 99187000,
+     "vs_loans": 0,
+     "vs_upb": 0,
+     "fn_vs": 0,
+     "fre_vs": 0,
+     "rate": 0.0,
+     "upb_rate": 0.0
+    },
+    {
+     "name": "AMERISAVE MORTGAGE CORPORATION",
+     "loans": 17,
+     "upb": 5356000,
+     "vs_loans": 1,
+     "vs_upb": 304000,
+     "fn_vs": 1,
+     "fre_vs": 0,
+     "rate": 5.8824,
+     "upb_rate": 5.6759
+    }
+   ]
+  }
+ },
+ "lender_series_p": {
+  "P": [
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     16,
+     670,
+     2273
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1508,
+     6.0122,
+     18.2468
+    ],
+    "loans": [
+     7472,
+     9019,
+     8271,
+     9257,
+     8863,
+     10607,
+     11144,
+     12457
+    ],
+    "upb": [
+     2810964374,
+     3339336389,
+     3281609000,
+     3813730000,
+     3675783000,
+     4002841505,
+     4452833943,
+     5065804000
+    ]
+   },
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     56,
+     1434
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4841,
+     11.1335
+    ],
+    "loans": [
+     6012,
+     8949,
+     7173,
+     8411,
+     10010,
+     9563,
+     11567,
+     12880
+    ],
+    "upb": [
+     2291936000,
+     3146713000,
+     2725561645,
+     3269940675,
+     3942322965,
+     3839944296,
+     5027579916,
+     5194394059
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     5
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1117
+    ],
+    "loans": [
+     8126,
+     5498,
+     4754,
+     4651,
+     5523,
+     4490,
+     5384,
+     4478
+    ],
+    "upb": [
+     3691148000,
+     2629385000,
+     2056286000,
+     2120983000,
+     2577786000,
+     2033732000,
+     2243167000,
+     1816273000
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0205,
+     0.0
+    ],
+    "loans": [
+     3879,
+     3931,
+     3036,
+     3403,
+     4678,
+     5041,
+     4884,
+     4187
+    ],
+    "upb": [
+     1515364000,
+     1492255000,
+     1164584000,
+     1229771000,
+     1779564000,
+     1751813000,
+     1694919000,
+     1484027000
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "loans": [
+     40,
+     39,
+     23,
+     24,
+     26,
+     26,
+     33,
+     20
+    ],
+    "upb": [
+     13997000,
+     13059000,
+     6433000,
+     6558000,
+     11093000,
+     11115000,
+     12219000,
+     6768000
+    ]
+   }
+  ],
+  "C": [
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     132,
+     1763
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.7414,
+     25.9761
+    ],
+    "loans": [
+     6904,
+     6628,
+     7113,
+     6830,
+     9095,
+     7825,
+     7580,
+     6787
+    ],
+    "upb": [
+     1608572000,
+     1657991000,
+     1703898000,
+     1703329220,
+     2261302124,
+     1751071818,
+     1692779046,
+     1519371000
+    ]
+   },
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     7,
+     143,
+     376
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.2906,
+     7.2222,
+     20.2805
+    ],
+    "loans": [
+     1391,
+     1857,
+     1754,
+     1787,
+     1856,
+     2409,
+     1980,
+     1854
+    ],
+    "upb": [
+     447993000,
+     566493000,
+     556530000,
+     615703000,
+     670325000,
+     717813000,
+     554719452,
+     551236000
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     27
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     5.819
+    ],
+    "loans": [
+     200,
+     630,
+     367,
+     524,
+     540,
+     410,
+     457,
+     464
+    ],
+    "upb": [
+     51300000,
+     131427000,
+     75786000,
+     104931755,
+     108992000,
+     105358000,
+     102203499,
+     99644000
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "loans": [
+     927,
+     987,
+     983,
+     1067,
+     1326,
+     1299,
+     1110,
+     1106
+    ],
+    "upb": [
+     243780000,
+     254891000,
+     252310000,
+     275775000,
+     365851000,
+     295439000,
+     268427993,
+     249395000
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "loans": [
+     1149,
+     855,
+     837,
+     844,
+     626,
+     565,
+     715,
+     513
+    ],
+    "upb": [
+     435080000,
+     354338000,
+     290475000,
+     295932630,
+     232155000,
+     192893000,
+     226184000,
+     158960000
+    ]
+   }
+  ],
+  "N": [
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     7,
+     278,
+     679
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.156,
+     9.683,
+     27.4011
+    ],
+    "loans": [
+     7133,
+     6218,
+     6874,
+     7045,
+     6820,
+     4488,
+     2871,
+     2478
+    ],
+    "upb": [
+     3219725000,
+     2945067250,
+     3237444000,
+     3402539000,
+     3154892000,
+     1811993000,
+     1211562667,
+     1077251000
+    ]
+   },
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     55,
+     841
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     1.0423,
+     20.638
+    ],
+    "loans": [
+     7659,
+     6942,
+     8185,
+     8940,
+     11370,
+     6254,
+     5277,
+     4075
+    ],
+    "upb": [
+     2698683000,
+     2611091000,
+     3138287673,
+     3586778000,
+     4528596983,
+     2275955805,
+     1755362224,
+     1323051000
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     13,
+     0,
+     1,
+     1
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4364,
+     0.0,
+     0.1019,
+     0.1587
+    ],
+    "loans": [
+     1774,
+     1672,
+     1868,
+     2341,
+     2979,
+     1812,
+     981,
+     630
+    ],
+    "upb": [
+     759531000,
+     727368000,
+     832899000,
+     1022660000,
+     1309811000,
+     715843000,
+     375915108,
+     217537000
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     5.8824
+    ],
+    "loans": [
+     42,
+     51,
+     33,
+     44,
+     81,
+     66,
+     36,
+     17
+    ],
+    "upb": [
+     16446000,
+     20831000,
+     12498000,
+     14293000,
+     27635000,
+     24411000,
+     13683736,
+     5356000
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "loans": [
+     3789,
+     2835,
+     2861,
+     3264,
+     3312,
+     1424,
+     1240,
+     635
+    ],
+    "upb": [
+     1873987000,
+     1444290000,
+     1333482000,
+     1552937000,
+     1629260000,
+     630457000,
+     531210000,
+     256331000
+    ]
+   }
+  ]
+ },
+ "vintage_p": {
+  "P": [
+   {
+    "cohort": "202512",
+    "short": "Dec '25",
+    "loans": 43954,
+    "vs_loans": 0,
+    "upb": 15372718799,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202601",
+    "short": "Jan '26",
+    "loans": 102838,
+    "vs_loans": 0,
+    "upb": 36474520147,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202602",
+    "short": "Feb '26",
+    "loans": 122375,
+    "vs_loans": 0,
+    "upb": 43527080000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202603",
+    "short": "Mar '26",
+    "loans": 84060,
+    "vs_loans": 0,
+    "upb": 29770297000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202604",
+    "short": "Apr '26",
+    "loans": 96877,
+    "vs_loans": 0,
+    "upb": 34918394000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202605",
+    "short": "May '26",
+    "loans": 124825,
+    "vs_loans": 0,
+    "upb": 45920429000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202606",
+    "short": "Jun '26",
+    "loans": 128790,
+    "vs_loans": 1,
+    "upb": 46849726000,
+    "vs_upb": 250000,
+    "pct": 0.0008,
+    "upb_pct": 0.0005,
+    "complete": true
+   },
+   {
+    "cohort": "202607",
+    "short": "Jul '26",
+    "loans": 124999,
+    "vs_loans": 332,
+    "upb": 46564398000,
+    "vs_upb": 141766000,
+    "pct": 0.2656,
+    "upb_pct": 0.3045,
+    "complete": true
+   },
+   {
+    "cohort": "202608",
+    "short": "Aug '26",
+    "loans": 90822,
+    "vs_loans": 3383,
+    "upb": 36094807000,
+    "vs_upb": 1489588000,
+    "pct": 3.7249,
+    "upb_pct": 4.1269,
+    "complete": false
+   },
+   {
+    "cohort": "202609",
+    "short": "Sep '26",
+    "loans": 19191,
+    "vs_loans": 2114,
+    "upb": 8366186000,
+    "vs_upb": 1022031000,
+    "pct": 11.0156,
+    "upb_pct": 12.2162,
+    "complete": false
+   }
+  ],
+  "C": [
+   {
+    "cohort": "202512",
+    "short": "Dec '25",
+    "loans": 9355,
+    "vs_loans": 0,
+    "upb": 2348794744,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202601",
+    "short": "Jan '26",
+    "loans": 22584,
+    "vs_loans": 0,
+    "upb": 5804673371,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202602",
+    "short": "Feb '26",
+    "loans": 27690,
+    "vs_loans": 0,
+    "upb": 7163391000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202603",
+    "short": "Mar '26",
+    "loans": 24548,
+    "vs_loans": 0,
+    "upb": 6304988000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202604",
+    "short": "Apr '26",
+    "loans": 26640,
+    "vs_loans": 0,
+    "upb": 6989772000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202605",
+    "short": "May '26",
+    "loans": 31412,
+    "vs_loans": 0,
+    "upb": 8380609000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202606",
+    "short": "Jun '26",
+    "loans": 28352,
+    "vs_loans": 0,
+    "upb": 7159230000,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202607",
+    "short": "Jul '26",
+    "loans": 21818,
+    "vs_loans": 101,
+    "upb": 5432759000,
+    "vs_upb": 31219000,
+    "pct": 0.4629,
+    "upb_pct": 0.5746,
+    "complete": true
+   },
+   {
+    "cohort": "202608",
+    "short": "Aug '26",
+    "loans": 16264,
+    "vs_loans": 1701,
+    "upb": 4190828000,
+    "vs_upb": 440369000,
+    "pct": 10.4587,
+    "upb_pct": 10.5079,
+    "complete": false
+   },
+   {
+    "cohort": "202609",
+    "short": "Sep '26",
+    "loans": 3570,
+    "vs_loans": 960,
+    "upb": 1024557000,
+    "vs_upb": 281691000,
+    "pct": 26.8908,
+    "upb_pct": 27.4939,
+    "complete": false
+   }
+  ],
+  "N": [
+   {
+    "cohort": "202512",
+    "short": "Dec '25",
+    "loans": 17833,
+    "vs_loans": 0,
+    "upb": 7401882528,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202601",
+    "short": "Jan '26",
+    "loans": 43171,
+    "vs_loans": 0,
+    "upb": 17669651837,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": false
+   },
+   {
+    "cohort": "202602",
+    "short": "Feb '26",
+    "loans": 43699,
+    "vs_loans": 0,
+    "upb": 17680455481,
+    "vs_upb": 0,
+    "pct": 0.0,
+    "upb_pct": 0.0,
+    "complete": true
+   },
+   {
+    "cohort": "202603",
+    "short": "Mar '26",
+    "loans": 44850,
+    "vs_loans": 1,
+    "upb": 18726290000,
+    "vs_upb": 439000,
+    "pct": 0.0022,
+    "upb_pct": 0.0023,
+    "complete": true
+   },
+   {
+    "cohort": "202604",
+    "short": "Apr '26",
+    "loans": 59443,
+    "vs_loans": 6,
+    "upb": 24965633000,
+    "vs_upb": 3246000,
+    "pct": 0.0101,
+    "upb_pct": 0.013,
+    "complete": true
+   },
+   {
+    "cohort": "202605",
+    "short": "May '26",
+    "loans": 72080,
+    "vs_loans": 5,
+    "upb": 30278117000,
+    "vs_upb": 3025000,
+    "pct": 0.0069,
+    "upb_pct": 0.01,
+    "complete": true
+   },
+   {
+    "cohort": "202606",
+    "short": "Jun '26",
+    "loans": 36116,
+    "vs_loans": 5,
+    "upb": 14109068000,
+    "vs_upb": 2686000,
+    "pct": 0.0138,
+    "upb_pct": 0.019,
+    "complete": true
+   },
+   {
+    "cohort": "202607",
+    "short": "Jul '26",
+    "loans": 20922,
+    "vs_loans": 174,
+    "upb": 7895190000,
+    "vs_upb": 79987000,
+    "pct": 0.8317,
+    "upb_pct": 1.0131,
+    "complete": true
+   },
+   {
+    "cohort": "202608",
+    "short": "Aug '26",
+    "loans": 12508,
+    "vs_loans": 1228,
+    "upb": 4797883000,
+    "vs_upb": 509226000,
+    "pct": 9.8177,
+    "upb_pct": 10.6136,
+    "complete": false
+   },
+   {
+    "cohort": "202609",
+    "short": "Sep '26",
+    "loans": 3184,
+    "vs_loans": 917,
+    "upb": 1363356000,
+    "vs_upb": 415216000,
+    "pct": 28.8003,
+    "upb_pct": 30.4554,
+    "complete": false
+   }
+  ]
+ },
+ "vintage_lender_p": {
+  "P": [
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "loans": [
+     1188,
+     5018,
+     9080,
+     7668,
+     8744,
+     10224,
+     9835,
+     10766,
+     11403,
+     5999
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     304,
+     1916,
+     1507
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     2.8237,
+     16.8026,
+     25.1209
+    ],
+    "upb": [
+     399317562,
+     1859802000,
+     3435248000,
+     2983941000,
+     3488984000,
+     4053204000,
+     3817384000,
+     4226061000,
+     4774665000,
+     2894631000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     129653000,
+     845323000,
+     739068000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     3.0679,
+     17.7043,
+     25.5324
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     109,
+     719,
+     860
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     195,
+     1197,
+     647
+    ]
+   },
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "loans": [
+     1157,
+     6452,
+     8069,
+     6734,
+     7801,
+     10388,
+     10894,
+     11835,
+     12164,
+     2059
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     28,
+     1464,
+     602
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.2366,
+     12.0355,
+     29.2375
+    ],
+    "upb": [
+     360246079,
+     2368698000,
+     2971080000,
+     2587208000,
+     3006347000,
+     4213333000,
+     4465057000,
+     5048282000,
+     5276526000,
+     927117000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12113000,
+     643023000,
+     280657000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.2399,
+     12.1865,
+     30.272
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     22,
+     911,
+     309
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     6,
+     553,
+     293
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "loans": [
+     13,
+     40,
+     28,
+     25,
+     22,
+     28,
+     31,
+     27,
+     14,
+     2
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     2671000,
+     13144000,
+     11221000,
+     7853000,
+     6243000,
+     11238000,
+     13191000,
+     8193000,
+     6351000,
+     670000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "loans": [
+     990,
+     3147,
+     4142,
+     3195,
+     3305,
+     5253,
+     4931,
+     4323,
+     3630,
+     732
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0203,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     395590000,
+     1249790000,
+     1521970000,
+     1182015000,
+     1216946000,
+     1960004000,
+     1719783000,
+     1509698000,
+     1363251000,
+     331178000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     250000,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0145,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "loans": [
+     1033,
+     5820,
+     7074,
+     4357,
+     4367,
+     5766,
+     5560,
+     4960,
+     3834,
+     688
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     5
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0782,
+     0.7267
+    ],
+    "upb": [
+     459061000,
+     2696738000,
+     3219520000,
+     1916120000,
+     2003563000,
+     2609583000,
+     2509978000,
+     2049737000,
+     1654900000,
+     319093000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1242000,
+     2306000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.075,
+     0.7227
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     5
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  ],
+  "C": [
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "loans": [
+     130,
+     971,
+     1964,
+     1761,
+     2025,
+     2320,
+     2081,
+     1623,
+     1585,
+     732
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     86,
+     319,
+     217
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     5.2988,
+     20.1262,
+     29.6448
+    ],
+    "upb": [
+     48611000,
+     293761000,
+     593640000,
+     559520000,
+     652152000,
+     763869000,
+     644715000,
+     484767000,
+     514335000,
+     277224000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     27393000,
+     109100000,
+     85906000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     5.6508,
+     21.2119,
+     30.9879
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     37,
+     169,
+     163
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     49,
+     150,
+     54
+    ]
+   },
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "loans": [
+     1142,
+     5377,
+     6429,
+     6810,
+     6940,
+     8578,
+     8305,
+     6924,
+     6818,
+     1652
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     13,
+     1354,
+     742
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.1878,
+     19.8592,
+     44.9153
+    ],
+    "upb": [
+     224663753,
+     1310809000,
+     1572673000,
+     1665447000,
+     1722590000,
+     2154880000,
+     1919016000,
+     1537496000,
+     1546301000,
+     414369000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3108000,
+     323316000,
+     195685000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.2021,
+     20.909,
+     47.2248
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     6,
+     875,
+     380
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     7,
+     479,
+     362
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "loans": [
+     100,
+     408,
+     438,
+     430,
+     429,
+     565,
+     563,
+     406,
+     244,
+     7
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     28,
+     1
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4926,
+     11.4754,
+     14.2857
+    ],
+    "upb": [
+     17519000,
+     82052000,
+     93153000,
+     93498000,
+     86650000,
+     124961000,
+     127329000,
+     92292000,
+     63567000,
+     1299000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     718000,
+     7953000,
+     100000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.778,
+     12.5112,
+     7.6982
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     28,
+     1
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "loans": [
+     192,
+     751,
+     1091,
+     1075,
+     1095,
+     1389,
+     1226,
+     1017,
+     885,
+     180
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     51614000,
+     198508000,
+     279761000,
+     267530000,
+     295483000,
+     367380000,
+     290312000,
+     234893000,
+     205230000,
+     48365000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "loans": [
+     84,
+     795,
+     1138,
+     748,
+     777,
+     747,
+     689,
+     605,
+     483,
+     108
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     35142000,
+     323212000,
+     430290000,
+     263994000,
+     270029000,
+     265569000,
+     234823000,
+     198294000,
+     151134000,
+     34314000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  ],
+  "N": [
+   {
+    "name": "UNITED WHOLESALE MORTGAGE, LLC",
+    "loans": [
+     960,
+     5696,
+     5530,
+     6737,
+     6919,
+     8281,
+     4293,
+     2704,
+     2230,
+     1264
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     155,
+     586,
+     514
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0466,
+     5.7322,
+     26.278,
+     40.6646
+    ],
+    "upb": [
+     486482000,
+     2633636000,
+     2501923000,
+     3183708000,
+     3224887000,
+     3770654000,
+     1858564000,
+     1164188000,
+     1014690000,
+     617442000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     862000,
+     73532000,
+     286677000,
+     263245000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0464,
+     6.3162,
+     28.2527,
+     42.6348
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     82,
+     352,
+     313
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     73,
+     234,
+     201
+    ]
+   },
+   {
+    "name": "ROCKET MORTGAGE, LLC",
+    "loans": [
+     1451,
+     6818,
+     6196,
+     7172,
+     9082,
+     11998,
+     6749,
+     4881,
+     3683,
+     997
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     19,
+     641,
+     403
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.3893,
+     17.4043,
+     40.4213
+    ],
+    "upb": [
+     422431919,
+     2468215000,
+     2321071000,
+     2790767000,
+     3568385000,
+     4867777000,
+     2473724000,
+     1654827000,
+     1244588000,
+     365497000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     6455000,
+     222245000,
+     151971000
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.3901,
+     17.8569,
+     41.5793
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     11,
+     368,
+     233
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     8,
+     273,
+     170
+    ]
+   },
+   {
+    "name": "AMERISAVE MORTGAGE CORPORATION",
+    "loans": [
+     6,
+     50,
+     47,
+     37,
+     49,
+     92,
+     47,
+     29,
+     12,
+     0
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     8.3333,
+     0.0
+    ],
+    "upb": [
+     2708000,
+     19583000,
+     18888000,
+     12486000,
+     15448000,
+     33354000,
+     17428000,
+     9988000,
+     4435000,
+     0
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     304000,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     6.8546,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "NEWREZ LLC",
+    "loans": [
+     363,
+     1469,
+     1645,
+     2104,
+     2530,
+     3182,
+     1444,
+     816,
+     531,
+     91
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     1,
+     6,
+     5,
+     3,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0475,
+     0.2372,
+     0.1571,
+     0.2078,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     164644000,
+     620928000,
+     706439000,
+     929023000,
+     1110934000,
+     1387795000,
+     561820000,
+     290557000,
+     209821000,
+     43032000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     439000,
+     3246000,
+     3025000,
+     1824000,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0473,
+     0.2922,
+     0.218,
+     0.3247,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     1,
+     6,
+     5,
+     3,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "name": "PENNYMAC LOAN SERVICES, LLC",
+    "loans": [
+     257,
+     2868,
+     3197,
+     2475,
+     3011,
+     3672,
+     2036,
+     1107,
+     665,
+     187
+    ],
+    "vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "upb": [
+     134201000,
+     1446168000,
+     1550402000,
+     1170949000,
+     1464897000,
+     1778637000,
+     917573000,
+     478326000,
+     282623000,
+     80319000
+    ],
+    "vs_upb": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "upb_rate": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fn_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "fre_vs": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
    }
   ]
  }
